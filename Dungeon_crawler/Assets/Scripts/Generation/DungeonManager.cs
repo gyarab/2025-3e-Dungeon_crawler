@@ -59,11 +59,12 @@ public class DungeonManager : MonoBehaviour
 
         BoundsInt floor = bsp.GetFloorSize();
 
-        //generate paths
-        HashSet<Vector2Int> corridors = pathGen.GeneratePaths(rooms);
 
         //generate walls
         HashSet<Vector2Int> tiles = new HashSet<Vector2Int>(caveTiles);
+
+        //generate paths
+        HashSet<Vector2Int> corridors = pathGen.GeneratePaths(rooms);
         tiles.UnionWith(corridors);
         HashSet<Vector2Int> walls = wallGen.GenerateWalls(tiles, 3);
 
