@@ -1,0 +1,1885 @@
+fileFormatVersion: 2
+guid: 09f51d4159b65104b921bfb14f5eb085
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8944047786109116149
+    second: SmallFont Atlas 2_0
+  - first:
+      213: -1534553973344782330
+    second: SmallFont Atlas 2_1
+  - first:
+      213: 4573759639118707301
+    second: SmallFont Atlas 2_2
+  - first:
+      213: -7225502548670871806
+    second: SmallFont Atlas 2_3
+  - first:
+      213: 8426772821909892305
+    second: SmallFont Atlas 2_4
+  - first:
+      213: 450641480103607474
+    second: SmallFont Atlas 2_5
+  - first:
+      213: 5984095299467864930
+    second: SmallFont Atlas 2_6
+  - first:
+      213: -7609063680953776633
+    second: SmallFont Atlas 2_7
+  - first:
+      213: -326502579726939970
+    second: SmallFont Atlas 2_8
+  - first:
+      213: -1372289868949266052
+    second: SmallFont Atlas 2_9
+  - first:
+      213: 5783123192494771895
+    second: SmallFont Atlas 2_10
+  - first:
+      213: 2504117001927740227
+    second: SmallFont Atlas 2_11
+  - first:
+      213: 2577581272608695739
+    second: SmallFont Atlas 2_12
+  - first:
+      213: -5831120174993455415
+    second: SmallFont Atlas 2_13
+  - first:
+      213: -2046167429482068216
+    second: SmallFont Atlas 2_14
+  - first:
+      213: 535516716533384351
+    second: SmallFont Atlas 2_15
+  - first:
+      213: -4194848671783366385
+    second: SmallFont Atlas 2_16
+  - first:
+      213: -3607773396217001511
+    second: SmallFont Atlas 2_17
+  - first:
+      213: 7025541159501617708
+    second: SmallFont Atlas 2_18
+  - first:
+      213: 8934308985115084679
+    second: SmallFont Atlas 2_19
+  - first:
+      213: 430853795945838357
+    second: SmallFont Atlas 2_20
+  - first:
+      213: 1230905931337437531
+    second: SmallFont Atlas 2_21
+  - first:
+      213: -3486795828401278257
+    second: SmallFont Atlas 2_22
+  - first:
+      213: -8637955628883507612
+    second: SmallFont Atlas 2_23
+  - first:
+      213: 1412850308813817091
+    second: SmallFont Atlas 2_24
+  - first:
+      213: -9197311906076283707
+    second: SmallFont Atlas 2_25
+  - first:
+      213: 3579822349022674137
+    second: SmallFont Atlas 2_26
+  - first:
+      213: -6200555172613288294
+    second: SmallFont Atlas 2_27
+  - first:
+      213: -2807542530918149830
+    second: SmallFont Atlas 2_28
+  - first:
+      213: -54160492505023735
+    second: SmallFont Atlas 2_29
+  - first:
+      213: -4298706207507410502
+    second: SmallFont Atlas 2_30
+  - first:
+      213: -2901290795364577103
+    second: SmallFont Atlas 2_31
+  - first:
+      213: -6820435551625679900
+    second: SmallFont Atlas 2_32
+  - first:
+      213: 5426768787771715040
+    second: SmallFont Atlas 2_33
+  - first:
+      213: 7086884329328483934
+    second: SmallFont Atlas 2_34
+  - first:
+      213: -3939086571317434832
+    second: SmallFont Atlas 2_35
+  - first:
+      213: 3284882532070067337
+    second: SmallFont Atlas 2_36
+  - first:
+      213: 6175424721052388300
+    second: SmallFont Atlas 2_37
+  - first:
+      213: -6293142098471191920
+    second: SmallFont Atlas 2_38
+  - first:
+      213: 488906211643690835
+    second: SmallFont Atlas 2_39
+  - first:
+      213: 585858240864396408
+    second: SmallFont Atlas 2_40
+  - first:
+      213: 3606927148423536163
+    second: SmallFont Atlas 2_41
+  - first:
+      213: 7703873913116742640
+    second: SmallFont Atlas 2_42
+  - first:
+      213: 5551627778219787870
+    second: SmallFont Atlas 2_43
+  - first:
+      213: 7369303528194252667
+    second: SmallFont Atlas 2_44
+  - first:
+      213: -3711786410260198527
+    second: SmallFont Atlas 2_45
+  - first:
+      213: 1133317637997324486
+    second: SmallFont Atlas 2_46
+  - first:
+      213: -633385350766179260
+    second: SmallFont Atlas 2_47
+  - first:
+      213: 5701605547139127036
+    second: SmallFont Atlas 2_48
+  - first:
+      213: -2261458942824826793
+    second: SmallFont Atlas 2_49
+  - first:
+      213: -8906514437594620161
+    second: SmallFont Atlas 2_50
+  - first:
+      213: -3788354234626448501
+    second: SmallFont Atlas 2_51
+  - first:
+      213: 8013780494445867029
+    second: SmallFont Atlas 2_52
+  - first:
+      213: -5993992455858171992
+    second: SmallFont Atlas 2_53
+  - first:
+      213: 48629476673787227
+    second: SmallFont Atlas 2_54
+  - first:
+      213: 4383356614924855887
+    second: SmallFont Atlas 2_55
+  - first:
+      213: -8127846448173981909
+    second: SmallFont Atlas 2_56
+  - first:
+      213: -1465478354267096716
+    second: SmallFont Atlas 2_57
+  - first:
+      213: -8332048709713712660
+    second: SmallFont Atlas 2_58
+  - first:
+      213: 2617398342956676275
+    second: SmallFont Atlas 2_59
+  - first:
+      213: -5040915951679461873
+    second: SmallFont Atlas 2_60
+  - first:
+      213: 2949095964412663875
+    second: SmallFont Atlas 2_61
+  - first:
+      213: -6484364343609909907
+    second: SmallFont Atlas 2_62
+  - first:
+      213: 8281719025748346005
+    second: SmallFont Atlas 2_63
+  - first:
+      213: 7853673394345825741
+    second: SmallFont Atlas 2_64
+  - first:
+      213: 2075064771587788377
+    second: SmallFont Atlas 2_65
+  - first:
+      213: -2648119068655344196
+    second: SmallFont Atlas 2_66
+  - first:
+      213: -1573655966084555150
+    second: SmallFont Atlas 2_67
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 56
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe1729e214af1c70800000000000000
+      internalID: 8944047786109116149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608be1aaa4b24bae0800000000000000
+      internalID: -1534553973344782330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56a70b1b822497f30800000000000000
+      internalID: 4573759639118707301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2070bced6bbd9bb90800000000000000
+      internalID: -7225502548670871806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 28
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dceadc0c39e1f470800000000000000
+      internalID: 8426772821909892305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_5
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 56
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bcb1aed900014600800000000000000
+      internalID: 450641480103607474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26bedd248f6cb0350800000000000000
+      internalID: 5984095299467864930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_7
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 42
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7068c6f85ec276690800000000000000
+      internalID: -7609063680953776633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 35
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb8802532a7087bf0800000000000000
+      internalID: -326502579726939970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_9
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 28
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c71696882a5a4fce0800000000000000
+      internalID: -1372289868949266052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 56
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be49fc37e7c14050800000000000000
+      internalID: 5783123192494771895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b4be7552960c220800000000000000
+      internalID: 2504117001927740227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_12
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 42
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb56a85c28865c320800000000000000
+      internalID: 2577581272608695739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_13
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 35
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c6c6ee6813b31fa0800000000000000
+      internalID: -5831120174993455415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_14
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 28
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8074fbe509d8a93e0800000000000000
+      internalID: -2046167429482068216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_15
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 56
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94814ccd998e6700800000000000000
+      internalID: 535516716533384351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_16
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0155d7bb57e8c5c0800000000000000
+      internalID: -4194848671783366385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_17
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 42
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d98160063d9eedc0800000000000000
+      internalID: -3607773396217001511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_18
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 35
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2adafe267cbf7160800000000000000
+      internalID: 7025541159501617708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_19
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 28
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7878d5b9faa0dfb70800000000000000
+      internalID: 8934308985115084679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_20
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 33
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 517fa71ae33baf500800000000000000
+      internalID: 430853795945838357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_21
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b511a454c6e051110800000000000000
+      internalID: 1230905931337437531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_22
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 42
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc2f3dbfaa96c9fc0800000000000000
+      internalID: -3486795828401278257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_23
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 35
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46600d21f11df1880800000000000000
+      internalID: -8637955628883507612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_24
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 28
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30506a9ced37b9310800000000000000
+      internalID: 1412850308813817091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_25
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 42
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc2ad50d859c5080800000000000000
+      internalID: -9197311906076283707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_26
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 35
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc3080b5751ea130800000000000000
+      internalID: 3579822349022674137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_27
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 28
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e8c262ce333f9a0800000000000000
+      internalID: -6200555172613288294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_28
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 35
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3192d071fa9909d0800000000000000
+      internalID: -2807542530918149830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_29
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 28
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90bb06ba1559f3ff0800000000000000
+      internalID: -54160492505023735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_30
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 28
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab111c3da7de754c0800000000000000
+      internalID: -4298706207507410502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_31
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 21
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b01f20b46b8cb7d0800000000000000
+      internalID: -2901290795364577103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebe7e38002f851a0800000000000000
+      internalID: -6820435551625679900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed6f41d571cf4b40800000000000000
+      internalID: 5426768787771715040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_34
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e18e5efbba95260800000000000000
+      internalID: 7086884329328483934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_35
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 14
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036ec1132ad8559c0800000000000000
+      internalID: -3939086571317434832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_36
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c0ce4424f369d20800000000000000
+      internalID: 3284882532070067337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_37
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 14
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb4e73a01483b550800000000000000
+      internalID: 6175424721052388300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_38
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a719b9a944aa8a0800000000000000
+      internalID: -6293142098471191920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_39
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 14
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f0181fb91f8c600800000000000000
+      internalID: 488906211643690835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_40
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 874257f47f2612800800000000000000
+      internalID: 585858240864396408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_41
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 14
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e5f7491216e0230800000000000000
+      internalID: 3606927148423536163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_42
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3d8b1d188a9ea60800000000000000
+      internalID: 7703873913116742640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_43
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 14
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e564bfdec085b0d40800000000000000
+      internalID: 5551627778219787870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_44
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f1d00c386054660800000000000000
+      internalID: 7369303528194252667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_45
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 14
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b815efce51d7cc0800000000000000
+      internalID: -3711786410260198527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_46
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8e38e136a5abf00800000000000000
+      internalID: 1133317637997324486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_47
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 14
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44c45a91163c537f0800000000000000
+      internalID: -633385350766179260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_48
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 14
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf6df96690c202f40800000000000000
+      internalID: 5701605547139127036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_49
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 21
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758bbceb21fad90e0800000000000000
+      internalID: -2261458942824826793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffed848ce44b56480800000000000000
+      internalID: -8906514437594620161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b836eb925ef0d6bc0800000000000000
+      internalID: -3788354234626448501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_52
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510766f96eaa63f60800000000000000
+      internalID: 8013780494445867029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_53
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8afc3327e9f01dca0800000000000000
+      internalID: -5993992455858171992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_54
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5511ca5044cca000800000000000000
+      internalID: 48629476673787227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_55
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4a64740e9fc4dc30800000000000000
+      internalID: 4383356614924855887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_56
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2f5ba3f7b6143f80800000000000000
+      internalID: -8127846448173981909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_57
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 479b2e3833399abe0800000000000000
+      internalID: -1465478354267096716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_58
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce92346f7dd9e5c80800000000000000
+      internalID: -8332048709713712660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_59
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4f0a3ecedd25420800000000000000
+      internalID: 2617398342956676275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_60
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06ab8d56a11b0ab0800000000000000
+      internalID: -5040915951679461873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_61
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348da57972b4de820800000000000000
+      internalID: 2949095964412663875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_62
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 7
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d1ce03cf8e206a0800000000000000
+      internalID: -6484364343609909907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_63
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594035353939ee270800000000000000
+      internalID: 8281719025748346005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_64
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 7
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc55be3775addfc60800000000000000
+      internalID: 7853673394345825741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_65
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95eca646a6c1ccc10800000000000000
+      internalID: 2075064771587788377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_66
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 7
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb52cd5ccbdff3bd0800000000000000
+      internalID: -2648119068655344196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallFont Atlas 2_67
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27e1bd68c30492ae0800000000000000
+      internalID: -1573655966084555150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SmallFont Atlas 2_0: 8944047786109116149
+      SmallFont Atlas 2_1: -1534553973344782330
+      SmallFont Atlas 2_10: 5783123192494771895
+      SmallFont Atlas 2_11: 2504117001927740227
+      SmallFont Atlas 2_12: 2577581272608695739
+      SmallFont Atlas 2_13: -5831120174993455415
+      SmallFont Atlas 2_14: -2046167429482068216
+      SmallFont Atlas 2_15: 535516716533384351
+      SmallFont Atlas 2_16: -4194848671783366385
+      SmallFont Atlas 2_17: -3607773396217001511
+      SmallFont Atlas 2_18: 7025541159501617708
+      SmallFont Atlas 2_19: 8934308985115084679
+      SmallFont Atlas 2_2: 4573759639118707301
+      SmallFont Atlas 2_20: 430853795945838357
+      SmallFont Atlas 2_21: 1230905931337437531
+      SmallFont Atlas 2_22: -3486795828401278257
+      SmallFont Atlas 2_23: -8637955628883507612
+      SmallFont Atlas 2_24: 1412850308813817091
+      SmallFont Atlas 2_25: -9197311906076283707
+      SmallFont Atlas 2_26: 3579822349022674137
+      SmallFont Atlas 2_27: -6200555172613288294
+      SmallFont Atlas 2_28: -2807542530918149830
+      SmallFont Atlas 2_29: -54160492505023735
+      SmallFont Atlas 2_3: -7225502548670871806
+      SmallFont Atlas 2_30: -4298706207507410502
+      SmallFont Atlas 2_31: -2901290795364577103
+      SmallFont Atlas 2_32: -6820435551625679900
+      SmallFont Atlas 2_33: 5426768787771715040
+      SmallFont Atlas 2_34: 7086884329328483934
+      SmallFont Atlas 2_35: -3939086571317434832
+      SmallFont Atlas 2_36: 3284882532070067337
+      SmallFont Atlas 2_37: 6175424721052388300
+      SmallFont Atlas 2_38: -6293142098471191920
+      SmallFont Atlas 2_39: 488906211643690835
+      SmallFont Atlas 2_4: 8426772821909892305
+      SmallFont Atlas 2_40: 585858240864396408
+      SmallFont Atlas 2_41: 3606927148423536163
+      SmallFont Atlas 2_42: 7703873913116742640
+      SmallFont Atlas 2_43: 5551627778219787870
+      SmallFont Atlas 2_44: 7369303528194252667
+      SmallFont Atlas 2_45: -3711786410260198527
+      SmallFont Atlas 2_46: 1133317637997324486
+      SmallFont Atlas 2_47: -633385350766179260
+      SmallFont Atlas 2_48: 5701605547139127036
+      SmallFont Atlas 2_49: -2261458942824826793
+      SmallFont Atlas 2_5: 450641480103607474
+      SmallFont Atlas 2_50: -8906514437594620161
+      SmallFont Atlas 2_51: -3788354234626448501
+      SmallFont Atlas 2_52: 8013780494445867029
+      SmallFont Atlas 2_53: -5993992455858171992
+      SmallFont Atlas 2_54: 48629476673787227
+      SmallFont Atlas 2_55: 4383356614924855887
+      SmallFont Atlas 2_56: -8127846448173981909
+      SmallFont Atlas 2_57: -1465478354267096716
+      SmallFont Atlas 2_58: -8332048709713712660
+      SmallFont Atlas 2_59: 2617398342956676275
+      SmallFont Atlas 2_6: 5984095299467864930
+      SmallFont Atlas 2_60: -5040915951679461873
+      SmallFont Atlas 2_61: 2949095964412663875
+      SmallFont Atlas 2_62: -6484364343609909907
+      SmallFont Atlas 2_63: 8281719025748346005
+      SmallFont Atlas 2_64: 7853673394345825741
+      SmallFont Atlas 2_65: 2075064771587788377
+      SmallFont Atlas 2_66: -2648119068655344196
+      SmallFont Atlas 2_67: -1573655966084555150
+      SmallFont Atlas 2_7: -7609063680953776633
+      SmallFont Atlas 2_8: -326502579726939970
+      SmallFont Atlas 2_9: -1372289868949266052
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

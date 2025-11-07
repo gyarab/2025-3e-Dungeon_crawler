@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public float speedDebuff;
     [Header("Abilities")]
+    [SerializeField] private bool dash = true;
     [SerializeField] private float dashForce = 100f;
     [SerializeField] private float dashCooldown = 1f;
     private bool canDash = true;

@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private DungeonManager dungeonManager;
+    public static GameManager Instance;
+    public GameObject character;
+
+    public DungeonManager dungeonManager;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
-        SpawnPlayer();
     }
 
     void SpawnPlayer()
@@ -20,7 +34,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Vector2 spawnPos = dungeonManager.StartRoom.center;
-        Instantiate(playerPrefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+        //Instantiate(playerPrefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
         Debug.Log("player spawned at: " + spawnPos);
     }
 }
