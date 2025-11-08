@@ -16,6 +16,10 @@ public class Damage : MonoBehaviour
     {
         this.damage = damage;
     }
+    public void SetKnockbackForce(int knockbackForce)
+    {
+        this.knockbackForce = knockbackForce;
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {

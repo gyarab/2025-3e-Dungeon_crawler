@@ -333,7 +333,7 @@ MonoBehaviour:
   runSpeed: 12
   smoothTime: 0.15
   speedDebuff: 0
-  dash: 1
+  dashEnabled: 1
   dashForce: 500
   dashCooldown: 0.5
 --- !u!114 &9094923916367277952
@@ -367,7 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b33ed91a5d71424b8998b0f582e8e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Melee
-  damage: 1
 --- !u!114 &7171334881092577867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +405,7 @@ MonoBehaviour:
     m_ActionId: 25360b98-0a6c-4d52-9f39-fbfe420d3008
     m_ActionName: 'Gameplay/Attack[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
