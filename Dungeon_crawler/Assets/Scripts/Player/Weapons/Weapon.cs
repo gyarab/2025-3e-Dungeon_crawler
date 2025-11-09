@@ -8,7 +8,9 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
     private PlayerInput playerInput;
-    public bool rotateWeapon = false;
+    [SerializeField]protected bool rotateWeapon = false;
+    protected bool canAttack = true;
+    [SerializeField] protected float attackCooldown = 0.4f;
 
     private void Start()
     {
@@ -33,9 +35,19 @@ public class Weapon : MonoBehaviour
         return angle;
     }
 
-    public virtual void OnAttack()
+    public virtual bool OnAttack()
     {
+        if(!canAttack) return false;
+        StartCoroutine(AttackCooldown(attackCooldown));
+        return true;
         //attack overriden in subclasses
+    }
+
+    IEnumerator AttackCooldown(float time)
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(time);
+        canAttack = true;
     }
 
 }

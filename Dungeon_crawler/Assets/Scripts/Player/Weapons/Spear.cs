@@ -2,14 +2,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Sword : Weapon
+public class Spear : Weapon
 {
     [SerializeField] private int damage = 25;
-    [SerializeField] private float attackOffset = 1.3f;
-    [SerializeField] private float hitboxRange = 1.5f;
+    [SerializeField] private float attackOffset = 0.5f;
+    [SerializeField] private float hitboxRange = 2f;
     [SerializeField] private float hitboxWidth = 0.5f;
-    [SerializeField] private float attackAngle = 45f;
-    [SerializeField] private float attackDuration = 0.2f;
+    [SerializeField] private float attackReach = 4f;
+    [SerializeField] private float attackDuration = 0.4f;
     [SerializeField] private int knockbackForce = 5;
 
     private Vector3 originalLocalPos;
@@ -32,7 +32,6 @@ public class Sword : Weapon
         hitbox.transform.parent = transform;
         hitbox.transform.localRotation = Quaternion.identity;
         hitbox.transform.position = transform.position;
-
         BoxCollider2D collider = hitbox.AddComponent<BoxCollider2D>();
         collider.size = new Vector2(hitboxRange, hitboxWidth);
         collider.isTrigger = true;
@@ -43,35 +42,40 @@ public class Sword : Weapon
 
         Destroy(hitbox, attackDuration);
 
-        StartCoroutine(RotateSword(attackDuration));
+        StartCoroutine(PikeSpear(attackDuration));
+
         return true;
     }
 
 
-    IEnumerator RotateSword(float duration)
+    IEnumerator PikeSpear(float duration)
     {
-        float elapsed = 0f; 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
-        int flip = mousePos.x < transform.parent.position.x ? -1 : 1; 
-        Vector3 offset = new Vector3(attackOffset, 0f, 0f);
-        transform.localScale = new Vector3(originalLocalScale.x * flip, originalLocalScale.y, originalLocalScale.z);
+        bool returnToStart = !rotateWeapon;
+        rotateWeapon = true;
+        yield return new WaitForSeconds(0.05f);
+        rotateWeapon = false;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        int flip = mousePos.x < transform.parent.position.x ? -1 : 1;
 
-        float startAngle = getMouseAngle() * flip + attackAngle+10f;
-        float endAngle = getMouseAngle() * flip - attackAngle-10f;
+        Vector3 direction = (mousePos - transform.position).normalized;
+        direction.x *= flip;
+
+        Vector3 originalLocalPos = transform.localPosition;
+        float elapsed = 0f;
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
-            float angle = Mathf.Lerp(startAngle, endAngle, t);
-
-            transform.localPosition = Quaternion.Euler(0, 0, angle) * offset*flip;
-            transform.localRotation = Quaternion.Euler(0, 0, angle);
+            float motion = Mathf.Sin(t * Mathf.PI);
+            transform.localPosition = originalLocalPos + direction.normalized * motion * attackReach;
 
             elapsed += Time.deltaTime;
             yield return null;
         }
-        if (!rotateWeapon) 
-        { 
+
+        transform.localPosition = originalLocalPos;
+        if (!returnToStart) { rotateWeapon = true; } else
+        {
             transform.localPosition = originalLocalPos;
             transform.localRotation = originalLocalRot;
             transform.localScale = originalLocalScale;
