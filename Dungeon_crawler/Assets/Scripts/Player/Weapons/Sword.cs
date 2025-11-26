@@ -4,13 +4,19 @@ using UnityEngine.InputSystem;
 
 public class Sword : Weapon
 {
+    [SerializeField] private bool cancelCooldownOnReturn = false;
+    [Header("Damage")]
     [SerializeField] private int damage = 25;
-    [SerializeField] private float attackOffset = 1.3f;
+    [SerializeField] private int knockbackForce = 5;
+
+    [Header("Hitbox")]
     [SerializeField] private float hitboxRange = 1.5f;
     [SerializeField] private float hitboxWidth = 0.5f;
+
+    [Header("Attack Motion")]
+    [SerializeField] private float attackOffset = 1.3f;
     [SerializeField] private float attackAngle = 45f;
     [SerializeField] private float attackDuration = 0.2f;
-    [SerializeField] private int knockbackForce = 5;
 
     private Vector3 originalLocalPos;
     private Quaternion originalLocalRot;
@@ -28,7 +34,7 @@ public class Sword : Weapon
     {
         if (!base.OnAttack()) { return false; }
 
-        GameObject hitbox = new GameObject("SwordHitbox");
+        GameObject hitbox = new GameObject("weaponHitbox");
         hitbox.transform.parent = transform;
         hitbox.transform.localRotation = Quaternion.identity;
         hitbox.transform.position = transform.position;
@@ -37,9 +43,9 @@ public class Sword : Weapon
         collider.size = new Vector2(hitboxRange, hitboxWidth);
         collider.isTrigger = true;
 
-        Damage swordHitbox = hitbox.AddComponent<Damage>();
-        swordHitbox.SetDamage(damage);
-        swordHitbox.SetKnockbackForce(knockbackForce);
+        Damage damageComp = hitbox.AddComponent<Damage>();
+        damageComp.SetDamage(damage);
+        damageComp.SetKnockbackForce(knockbackForce);
 
         Destroy(hitbox, attackDuration);
 
@@ -54,7 +60,7 @@ public class Sword : Weapon
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
         int flip = mousePos.x < transform.parent.position.x ? -1 : 1; 
         Vector3 offset = new Vector3(attackOffset, 0f, 0f);
-        transform.localScale = new Vector3(originalLocalScale.x * flip, originalLocalScale.y, originalLocalScale.z);
+        transform.localScale = new Vector3(originalLocalScale.x * flip, originalLocalScale.y*flip, originalLocalScale.z);
 
         float startAngle = getMouseAngle() * flip + attackAngle+10f;
         float endAngle = getMouseAngle() * flip - attackAngle-10f;
@@ -75,6 +81,10 @@ public class Sword : Weapon
             transform.localPosition = originalLocalPos;
             transform.localRotation = originalLocalRot;
             transform.localScale = originalLocalScale;
+        }
+        if (cancelCooldownOnReturn)
+        {
+            CancelCooldown();
         }
     }
 

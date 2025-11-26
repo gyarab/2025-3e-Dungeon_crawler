@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Spear : Weapon
+public class Dagger : Weapon
 {
     [SerializeField] private bool cancelCooldownOnReturn = false;
     [Header("Damage")]
@@ -18,6 +18,10 @@ public class Spear : Weapon
     [SerializeField] private float attackDuration = 0.4f;
     //[SerializeField] private float attackOffset = 0.5f;
 
+    [Header("Visuals")]
+    [SerializeField] private GameObject[] weaponSprites;
+    private int weaponIndex;
+
     private Vector3 originalLocalPos;
     private Quaternion originalLocalRot;
     private Vector3 originalLocalScale;
@@ -28,8 +32,6 @@ public class Spear : Weapon
         originalLocalRot = transform.localRotation;
         originalLocalScale = transform.localScale;
     }
-
-
     public override bool OnAttack()
     {
         if (!base.OnAttack()) { return false; }
@@ -38,53 +40,66 @@ public class Spear : Weapon
         hitbox.transform.parent = transform;
         hitbox.transform.localRotation = Quaternion.identity;
         hitbox.transform.position = transform.position;
-        BoxCollider2D collider = hitbox.AddComponent<BoxCollider2D>();
-        collider.size = new Vector2(hitboxRange, hitboxWidth);
-        collider.isTrigger = true;
+        BoxCollider2D damageComp = hitbox.AddComponent<BoxCollider2D>();
+        damageComp.size = new Vector2(hitboxRange, hitboxWidth);
+        damageComp.isTrigger = true;
 
-        Damage damageComp = hitbox.AddComponent<Damage>();
-        damageComp.SetDamage(damage);
-        damageComp.SetKnockbackForce(knockbackForce);
+        Damage weaponHitbox = hitbox.AddComponent<Damage>();
+        weaponHitbox.SetDamage(damage);
+        weaponHitbox.SetKnockbackForce(knockbackForce);
 
         Destroy(hitbox, attackDuration);
 
-        StartCoroutine(PikeSpear(attackDuration));
+        GameObject currentDagger = weaponSprites[weaponIndex];
 
+        weaponIndex = (weaponIndex + 1) % weaponSprites.Length;
+
+        hitbox.transform.parent = currentDagger.transform;
+        StartCoroutine(PikeDagger(currentDagger, attackDuration));
         return true;
     }
 
-
-    IEnumerator PikeSpear(float duration)
+    IEnumerator PikeDagger(GameObject dagger, float duration)
     {
+        Vector3 originalLocalPosDagger = dagger.transform.localPosition;
+        Quaternion originalLocalRotDagger = dagger.transform.localRotation;
+        Vector3 originalLocalScaleDagger = dagger.transform.localScale;
+
         bool returnToStart = !rotateWeapon;
         rotateWeapon = true;
         yield return new WaitForSeconds(0.05f);
         rotateWeapon = false;
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         int flip = mousePos.x < transform.parent.position.x ? -1 : 1;
 
-        Vector3 direction = (mousePos - transform.position).normalized;
-        direction.x *= flip;
+        Vector3 direction = Vector3.right;
+        //Vector3 direction = (mousePos - transform.position).normalized;
+        //direction.x *= flip;
 
-        Vector3 originalLocalPos = transform.localPosition;
-        float elapsed = 0f;
+        Vector3 startPos = dagger.transform.localPosition;
+        float elapsed = 0;
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
             float motion = Mathf.Sin(t * Mathf.PI);
-            transform.localPosition = originalLocalPos + direction.normalized * motion * attackReach;
+
+            dagger.transform.localPosition = startPos + direction * motion * attackReach;
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localPosition = originalLocalPos;
-        if (!returnToStart) { rotateWeapon = true; } else
+        if (!returnToStart) { rotateWeapon = true; }
+        else
         {
             transform.localPosition = originalLocalPos;
             transform.localRotation = originalLocalRot;
             transform.localScale = originalLocalScale;
+            dagger.transform.localPosition = originalLocalPosDagger;
+            dagger.transform.localRotation = originalLocalRotDagger;
+            dagger.transform.localScale = originalLocalScaleDagger;
         }
         if (cancelCooldownOnReturn)
         {
