@@ -8,12 +8,15 @@ public class DungeonManager : MonoBehaviour
 {
     public RoomData StartRoom { get; private set; }
 
-    [Header("Generation Settings")]
+    [Header("Generation references")]
     [SerializeField] private BSP bsp;
     [SerializeField] private CellularAutomata ca;
     [SerializeField] private PathGenerator pathGen;
     [SerializeField] private WallGenerator wallGen;
+    [SerializeField] private WallIslandGenerator wallIslandGen;
     [SerializeField] private Visualiser visualiser;
+    [Header("Props references")]
+    [SerializeField] private TorchGenerator torchGen;
     private List<GameObject> visualRooms = new List<GameObject>();
     private List<GameObject> visualPaths = new List<GameObject>();
 
@@ -51,30 +54,37 @@ public class DungeonManager : MonoBehaviour
         //generate rooms
         bsp.GenerateRooms();
         List<BoundsInt> rooms = bsp.GetRooms();
-        HashSet<Vector2Int> caveTiles = new HashSet<Vector2Int>();
+        HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
         foreach (BoundsInt room in rooms)
         {
-            caveTiles.UnionWith(ca.GenerateCaves(room));
+            roomTiles.UnionWith(ca.GenerateCaves(room));
         }
 
         BoundsInt floor = bsp.GetFloorSize();
 
 
+
         //generate walls
-        HashSet<Vector2Int> tiles = new HashSet<Vector2Int>(caveTiles);
+        HashSet<Vector2Int> floorTiles = new HashSet<Vector2Int>(roomTiles);
 
         //generate paths
-        HashSet<Vector2Int> corridors = pathGen.GeneratePaths(rooms);
-        tiles.UnionWith(corridors);
-        HashSet<Vector2Int> walls = wallGen.GenerateWalls(tiles, 3);
+        HashSet<Vector2Int> pathTiles = pathGen.GeneratePaths(rooms);
+        floorTiles.UnionWith(pathTiles);
+        HashSet<Vector2Int> wallTiles = wallGen.GenerateWalls(floorTiles, 3);
 
-        //visualise rooms and paths
-        visualiser.VisualisePaths(tiles);
-        visualiser.VisualiseWalls(walls);
+        //generate cave islands
+        HashSet<Vector2Int> wallIslands = wallIslandGen.GenerateWallIslands(roomTiles, pathTiles);
+        wallTiles.UnionWith(wallIslands);
+        ca.SmoothCaves(wallTiles, floorTiles);
+
+        //visualise floors and walls
+        visualiser.VisualisePaths(floorTiles);
+        visualiser.VisualiseWalls(wallTiles);
+
 
         //add background padding
-        HashSet<Vector2Int> bgPadding = wallGen.GenerateWalls(tiles, 1);
-        tiles.UnionWith(bgPadding);
+        HashSet<Vector2Int> bgPadding = wallGen.GenerateWalls(floorTiles, 1);
+        floorTiles.UnionWith(bgPadding);
 
         //find empty tiles (+ padding to hide outer walls)
         HashSet<Vector2Int> empty = new HashSet<Vector2Int>();
@@ -83,7 +93,7 @@ public class DungeonManager : MonoBehaviour
             for (int y = floor.min.y - 20; y < floor.max.y + 20; y++)
             {
                 Vector2Int pos = new Vector2Int(x, y);
-                if (!tiles.Contains(pos))
+                if (!floorTiles.Contains(pos))
                 {
                     empty.Add(pos);
                 }
@@ -91,5 +101,11 @@ public class DungeonManager : MonoBehaviour
         }
         //visualise background
         visualiser.VisualiseBackground(empty);
+
+        // ------------------- PROPS ---------------------- //
+
+        //generate torches
+        torchGen.GenerateTorches(floorTiles, wallTiles);
+
     }
 }

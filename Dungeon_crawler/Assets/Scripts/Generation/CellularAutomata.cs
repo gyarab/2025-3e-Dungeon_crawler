@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using UnityEngine;
 
@@ -9,12 +10,7 @@ public class CellularAutomata : MonoBehaviour
     [SerializeField] int iterations;
     public HashSet<Vector2Int> GenerateCaves(BoundsInt room)
     {
-        return GenerateCaves(room, noise, iterations);
-    }
-
-    private HashSet<Vector2Int> GenerateCaves(BoundsInt room, int noise, int iterations)
-    {
-        //false = empty, true = floor
+        // false = empty, true = floor
         Dictionary<Vector2Int, bool> floorTiles = new Dictionary<Vector2Int, bool>();
         //initial noise
         for (int x = room.min.x; x < room.max.x; x++)
@@ -31,6 +27,28 @@ public class CellularAutomata : MonoBehaviour
                 }
             }
         }
+        return GenerateCaves(floorTiles, noise, iterations);
+    }
+    public HashSet<Vector2Int> SmoothCaves(HashSet<Vector2Int> WallTiles, HashSet<Vector2Int> FloorTiles)
+    {
+        Dictionary<Vector2Int, bool> floorTiles = new Dictionary<Vector2Int, bool>();
+        foreach (Vector2Int tile in WallTiles)
+        {
+            floorTiles.Add(tile, true);
+        }
+        foreach (Vector2Int tile in FloorTiles)
+        {
+            if (!floorTiles.ContainsKey(tile))
+            {
+                floorTiles.Add(tile, false);
+            }
+        }
+
+        return GenerateCaves(floorTiles, noise, iterations);
+    }
+
+    private HashSet<Vector2Int> GenerateCaves(Dictionary<Vector2Int, bool> floorTiles, int noise, int iterations)
+    {
         //list of directions
         List<Vector2Int> dir = new List<Vector2Int>
             {

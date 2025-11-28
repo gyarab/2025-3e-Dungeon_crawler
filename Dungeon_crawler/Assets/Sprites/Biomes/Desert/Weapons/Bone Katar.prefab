@@ -113,12 +113,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dagger
   rotateWeapon: 0
   attackCooldown: 0.15
+  cancelCooldownOnReturn: 0
   damage: 20
+  knockbackForce: 5
   hitboxRange: 1.5
   hitboxWidth: 0.5
   attackReach: 1
   attackDuration: 0.15
-  knockbackForce: 5
   weaponSprites:
   - {fileID: 1600901009284306087}
   - {fileID: 26455943106128842}
@@ -225,7 +226,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ef7e98a546d6ee946afe47428737a4b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -315,7 +316,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ef7e98a546d6ee946afe47428737a4b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

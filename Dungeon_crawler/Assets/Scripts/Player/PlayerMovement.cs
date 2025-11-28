@@ -57,14 +57,6 @@ public class PlayerMovement : MonoBehaviour
         speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed / (1 + speedDebuff) : walkSpeed / (1 + speedDebuff);
         rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, movementDir * speed, ref velocity, smoothTime);
 
-        //rotate player mesh based on movement direction
-        /*
-        if (movementDir.x > 0.01f)
-            playerMesh.transform.localScale = new Vector3(1, 1, 1);
-        else if (movementDir.x < -0.01f)
-            playerMesh.transform.localScale = new Vector3(-1, 1, 1);
-        */
-        //roate player mesh based on mouse position
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         int flip = mousePos.x < transform.position.x ? -1 : 1;
         playerMesh.transform.localScale = new Vector3(1*flip, 1, 1);

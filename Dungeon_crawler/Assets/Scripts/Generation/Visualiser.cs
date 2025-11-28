@@ -14,7 +14,6 @@ public class Visualiser : MonoBehaviour
 
     [SerializeField] private Grid grid;
     [SerializeField] private Tilemap floorTilemap;
-    [SerializeField] private Tilemap pathTilemap;
     [SerializeField] private Tilemap wallTilemap;
     [SerializeField] private Tilemap backgroundTilemap;
 
@@ -41,6 +40,7 @@ public class Visualiser : MonoBehaviour
         foreach (Vector2Int pos in positions.Distinct())
         {
             wallTilemap.SetTile((Vector3Int)pos, wallTile);
+            floorTilemap.SetTile((Vector3Int)pos, floorTile);
         }
     }
 
@@ -49,7 +49,7 @@ public class Visualiser : MonoBehaviour
     {
         foreach (Vector2Int pos in positions.Distinct())
         {
-            pathTilemap.SetTile((Vector3Int)pos, pathTile);
+            floorTilemap.SetTile((Vector3Int)pos, pathTile);
         }
     }
 
@@ -66,7 +66,6 @@ public class Visualiser : MonoBehaviour
     public void ClearAll()
     {
         floorTilemap?.ClearAllTiles();
-        pathTilemap?.ClearAllTiles();
         wallTilemap?.ClearAllTiles();
         backgroundTilemap?.ClearAllTiles();
     }

@@ -47,13 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spear
   rotateWeapon: 1
   attackCooldown: 0.4
+  cancelCooldownOnReturn: 0
   damage: 75
-  attackOffset: 0.5
+  knockbackForce: 5
   hitboxRange: 5
   hitboxWidth: 0.5
   attackReach: 4
   attackDuration: 0.4
-  knockbackForce: 5
 --- !u!1 &8745619947502571782
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ef7e98a546d6ee946afe47428737a4b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

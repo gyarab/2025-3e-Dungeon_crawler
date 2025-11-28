@@ -39,61 +39,65 @@ public class PathGenerator : MonoBehaviour
         return corridors;
     }
 
-    private List<Vector2Int> CreatePath(Vector2Int currentRoom, Vector2Int closestRoom, int width)
+    private List<Vector2Int> CreatePath(Vector2Int start, Vector2Int target, int width)
     {
-        //width += 2;
-
         List<Vector2Int> path = new List<Vector2Int>();
-        Vector2Int tempPos = currentRoom;
+        Vector2Int pos = start;
 
-        if(tempPos.y - closestRoom.y < 1) {
-            tempPos.y += 1;
-        }
-        else if (tempPos.y - closestRoom.y > 1)
+        int maxSteps = 10000;
+        float noiseScale = 0.15f;
+        float turnChance = 0.25f;
+        float sidestepChance = 0.15f;
+
+        while (pos != target && maxSteps-- > 0)
         {
-            tempPos.y -= 1;
-        }
-        if(tempPos.x - closestRoom.x < 1)
-        {
-            tempPos.x += 1;
-        }
-        else if (tempPos.x - closestRoom.x > 1)
-        {
-            tempPos.x -= 1;
+            Vector2Int dir = new Vector2Int((int)Mathf.Sign(target.x - pos.x),(int)Mathf.Sign(target.y - pos.y));
+
+            float n = Mathf.PerlinNoise(pos.x * noiseScale, pos.y * noiseScale);
+
+            if (n > 0.6f || Random.value < turnChance)
+            {
+                dir = RandomDirection();
+            }
+            else if (Random.value < sidestepChance)
+            {
+                dir = new Vector2Int(dir.y, -dir.x);
+            }
+
+            pos += dir;
+
+            int corridorWidth = width + Random.Range(-1, 1);
+            corridorWidth = Mathf.Clamp(corridorWidth, 1, width);
+
+            for (int dx = -corridorWidth; dx <= corridorWidth; dx++)
+            {
+                for (int dy = -corridorWidth; dy <= corridorWidth; dy++)
+                {
+                    if (dx * dx + dy * dy <= corridorWidth * corridorWidth)
+                    {
+                        path.Add(new Vector2Int(pos.x + dx, pos.y + dy));
+                    }
+                }
+            }
+
+
         }
 
-        while (tempPos.x != closestRoom.x)
-        {
-            if (closestRoom.x > tempPos.x)
-            {
-                tempPos.x += 1;
-            }
-            else if (closestRoom.x < tempPos.x)
-            {
-                tempPos.x -= 1;
-            }
-            for(int i = 0; i < width; i++)
-            {
-                path.Add(new Vector2Int(tempPos.x, tempPos.y + i));
-            }
-        }
-        while (tempPos.y != closestRoom.y)
-        {
-            if (closestRoom.y > tempPos.y)
-            {
-                tempPos.y += 1;
-            }
-            else if (closestRoom.y < tempPos.y)
-            {
-                tempPos.y -= 1;
-            }
-            for (int i = 0; i < width; i++)
-            {
-                path.Add(new Vector2Int(tempPos.x+i, tempPos.y));
-            }
-        }
         return path;
     }
+
+    private Vector2Int RandomDirection()
+    {
+        Vector2Int[] dirs =
+        {
+        new Vector2Int(1,0), new Vector2Int(-1,0),
+        new Vector2Int(0,1), new Vector2Int(0,-1),
+        new Vector2Int(1,1), new Vector2Int(-1,1),
+        new Vector2Int(1,-1), new Vector2Int(-1,-1)
+        };
+        return dirs[Random.Range(0, dirs.Length)];
+    }
+
 
     private Vector2Int FindClosestRoom(Vector2Int currentRoom, List<Vector2Int> roomCenters)
     {
