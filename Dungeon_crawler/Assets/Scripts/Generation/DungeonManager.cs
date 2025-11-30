@@ -16,7 +16,7 @@ public class DungeonManager : MonoBehaviour
     [SerializeField] private WallIslandGenerator wallIslandGen;
     [SerializeField] private Visualiser visualiser;
     [Header("Props references")]
-    [SerializeField] private TorchGenerator torchGen;
+    [SerializeField] private PropManager propMan;
     private List<GameObject> visualRooms = new List<GameObject>();
     private List<GameObject> visualPaths = new List<GameObject>();
 
@@ -104,8 +104,8 @@ public class DungeonManager : MonoBehaviour
 
         // ------------------- PROPS ---------------------- //
 
-        //generate torches
-        torchGen.GenerateTorches(floorTiles, wallTiles);
+        //generate props
+        propMan.GenerateAllProps(floorTiles, wallTiles);
 
     }
 }

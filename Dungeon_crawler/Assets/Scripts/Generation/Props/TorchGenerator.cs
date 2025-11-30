@@ -6,8 +6,19 @@ public class TorchGenerator : MonoBehaviour
     public GameObject torchPrefab;
     public float torchChance = 0.05f;
 
-    public void GenerateTorches(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
+    private PropManager propMan;
+
+    public void Awake()
     {
+        propMan = transform.parent.GetComponent<PropManager>();
+        propMan.GenerateProps.AddListener(GenerateProps);
+    }
+
+    public void GenerateProps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
+    {
+        GameObject torchParent = Instantiate(new GameObject("Torches"), transform);
+        //Debug.Log("props:");
+        //Debug.Log(" - torch");
         foreach (var tile in floorTiles)
         {
             if (Random.value > torchChance)
@@ -34,7 +45,8 @@ public class TorchGenerator : MonoBehaviour
 
             if (!nearWall) continue;
 
-            Instantiate(torchPrefab, new Vector3(tile.x, tile.y, 0), Quaternion.identity);
+            GameObject torch = Instantiate(torchPrefab, new Vector3(tile.x, tile.y, 0), Quaternion.identity);
+            torch.transform.parent = torchParent.transform;
         }
     }
 }

@@ -115,7 +115,7 @@ public class Mace : Weapon
         float throwRange = maceMaxRange * rangeMultiplier;
 
         int throwDamage = Mathf.RoundToInt(baseDamage * damageMultiplier);
-        hitbox.GetComponent<Damage>().SetDamage(throwDamage);
+        hitbox?.GetComponent<Damage>().SetDamage(throwDamage);
 
         float traveled = 0f;
         Vector3 startPos = playerPos;

@@ -14,7 +14,7 @@ public class Healthbar : MonoBehaviour
         {
             target = transform.parent.gameObject;
         }
-        health = target.GetComponent<Health>();
+        health = target.transform.Find("Hitbox").transform.GetComponent<Health>();
         health.HealthChanged.AddListener(ChangeHealthbar);
         healthbarBG = transform.GetChild(0).gameObject.transform;
         healthbarBar = transform.GetChild(1).gameObject.transform;
