@@ -105,6 +105,7 @@ public class Dagger : Weapon
         {
             CancelCooldown();
         }
+        AttackFinished();
     }
 
 }
