@@ -58,7 +58,6 @@ public class Mace : Weapon
     private void StartSpinning()
     {
         if (isSpinning) return;
-
         isSpinning = true;
         spinDuration = 0f;
         currentSpinSpeed = minSpinSpeed;
@@ -154,5 +153,6 @@ public class Mace : Weapon
         {
             CancelCooldown();
         }
+        AttackFinished();
     }
 }

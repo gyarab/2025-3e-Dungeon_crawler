@@ -86,6 +86,7 @@ public class Sword : Weapon
             transform.localScale = originalLocalScale; 
         }
         if (cancelCooldownOnReturn) { CancelCooldown(); }
+        AttackFinished();
     }
 
 

@@ -1,14 +1,18 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
     private PlayerInput playerInput;
 
+    [SerializeField] private Sprite icon;
     [SerializeField] protected bool rotateWeapon = false;
-    protected bool canAttack = true;
+    [Header("Cooldown >= duration !")]
     [SerializeField] protected float attackCooldown = 0.4f;
+    public bool canAttack = true;
+    [HideInInspector] public UnityEvent attackEnd;
 
     private InputAction attackAction;
 
@@ -27,7 +31,7 @@ public class Weapon : MonoBehaviour
 
             int flip = mousePos.x < transform.position.x ? -1 : 1;
 
-            transform.localScale = new Vector3(flip, Mathf.Abs(transform.localScale.y), 1);
+            transform.localScale = new Vector3(flip, flip, 1);
         }
     }
 
@@ -55,8 +59,13 @@ public class Weapon : MonoBehaviour
     IEnumerator AttackCooldown(float time)
     {
         canAttack = false;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(time+0.1f);
+    }
+
+    public void AttackFinished()
+    {
         canAttack = true;
+        attackEnd.Invoke();
     }
 
     public void CancelCooldown()

@@ -1,9 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class WeaponManager : MonoBehaviour
 {
     public GameObject currentWeapon;
+    public List<GameObject> weapons;
+    private int currentWeaponIndex = 0;
     private Weapon weaponScript;
     private PlayerInput playerInput;
     private InputAction attackAction;
@@ -19,14 +24,50 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        if (currentWeapon != null)
-            weaponScript = currentWeapon.GetComponent<Weapon>();
+        currentWeapon?.SetActive(false);
+        foreach(GameObject weapon in weapons)
+        {
+            weapon?.SetActive(false);
+        }
     }
 
-    public void ChangeWeapon(GameObject weapon)
+    public void OnWeaponKey(InputAction.CallbackContext ctx)
     {
-        currentWeapon = weapon;
+        KeyControl keyControl = ctx.control as KeyControl;
+
+        string keyName = keyControl.keyCode.ToString();
+
+        if (int.TryParse(keyName.Replace("Digit", ""), out int weaponIndex))
+        {
+            if (weaponIndex < 1 || weaponIndex > weapons.Count)
+            {
+                return;
+            }
+            ChangeWeapon(weaponIndex);
+        }
+    }
+
+    private int pendingIndex = 0;
+    public void ChangeWeapon(int index)
+    {
+        if (index < 1 || index > weapons.Count) return;
+        if (weaponScript !=null && !weaponScript.canAttack)
+        {
+            pendingIndex = index;
+            weaponScript.attackEnd.AddListener(OnCooldownFinished);
+            return;
+        }
+        currentWeapon.SetActive(false);
+        currentWeapon = weapons[index - 1];
+        currentWeapon.SetActive(true);
         weaponScript = currentWeapon.GetComponent<Weapon>();
+    }
+
+    private void OnCooldownFinished()
+    {
+        weaponScript.attackEnd.RemoveListener(OnCooldownFinished);
+        ChangeWeapon(pendingIndex);
+        pendingIndex = -1;
     }
 
     private void OnAttack(InputAction.CallbackContext context)

@@ -67,6 +67,7 @@ public class Spear : Weapon
         direction.x *= flip;
 
         Vector3 originalLocalPos = transform.localPosition;
+
         float elapsed = 0f;
 
         while (elapsed < duration)
@@ -90,6 +91,7 @@ public class Spear : Weapon
         {
             CancelCooldown();
         }
+        AttackFinished();
     }
 
 }
