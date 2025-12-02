@@ -10,12 +10,13 @@ public class PropManager : MonoBehaviour
     public void GenerateAllProps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
     {
         Debug.Log("Generating props...");
-        GenerateProps?.Invoke(floorTiles, wallTiles);
-        StartCoroutine(WaitAndCheckOverlaps());
+        StartCoroutine(WaitAndCheckOverlaps(floorTiles, wallTiles));
     }
 
-    private IEnumerator WaitAndCheckOverlaps()
+    private IEnumerator WaitAndCheckOverlaps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
     {
+        yield return new WaitForSeconds(0.5f);
+        GenerateProps?.Invoke(floorTiles, wallTiles);
         yield return new WaitForSeconds(0.5f);
         CheckOverlaps();
     }

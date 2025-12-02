@@ -32,12 +32,16 @@ public class PropGenerator : MonoBehaviour
     private void Awake()
     {
         propMan = transform.parent.GetComponent<PropManager>();
-        if (propMan != null)
-            propMan.GenerateProps.AddListener(GenerateProps);
+    }
+
+    private void Start()
+    {
+        propMan.GenerateProps.AddListener(GenerateProps);
     }
 
     public void GenerateProps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
     {
+        Debug.Log("Generating props for " + generatorName);
         if (props == null || props.Count == 0)
         {
             Debug.LogWarning("No props assigned for " + generatorName);
