@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3063942742451112469
 Transform:
   m_ObjectHideFlags: 0
@@ -45,8 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3286884278c2d53418e35397b71eb0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sword
+  icon: {fileID: 0}
   rotateWeapon: 0
   attackCooldown: 0.15
+  canAttack: 1
+  attackEnd:
+    m_PersistentCalls:
+      m_Calls: []
   cancelCooldownOnReturn: 0
   damage: 50
   knockbackForce: 3

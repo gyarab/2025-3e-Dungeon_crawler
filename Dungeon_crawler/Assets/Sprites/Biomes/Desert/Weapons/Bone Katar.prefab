@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &900277517523127963
 Transform:
   m_ObjectHideFlags: 0
@@ -111,8 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fdc8d13e359acc4d8eaea164614626c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dagger
+  icon: {fileID: 0}
   rotateWeapon: 0
   attackCooldown: 0.15
+  canAttack: 1
+  attackEnd:
+    m_PersistentCalls:
+      m_Calls: []
   cancelCooldownOnReturn: 0
   damage: 20
   knockbackForce: 5
