@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -17,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashForce = 100f;
     [SerializeField] private float dashCooldown = 1f;
     private bool canDash = true;
+    [HideInInspector] public bool isFlipped = false;
+    [HideInInspector] public UnityEvent<bool> flipped;
 
     private Rigidbody2D rb;
     private Vector2 movementDir;
@@ -60,6 +64,13 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         int flip = mousePos.x < transform.position.x ? -1 : 1;
         playerMesh.transform.localScale = new Vector3(1*flip, 1, 1);
+        if(isFlipped != (flip == -1))
+        {
+            //true if flipped left
+            //false if flipped right
+            flipped.Invoke(flip == -1);
+        }
+        isFlipped = flip == -1;
     }
 
     void Dash()
