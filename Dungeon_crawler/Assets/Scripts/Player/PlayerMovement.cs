@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 7f;
     [SerializeField] private float smoothTime = 0.1f;
+    [SerializeField] private Animator animator;
     private float speed;
     [HideInInspector]
     public float speedDebuff;
@@ -60,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         int flip = mousePos.x < transform.position.x ? -1 : 1;
         playerMesh.transform.localScale = new Vector3(1*flip, 1, 1);
+
+        animator.SetFloat("Speed", rb.linearVelocity.magnitude);
+        animator.SetFloat("MoveX", movementDir.x);
     }
 
     void Dash()
