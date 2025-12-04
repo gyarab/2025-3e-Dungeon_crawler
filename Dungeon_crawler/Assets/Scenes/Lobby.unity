@@ -299,6 +299,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &168366860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2579813497097317396, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
+  m_PrefabInstance: {fileID: 2391233591910092380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &340718858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,7 +2128,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.90625
+  orthographic size: 11.1875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2168,8 +2173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
   m_ComponentVersion: 1
   m_AssetsPPU: 16
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
+  m_RefResolutionX: 480
+  m_RefResolutionY: 270
   m_CropFrame: 0
   m_GridSnapping: 0
   m_FilterMode: 0
@@ -3380,6 +3385,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7972010665999195940, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
+      propertyPath: playerMesh
+      value: 
+      objectReference: {fileID: 168366860}
     - target: {fileID: 7972010665999195940, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
       propertyPath: smoothTime
       value: 0.25
