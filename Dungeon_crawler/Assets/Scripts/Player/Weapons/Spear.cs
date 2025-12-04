@@ -22,13 +22,6 @@ public class Spear : Weapon
     private Quaternion originalLocalRot;
     private Vector3 originalLocalScale;
 
-    private void Start()
-    {
-        originalLocalPos = transform.localPosition;
-        originalLocalRot = transform.localRotation;
-        originalLocalScale = transform.localScale;
-    }
-
 
     public override bool OnAttack()
     {
@@ -56,17 +49,21 @@ public class Spear : Weapon
 
     IEnumerator PikeSpear(float duration)
     {
+        originalLocalPos = transform.localPosition;
+        originalLocalRot = transform.localRotation;
+        originalLocalScale = transform.localScale;
+
         bool returnToStart = !rotateWeapon;
         rotateWeapon = true;
         yield return new WaitForSeconds(0.05f);
         rotateWeapon = false;
+
+        Vector3 startLocalPos = originalLocalPos;
+
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        int flip = mousePos.x < transform.parent.position.x ? -1 : 1;
+        Vector2 worldDir = (mousePos - transform.position).normalized;
 
-        Vector3 direction = (mousePos - transform.position).normalized;
-        direction.x *= flip;
-
-        Vector3 originalLocalPos = transform.localPosition;
+        Vector3 localDir = transform.parent.InverseTransformDirection(worldDir).normalized;
 
         float elapsed = 0f;
 
@@ -74,24 +71,32 @@ public class Spear : Weapon
         {
             float t = elapsed / duration;
             float motion = Mathf.Sin(t * Mathf.PI);
-            transform.localPosition = originalLocalPos + direction.normalized * motion * attackReach;
+
+            transform.localPosition = startLocalPos + localDir * (motion * attackReach);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localPosition = originalLocalPos;
-        if (!returnToStart) { rotateWeapon = true; } else
+        transform.localPosition = startLocalPos;
+
+        if (!returnToStart)
+        {
+            rotateWeapon = true;
+        }
+        else
         {
             transform.localPosition = originalLocalPos;
             transform.localRotation = originalLocalRot;
             transform.localScale = originalLocalScale;
         }
+
         if (cancelCooldownOnReturn)
-        {
             CancelCooldown();
-        }
+
         AttackFinished();
     }
+
+
 
 }

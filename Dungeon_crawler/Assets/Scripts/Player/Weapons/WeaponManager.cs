@@ -13,6 +13,8 @@ public class WeaponManager : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction attackAction;
 
+    private int pendingIndex = 0;
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -20,6 +22,8 @@ public class WeaponManager : MonoBehaviour
 
         attackAction.performed += OnAttack;
         attackAction.canceled += OnAttackReleased;
+
+        transform.GetComponent<PlayerMovement>().flipped.AddListener(FlipWeapon);
     }
 
     private void Start()
@@ -29,6 +33,12 @@ public class WeaponManager : MonoBehaviour
         {
             weapon?.SetActive(false);
         }
+    }
+    private void FlipWeapon(bool isFlipped)
+    {
+        Vector3 scale = currentWeapon.transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (isFlipped ? -1 : 1);
+        currentWeapon.transform.localScale = scale;
     }
 
     public void OnWeaponKey(InputAction.CallbackContext ctx)
@@ -47,7 +57,6 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    private int pendingIndex = 0;
     public void ChangeWeapon(int index)
     {
         if (index < 1 || index > weapons.Count) return;

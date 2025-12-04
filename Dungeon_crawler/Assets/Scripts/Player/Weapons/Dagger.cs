@@ -26,12 +26,6 @@ public class Dagger : Weapon
     private Quaternion originalLocalRot;
     private Vector3 originalLocalScale;
 
-    private void Start()
-    {
-        originalLocalPos = transform.localPosition;
-        originalLocalRot = transform.localRotation;
-        originalLocalScale = transform.localScale;
-    }
     public override bool OnAttack()
     {
         if (!base.OnAttack()) { return false; }
@@ -61,6 +55,10 @@ public class Dagger : Weapon
 
     IEnumerator PikeDagger(GameObject dagger, float duration)
     {
+        originalLocalPos = transform.localPosition;
+        originalLocalRot = transform.localRotation;
+        originalLocalScale = transform.localScale;
+
         Vector3 originalLocalPosDagger = dagger.transform.localPosition;
         Quaternion originalLocalRotDagger = dagger.transform.localRotation;
         Vector3 originalLocalScaleDagger = dagger.transform.localScale;
@@ -71,13 +69,13 @@ public class Dagger : Weapon
         rotateWeapon = false;
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        int flip = mousePos.x < transform.parent.position.x ? -1 : 1;
 
         Vector3 direction = Vector3.right;
-        //Vector3 direction = (mousePos - transform.position).normalized;
-        //direction.x *= flip;
 
         Vector3 startPos = dagger.transform.localPosition;
+
+        dagger.transform.localScale = new Vector3(originalLocalScaleDagger.x, originalLocalScaleDagger.y*flip, originalLocalScaleDagger.z);
+
         float elapsed = 0;
 
         while (elapsed < duration)
