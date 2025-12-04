@@ -330,7 +330,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7118625954660251709}
   - component: {fileID: 6780312237839945416}
-  - component: {fileID: 278326938969957834}
   - component: {fileID: 1936176385768554049}
   - component: {fileID: 7972010665999195940}
   - component: {fileID: 3340642677010913984}
@@ -394,42 +393,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &278326938969957834
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2922915940289783017}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.45
 --- !u!70 &1936176385768554049
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -482,7 +445,7 @@ MonoBehaviour:
   playerMesh: {fileID: 2922915940289783017}
   walkSpeed: 5
   runSpeed: 9
-  smoothTime: 0.15
+  smoothTime: 0.25
   animator: {fileID: 1493536494009707924}
   speedDebuff: 0
   dashEnabled: 1
