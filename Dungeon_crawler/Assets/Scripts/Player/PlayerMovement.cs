@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 7f;
     [SerializeField] private float smoothTime = 0.1f;
+    [SerializeField] private Animator animator;
     private float speed;
     [HideInInspector]
     public float speedDebuff;
@@ -30,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction dashAction;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -70,11 +70,13 @@ public class PlayerMovement : MonoBehaviour
             flipped.Invoke(flip == -1);
         }
         isFlipped = flip == -1;
+        animator.SetFloat("Speed", rb.linearVelocity.magnitude);
+        animator.SetFloat("MoveX", movementDir.x);
     }
 
     void Dash()
     {
-        rb.AddForce(movementDir.normalized* speed * dashForce, ForceMode2D.Impulse);
+        rb.AddForce(movementDir.normalized * speed * dashForce, ForceMode2D.Impulse);
         StartCoroutine(DashCooldown());
     }
 
