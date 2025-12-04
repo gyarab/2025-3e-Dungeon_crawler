@@ -2013,6 +2013,7 @@ GameObject:
   - component: {fileID: 1020201646}
   - component: {fileID: 1020201645}
   - component: {fileID: 1020201644}
+  - component: {fileID: 1020201649}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: MainCamera
@@ -2122,7 +2123,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 7.90625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2153,6 +2154,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1020201649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020201643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_CropFrame: 0
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1090340165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3311,41 +3336,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1603620040772767988, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2800522079351867528, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2800522079351867528, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2800522079351867528, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2800522079351867528, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2800522079351867528, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2922915940289783017, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118625954660251709, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118625954660251709, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7118625954660251709, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3387,21 +3380,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7373986435804477919, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.97629607
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373986435804477919, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.21643952
-      objectReference: {fileID: 0}
-    - target: {fileID: 7373986435804477919, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050994848387592802, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
-      propertyPath: attackReach
-      value: 2
+    - target: {fileID: 7972010665999195940, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
+      propertyPath: smoothTime
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
