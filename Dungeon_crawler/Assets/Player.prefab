@@ -548,7 +548,8 @@ MonoBehaviour:
   playerMesh: {fileID: 2579813497097317396}
   walkSpeed: 5
   runSpeed: 9
-  smoothTime: 0.15
+  smoothTime: 0.25
+  animator: {fileID: 1493536494009707924}
   speedDebuff: 0
   dashEnabled: 1
   dashForce: 250
