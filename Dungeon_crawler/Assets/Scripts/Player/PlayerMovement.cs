@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashForce = 100f;
     [SerializeField] private float dashCooldown = 1f;
     private bool canDash = true;
-    [HideInInspector] public bool isFlipped = false;
-    [HideInInspector] public UnityEvent<bool> flipped;
+    [HideInInspector] public int flip;
+    [HideInInspector] public UnityEvent<int> flipped;
 
     private Rigidbody2D rb;
     private Vector2 movementDir;
@@ -64,27 +64,24 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
-        if (movementDir.x != 0)
+        if (movementDir.x!=0 && movementDir.normalized.x!=flip)
         {
-            int flip = movementDir.x > 0 ? 1 : -1;
-
-            playerMesh.transform.localScale = new Vector3(1 * flip, 1, 1);
-
-            if (isFlipped != (flip == -1))
-            {
-                //true if flipped left
-                //false if flipped right
-                flipped.Invoke(flip == -1);
-            }
-            isFlipped = flip == -1;
+            //should flip cuz direction is different than flip
+            Flip((int)movementDir.normalized.x);
         }
 
         animator.SetFloat("Speed", rb.linearVelocity.magnitude);
         animator.SetFloat("MoveX", movementDir.x);
     }
 
-    void Dash()
+    public void Flip(int dir)
+    {
+        flip = Math.Sign(dir);
+        flipped.Invoke(flip);
+        playerMesh.transform.localScale = new Vector3(1 * flip, 1, 1);
+    }
+
+    private void Dash()
     {
         rb.AddForce(movementDir.normalized * speed * dashForce, ForceMode2D.Impulse);
         StartCoroutine(DashCooldown());

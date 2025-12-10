@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc957add3cffd146a96869399f474d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  character: {fileID: 2922915940289783017, guid: 9d4204ad6e0e29f4698f834da3862367, type: 3}
+  character: {fileID: 6938151055908945916, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
   playerInstance: {fileID: 0}
   dungeonManager: {fileID: 883389032}
 --- !u!4 &539187359
@@ -2113,7 +2113,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 6.515625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   props:
   - prefab: {fileID: 2210906771037280361, guid: 232a1cbc3563e014baf75f79aa5c6719, type: 3}
     probability: 3
-  - prefab: {fileID: 80320388451735361, guid: a1f14356c07462948997df237aebbedb, type: 3}
+  - prefab: {fileID: 2210906771037280361, guid: 1ff848560c77e884fa6380a5a4c95c70, type: 3}
     probability: 2
   - prefab: {fileID: 8828825943012195567, guid: bdd86d7ec0c3cea4fa3a0ae16795cb3c, type: 3}
     probability: 1

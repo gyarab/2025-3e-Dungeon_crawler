@@ -33,6 +33,7 @@ public class Sword : Weapon
 
         BoxCollider2D collider = hitbox.AddComponent<BoxCollider2D>();
         collider.size = new Vector2(hitboxRange, hitboxWidth);
+        collider.offset = new Vector2(attackOffset/2,0);
         collider.isTrigger = true;
 
         Damage damageComp = hitbox.AddComponent<Damage>();
@@ -46,18 +47,21 @@ public class Sword : Weapon
     }
     IEnumerator RotateSword(float duration)
     {
+        yield return new WaitForSeconds(0.1f);
         originalLocalPos = transform.localPosition;
         originalLocalRot = transform.localRotation;
         originalLocalScale = transform.localScale;
+
+        Vector3 originalLocalScW = weaponMesh.localScale;
+        Vector3 originalLocalRW = weaponMesh.localRotation.eulerAngles;
+        weaponMesh.transform.localScale = new Vector3(flip, flip, 1);
+        weaponMesh.transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         float elapsed = 0f;
 
         float baseAngle = getMouseAngle();
 
-        if (isFlipped)
-            baseAngle += 180f;
-
-        Vector3 offset = new Vector3(isFlipped ? -attackOffset : attackOffset, 0f, 0f);
+        Vector3 offset = new Vector3(attackOffset, 0f, 0f);
 
         float startAngle = baseAngle + attackAngle*flip;
         float endAngle = baseAngle- attackAngle*flip;
@@ -75,18 +79,17 @@ public class Sword : Weapon
             elapsed += Time.deltaTime;
             yield return null;
         }
-
-        if (!rotateWeapon)
+        if (!rotateMesh)
         {
             transform.localPosition = originalLocalPos;
             transform.localRotation = originalLocalRot;
             transform.localScale = originalLocalScale;
         }
 
+        weaponMesh.localScale = originalLocalScW;
+        weaponMesh.localRotation = Quaternion.Euler(originalLocalRW);
+
         if (cancelCooldownOnReturn) CancelCooldown();
         AttackFinished();
     }
-
-
-
 }

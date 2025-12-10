@@ -1,101 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &11556459236070845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7445071015360185890}
-  - component: {fileID: 5083662579840234559}
-  - component: {fileID: 7157140258629072827}
-  m_Layer: 6
-  m_Name: Hitbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7445071015360185890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11556459236070845}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5930299292721371571}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5083662579840234559
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11556459236070845}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &7157140258629072827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11556459236070845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d9bd17e25ed21444919106e38089252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 100
-  currentHealth: 0
-  immunityFrames: 10
-  shakeOnHitIntensity: 0.1
-  shakeDuration: 0.15
-  particleColor: {r: 0.38823533, g: 0.21176472, b: 0.19215688, a: 1}
-  hitParticles: {fileID: 1185082728637586266, guid: 69411095674c31247b49c9fb60a58cc7, type: 3}
-  deathParticles: {fileID: 1185082728637586266, guid: 15a492dec786650408bf0b43509a89c5, type: 3}
-  destroyOnDeath: 1
-  transformToOnDeath: 1
-  transformTo:
-  - {fileID: 8828825943012195567, guid: 9aadd80af29150b48a598724f78388ad, type: 3}
-  HealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &80320388451735361
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5930299292721371571}
   - component: {fileID: 705233267820149388}
+  - component: {fileID: 8161800069480859265}
+  - component: {fileID: 3587581598736300191}
   m_Layer: 6
   m_Name: Big Crate 2
   m_TagString: Untagged
@@ -122,12 +28,11 @@ Transform:
   m_GameObject: {fileID: 80320388451735361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8760013102133900644}
-  - {fileID: 7445071015360185890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &705233267820149388
@@ -166,6 +71,69 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
+--- !u!58 &8161800069480859265
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80320388451735361}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.45
+--- !u!114 &3587581598736300191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80320388451735361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9bd17e25ed21444919106e38089252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 100
+  currentHealth: 0
+  immunityFrames: 10
+  shakeOnHitIntensity: 0.1
+  shakeDuration: 0.15
+  particleColor: {r: 0.38823533, g: 0.21176472, b: 0.19215688, a: 1}
+  hitParticles: {fileID: 1185082728637586266, guid: 69411095674c31247b49c9fb60a58cc7, type: 3}
+  deathParticles: {fileID: 1185082728637586266, guid: 15a492dec786650408bf0b43509a89c5, type: 3}
+  destroyOnDeath: 1
+  transformToOnDeath: 1
+  transformTo:
+  - {fileID: 8828825943012195567, guid: 9aadd80af29150b48a598724f78388ad, type: 3}
+  HealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1977276141617399088
 GameObject:
   m_ObjectHideFlags: 0

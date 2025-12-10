@@ -19,16 +19,13 @@ public class Health : MonoBehaviour
     [SerializeField] private bool transformToOnDeath = false;
     [SerializeField] private GameObject[] transformTo;
 
-    private Transform parentTransform;
-
     [HideInInspector] public UnityEvent<int> HealthChanged;
 
     private bool hittable = true;
 
     private void Start()
     {
-        currentHealth = maxHealth; 
-        parentTransform = gameObject.transform.parent;
+        currentHealth = maxHealth;
     }
 
     public int GetMaxHealth()
@@ -55,7 +52,7 @@ public class Health : MonoBehaviour
 
                 var main = ps.main;
                 main.startColor = particleColor;
-                ps.transform.position = new Vector3(transform.position.x, transform.position.y, parentTransform.position.z + 0.1f);
+                ps.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
 
                 ps.Play();
                 Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
@@ -77,7 +74,7 @@ public class Health : MonoBehaviour
 
             var main = ps.main;
             main.startColor = particleColor;
-            ps.transform.position = new Vector3(transform.position.x, transform.position.y, parentTransform.position.z+0.1f);
+            ps.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+0.1f);
 
             ps.Play();
             Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
@@ -106,28 +103,28 @@ public class Health : MonoBehaviour
 
     private IEnumerator Shake()
     {
-        Vector3 originalPos = parentTransform.localPosition;
+        Vector3 originalPos = transform.localPosition;
         float t = 0f;
 
         while (t < shakeDuration)
         {
             float x = Random.Range(-1f, 1f) * shakeOnHitIntensity;
             float y = Random.Range(-1f, 1f) * shakeOnHitIntensity;
-            parentTransform.localPosition = originalPos + new Vector3(x, y, 0f);
+            transform.localPosition = originalPos + new Vector3(x, y, 0f);
             t += Time.deltaTime;
             yield return null;
         }
 
-        parentTransform.localPosition = originalPos;
+        transform.localPosition = originalPos;
     }
 
     private void Die()
     {
-        Destroy(gameObject.transform.parent.gameObject);
+        Destroy(gameObject);
     }
     private void TransformToOnDeath()
     {
         Random.Range(0, transformTo.Length);
-        Instantiate(transformTo[Random.Range(0, transformTo.Length)], gameObject.transform.parent.position, Quaternion.identity);
+        Instantiate(transformTo[Random.Range(0, transformTo.Length)], transform.position, Quaternion.identity);
     }
 }

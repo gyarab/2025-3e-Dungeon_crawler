@@ -5,20 +5,15 @@ using UnityEngine.InputSystem;
 public class Dagger : Weapon
 {
     [SerializeField] private bool cancelCooldownOnReturn = false;
-    [Header("Damage")]
     [SerializeField] private int damage = 25;
     [SerializeField] private int knockbackForce = 5;
 
-    [Header("Hitbox")]
     [SerializeField] private float hitboxRange = 2f;
     [SerializeField] private float hitboxWidth = 0.5f;
 
-    [Header("Attack Motion")]
     [SerializeField] private float attackReach = 4f;
     [SerializeField] private float attackDuration = 0.4f;
-    //[SerializeField] private float attackOffset = 0.5f;
 
-    [Header("Visuals")]
     [SerializeField] private GameObject[] weaponSprites;
     private int weaponIndex;
 
@@ -28,28 +23,32 @@ public class Dagger : Weapon
 
     public override bool OnAttack()
     {
-        if (!base.OnAttack()) { return false; }
+        if (!base.OnAttack()) return false;
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 dir = (mousePos - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (flip == -1) angle += 180f;
+        transform.localRotation = Quaternion.Euler(0, 0, angle);
+
+        GameObject dagger = weaponSprites[weaponIndex];
+        weaponIndex = (weaponIndex + 1) % weaponSprites.Length;
 
         GameObject hitbox = new GameObject("weaponHitbox");
-        hitbox.transform.parent = transform;
+        hitbox.transform.parent = dagger.transform;
+        hitbox.transform.localPosition = Vector3.zero;
         hitbox.transform.localRotation = Quaternion.identity;
-        hitbox.transform.position = transform.position;
-        BoxCollider2D damageComp = hitbox.AddComponent<BoxCollider2D>();
-        damageComp.size = new Vector2(hitboxRange, hitboxWidth);
-        damageComp.isTrigger = true;
+        BoxCollider2D col = hitbox.AddComponent<BoxCollider2D>();
+        col.size = new Vector2(hitboxRange, hitboxWidth);
+        col.isTrigger = true;
 
-        Damage weaponHitbox = hitbox.AddComponent<Damage>();
-        weaponHitbox.SetDamage(damage);
-        weaponHitbox.SetKnockbackForce(knockbackForce);
+        Damage dmg = hitbox.AddComponent<Damage>();
+        dmg.SetDamage(damage);
+        dmg.SetKnockbackForce(knockbackForce);
 
         Destroy(hitbox, attackDuration);
 
-        GameObject currentDagger = weaponSprites[weaponIndex];
-
-        weaponIndex = (weaponIndex + 1) % weaponSprites.Length;
-
-        hitbox.transform.parent = currentDagger.transform;
-        StartCoroutine(PikeDagger(currentDagger, attackDuration));
+        StartCoroutine(PikeDagger(dagger, attackDuration));
         return true;
     }
 
@@ -59,51 +58,35 @@ public class Dagger : Weapon
         originalLocalRot = transform.localRotation;
         originalLocalScale = transform.localScale;
 
-        Vector3 originalLocalPosDagger = dagger.transform.localPosition;
-        Quaternion originalLocalRotDagger = dagger.transform.localRotation;
-        Vector3 originalLocalScaleDagger = dagger.transform.localScale;
-
-        bool returnToStart = !rotateWeapon;
-        rotateWeapon = true;
-        yield return new WaitForSeconds(0.05f);
-        rotateWeapon = false;
+        Vector3 dPos = dagger.transform.localPosition;
+        Quaternion dRot = dagger.transform.localRotation;
+        Vector3 dScale = dagger.transform.localScale;
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 worldDir = (mousePos - transform.position).normalized;
+        Vector3 localDir = transform.InverseTransformDirection(worldDir).normalized * flip;
 
-        Vector3 direction = Vector3.right;
-
-        Vector3 startPos = dagger.transform.localPosition;
-
-        dagger.transform.localScale = new Vector3(originalLocalScaleDagger.x, originalLocalScaleDagger.y*flip, originalLocalScaleDagger.z);
-
-        float elapsed = 0;
+        float elapsed = 0f;
+        Vector3 start = dagger.transform.localPosition;
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
-            float motion = Mathf.Sin(t * Mathf.PI);
-
-            dagger.transform.localPosition = startPos + direction * motion * attackReach;
-
+            float m = Mathf.Sin(t * Mathf.PI);
+            dagger.transform.localPosition = start + localDir * (m * attackReach);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        if (!returnToStart) { rotateWeapon = true; }
-        else
-        {
-            transform.localPosition = originalLocalPos;
-            transform.localRotation = originalLocalRot;
-            transform.localScale = originalLocalScale;
-            dagger.transform.localPosition = originalLocalPosDagger;
-            dagger.transform.localRotation = originalLocalRotDagger;
-            dagger.transform.localScale = originalLocalScaleDagger;
-        }
-        if (cancelCooldownOnReturn)
-        {
-            CancelCooldown();
-        }
+        transform.localPosition = originalLocalPos;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = originalLocalScale;
+
+        dagger.transform.localPosition = dPos;
+        dagger.transform.localRotation = dRot;
+        dagger.transform.localScale = dScale;
+
+        if (cancelCooldownOnReturn) CancelCooldown();
         AttackFinished();
     }
-
 }

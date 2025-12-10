@@ -8,21 +8,33 @@ public class Weapon : MonoBehaviour
     private PlayerInput playerInput;
 
     [SerializeField] private Sprite icon;
-    [SerializeField] protected bool rotateWeapon = false;
-    [Header("Cooldown >= duration !")]
+    [SerializeField] protected bool rotateMesh = false;
+    [SerializeField] protected Transform weaponMesh;
     [SerializeField] protected float attackCooldown = 0.4f;
 
     public bool canAttack = true;
     [HideInInspector] public UnityEvent attackEnd;
 
-    public bool isFlipped;
     protected int flip = 1;
     private Vector3 originalLocalSc;
+
+    private bool followMouseDuringAttack = false;
 
     private void Awake()
     {
         playerInput = transform.parent.GetComponent<PlayerInput>();
         originalLocalSc = transform.localScale;
+        if (weaponMesh == null)
+        {
+            try
+            {
+                weaponMesh = transform.Find("Mesh");
+            }
+            catch
+            {
+                Debug.LogWarning("Weapon mesh not assigned and 'Mesh' child not found.");
+            }
+        }
     }
 
     private void Start()
@@ -32,14 +44,23 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (rotateWeapon)
+        if (followMouseDuringAttack)
         {
-            transform.rotation = Quaternion.Euler(0, 0, getMouseAngle());
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            int mouseFlip = mousePos.x > transform.parent.position.x ? 1 : -1;
 
-            int flip = isFlipped ? -1 : 1;
-            transform.localScale = new Vector3(
+            transform.parent.GetComponent<PlayerMovement>().Flip(mouseFlip);
+
+            ApplyFlip(mouseFlip);
+        }
+
+        if (rotateMesh && weaponMesh != null)
+        {
+            weaponMesh.rotation = Quaternion.Euler(0, 0, getMouseAngle());
+
+            weaponMesh.localScale = new Vector3(
                 originalLocalSc.x,
-                originalLocalSc.y * flip,
+                originalLocalSc.y,
                 originalLocalSc.z
             );
         }
@@ -52,11 +73,23 @@ public class Weapon : MonoBehaviour
         return Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     }
 
-    public virtual void OnAttackReleased() { }
+    public virtual void OnAttackReleased()
+    {
+        followMouseDuringAttack = false;
+    }
 
     public virtual bool OnAttack()
     {
         if (!canAttack) return false;
+
+        followMouseDuringAttack = true;
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        int mouseFlip = mousePos.x > transform.parent.position.x ? 1 : -1;
+
+        transform.parent.GetComponent<PlayerMovement>().Flip(mouseFlip);
+
+        ApplyFlip(mouseFlip);
 
         StartCoroutine(AttackCooldown(attackCooldown));
         return true;
@@ -70,6 +103,8 @@ public class Weapon : MonoBehaviour
 
     public void AttackFinished()
     {
+        followMouseDuringAttack = false;
+
         canAttack = true;
         attackEnd.Invoke();
     }
@@ -79,18 +114,18 @@ public class Weapon : MonoBehaviour
         AttackFinished();
     }
 
-    private bool pendingFlip;
+    private int pendingFlip;
 
-    public void Flip(bool newFlip)
+    public void Flip(int flip)
     {
         if (!canAttack)
         {
-            pendingFlip = newFlip;
+            pendingFlip = flip;
             attackEnd.AddListener(ApplyPendingFlip);
             return;
         }
 
-        ApplyFlip(newFlip);
+        ApplyFlip(flip);
     }
 
     private void ApplyPendingFlip()
@@ -99,16 +134,19 @@ public class Weapon : MonoBehaviour
         ApplyFlip(pendingFlip);
     }
 
-    private void ApplyFlip(bool newFlip)
+    private void ApplyFlip(int flip)
     {
-        isFlipped = newFlip;
+        this.flip = flip;
 
-        flip = isFlipped ? -1 : 1;
+        transform.localScale = new Vector3(flip, 1, 1);
 
-        transform.localScale = new Vector3(
-            originalLocalSc.x * flip,
-            originalLocalSc.y,
-            originalLocalSc.z
-        );
+        if (weaponMesh != null)
+        {
+            weaponMesh.localScale = new Vector3(
+                originalLocalSc.x,
+                originalLocalSc.y,
+                originalLocalSc.z
+            );
+        }
     }
 }

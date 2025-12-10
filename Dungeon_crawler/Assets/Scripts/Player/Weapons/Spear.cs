@@ -5,47 +5,46 @@ using UnityEngine.InputSystem;
 public class Spear : Weapon
 {
     [SerializeField] private bool cancelCooldownOnReturn = false;
-    [Header("Damage")]
     [SerializeField] private int damage = 25;
     [SerializeField] private int knockbackForce = 5;
 
-    [Header("Hitbox")]
     [SerializeField] private float hitboxRange = 2f;
     [SerializeField] private float hitboxWidth = 0.5f;
 
-    [Header("Attack Motion")]
     [SerializeField] private float attackReach = 4f;
     [SerializeField] private float attackDuration = 0.4f;
-    //[SerializeField] private float attackOffset = 0.5f;
 
     private Vector3 originalLocalPos;
     private Quaternion originalLocalRot;
     private Vector3 originalLocalScale;
 
-
     public override bool OnAttack()
     {
-        if (!base.OnAttack()) { return false; }
+        if (!base.OnAttack()) return false;
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 dir = (mousePos - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (flip == -1) angle += 180f;
+        transform.localRotation = Quaternion.Euler(0, 0, angle);
 
         GameObject hitbox = new GameObject("weaponHitbox");
         hitbox.transform.parent = transform;
+        hitbox.transform.localPosition = Vector3.zero;
         hitbox.transform.localRotation = Quaternion.identity;
-        hitbox.transform.position = transform.position;
-        BoxCollider2D collider = hitbox.AddComponent<BoxCollider2D>();
-        collider.size = new Vector2(hitboxRange, hitboxWidth);
-        collider.isTrigger = true;
+        BoxCollider2D col = hitbox.AddComponent<BoxCollider2D>();
+        col.size = new Vector2(hitboxRange, hitboxWidth);
+        col.isTrigger = true;
 
-        Damage damageComp = hitbox.AddComponent<Damage>();
-        damageComp.SetDamage(damage);
-        damageComp.SetKnockbackForce(knockbackForce);
+        Damage dmg = hitbox.AddComponent<Damage>();
+        dmg.SetDamage(damage);
+        dmg.SetKnockbackForce(knockbackForce);
 
         Destroy(hitbox, attackDuration);
 
         StartCoroutine(PikeSpear(attackDuration));
-
         return true;
     }
-
 
     IEnumerator PikeSpear(float duration)
     {
@@ -53,50 +52,31 @@ public class Spear : Weapon
         originalLocalRot = transform.localRotation;
         originalLocalScale = transform.localScale;
 
-        bool returnToStart = !rotateWeapon;
-        rotateWeapon = true;
-        yield return new WaitForSeconds(0.05f);
-        rotateWeapon = false;
-
-        Vector3 startLocalPos = originalLocalPos;
+        Vector3 meshOriginalScale = weaponMesh.localScale;
+        weaponMesh.localScale = new Vector3(flip, flip, 1);
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 worldDir = (mousePos - transform.position).normalized;
-
         Vector3 localDir = transform.parent.InverseTransformDirection(worldDir).normalized;
 
         float elapsed = 0f;
+        Vector3 start = transform.localPosition;
 
         while (elapsed < duration)
         {
             float t = elapsed / duration;
-            float motion = Mathf.Sin(t * Mathf.PI);
-
-            transform.localPosition = startLocalPos + localDir * (motion * attackReach);
-
+            float m = Mathf.Sin(t * Mathf.PI);
+            transform.localPosition = start + localDir * (m * attackReach);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localPosition = startLocalPos;
+        transform.localPosition = originalLocalPos;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = originalLocalScale;
+        weaponMesh.localScale = meshOriginalScale;
 
-        if (!returnToStart)
-        {
-            rotateWeapon = true;
-        }
-        else
-        {
-            transform.localPosition = originalLocalPos;
-            transform.localRotation = originalLocalRot;
-            transform.localScale = originalLocalScale;
-        }
-
-        if (cancelCooldownOnReturn)
-            CancelCooldown();
-
+        if (cancelCooldownOnReturn) CancelCooldown();
         AttackFinished();
     }
-
-
-
 }

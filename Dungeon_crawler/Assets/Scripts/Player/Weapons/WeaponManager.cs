@@ -8,7 +8,7 @@ public class WeaponManager : MonoBehaviour
 {
     public GameObject currentWeapon;
     public List<GameObject> weapons;
-    private int currentWeaponIndex = 0;
+    //private int currentWeaponIndex = 0;
     private Weapon weaponScript;
     private PlayerInput playerInput;
     private InputAction attackAction;
@@ -23,23 +23,8 @@ public class WeaponManager : MonoBehaviour
         attackAction.performed += OnAttack;
         attackAction.canceled += OnAttackReleased;
 
-        transform.GetComponent<PlayerMovement>().flipped.AddListener(FlipWeapon);
     }
 
-    private void Start()
-    {
-        currentWeapon?.SetActive(false);
-        foreach(GameObject weapon in weapons)
-        {
-            weapon?.SetActive(false);
-        }
-    }
-    private void FlipWeapon(bool isFlipped)
-    {
-        Vector3 scale = currentWeapon.transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * (isFlipped ? -1 : 1);
-        currentWeapon.transform.localScale = scale;
-    }
 
     public void OnWeaponKey(InputAction.CallbackContext ctx)
     {
@@ -66,10 +51,10 @@ public class WeaponManager : MonoBehaviour
             weaponScript.attackEnd.AddListener(OnCooldownFinished);
             return;
         }
-        currentWeapon.SetActive(false);
-        currentWeapon = weapons[index - 1];
-        currentWeapon.SetActive(true);
+        Destroy(currentWeapon);
+        currentWeapon = Instantiate(weapons[index - 1], transform);
         weaponScript = currentWeapon.GetComponent<Weapon>();
+        weaponScript.Flip(transform.GetComponent<PlayerMovement>().flip);
     }
 
     private void OnCooldownFinished()
