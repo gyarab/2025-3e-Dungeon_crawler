@@ -114,4 +114,57 @@ public class PathGenerator : MonoBehaviour
         }
         return closestRoom;
     }
+
+    //doors
+    public HashSet<Vector2Int> GetRoomPadding(BoundsInt room)
+    {
+        HashSet<Vector2Int> padding = new HashSet<Vector2Int>();
+
+        // expanded bounds
+        BoundsInt expanded = new BoundsInt(
+            room.xMin - 1,
+            room.yMin - 1,
+            0,
+            room.size.x + 2,
+            room.size.y + 2,
+            1
+        );
+
+        // original room tiles
+        HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
+        for (int x = room.xMin; x < room.xMax; x++)
+            for (int y = room.yMin; y < room.yMax; y++)
+                roomTiles.Add(new Vector2Int(x, y));
+
+        // padding = expanded minus original
+        for (int x = expanded.xMin; x < expanded.xMax; x++)
+        {
+            for (int y = expanded.yMin; y < expanded.yMax; y++)
+            {
+                Vector2Int pos = new Vector2Int(x, y);
+                if (!roomTiles.Contains(pos))
+                    padding.Add(pos);
+            }
+        }
+
+        return padding;
+    }
+    public HashSet<Vector2Int> IntersectDoors(
+    BoundsInt room,
+    HashSet<Vector2Int> pathTiles)
+    {
+        HashSet<Vector2Int> padding = GetRoomPadding(room);
+        HashSet<Vector2Int> doors = new HashSet<Vector2Int>();
+
+        foreach (Vector2Int path in pathTiles)
+        {
+            if (padding.Contains(path))
+                doors.Add(path);
+        }
+
+        return doors;
+    }
+
+
+
 }

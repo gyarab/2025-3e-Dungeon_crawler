@@ -6,42 +6,32 @@ using UnityEngine.Events;
 
 public class DungeonManager : MonoBehaviour
 {
-    public RoomData StartRoom { get; private set; }
+    public Room StartRoom { get; private set; }
 
+    [Header("Managers")]
+    public DetectorManager detectorMan;
     [Header("Generation references")]
-    [SerializeField] private BSP bsp;
-    [SerializeField] private CellularAutomata ca;
-    [SerializeField] private PathGenerator pathGen;
-    [SerializeField] private WallGenerator wallGen;
-    [SerializeField] private WallIslandGenerator wallIslandGen;
-    [SerializeField] private Visualiser visualiser;
+    public BSP bsp;
+    public CellularAutomata ca;
+    public PathGenerator pathGen;
+    public WallGenerator wallGen;
+    public WallIslandGenerator wallIslandGen;
+    public Visualiser visualiser;
+    public DoorGenerator doorGen;
     [Header("Props references")]
-    [SerializeField] private PropManager propMan;
+    public PropManager propMan;
     private List<GameObject> visualRooms = new List<GameObject>();
     private List<GameObject> visualPaths = new List<GameObject>();
+    public List<Room> allRooms = new List<Room>();
 
     void Awake()
     {
         Generate();
-        AssignRooms();
 
         Debug.Log("dungeon generated");
-    }
 
-    public void AssignRooms()
-    {
-        // ------------- game logic ------------- //
-
-        List<RoomData> allRooms = new List<RoomData>();
-        foreach (BoundsInt room in bsp.GetRooms())
-        {
-            allRooms.Add(new RoomData(room));
-        }
-
-        allRooms[0].type = RoomType.Start;
-        StartRoom = allRooms[0];
-
-        allRooms[allRooms.Count - 1].type = RoomType.Boss;
+        // ------------------- INITIALIZATION ---------------------- //
+        detectorMan.Initialize(allRooms);
     }
 
     public void Generate()
@@ -55,9 +45,35 @@ public class DungeonManager : MonoBehaviour
         bsp.GenerateRooms();
         List<BoundsInt> rooms = bsp.GetRooms();
         HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
+
+        int index = 1;
         foreach (BoundsInt room in rooms)
         {
-            roomTiles.UnionWith(ca.GenerateCaves(room));
+            GameObject roomGO = new GameObject("Room " + index);
+
+            Room roomScript = roomGO.AddComponent<Room>();
+            roomScript.Initialize(room, null);
+            roomGO.transform.position = Vector3.zero;
+            allRooms.Add(roomScript);
+            index++;
+        }
+
+        allRooms[0].type = RoomType.Start;
+        StartRoom = allRooms[0];
+
+        allRooms[allRooms.Count - 1].type = RoomType.Boss;
+
+        foreach (BoundsInt room in rooms)
+        {
+            HashSet<Vector2Int> tiles = ca.GenerateCaves(room);
+            for (int i = 0; i < allRooms.Count; i++)
+            {
+                if (allRooms[i].bounds == room)
+                {
+                    allRooms[i].floors = tiles;
+                }
+            }
+            roomTiles.UnionWith(tiles);
         }
 
         BoundsInt floor = bsp.GetFloorSize();
@@ -70,6 +86,19 @@ public class DungeonManager : MonoBehaviour
         //generate paths
         HashSet<Vector2Int> pathTiles = pathGen.GeneratePaths(rooms);
         floorTiles.UnionWith(pathTiles);
+
+        //generate dioors
+        HashSet<Vector2Int> doorTiles = new HashSet<Vector2Int>();
+
+        foreach (BoundsInt room in rooms)
+        {
+            var roomDoors = pathGen.IntersectDoors(room, pathTiles);
+            doorTiles.UnionWith(roomDoors);
+        }
+
+        //visualize dioors
+        doorGen.GenerateDoors(doorTiles);
+
         HashSet<Vector2Int> wallTiles = wallGen.GenerateWalls(floorTiles, 3);
 
         //generate cave islands
@@ -104,8 +133,13 @@ public class DungeonManager : MonoBehaviour
 
         // ------------------- PROPS ---------------------- //
 
+        HashSet<Vector2Int> propFloorTiles = new HashSet<Vector2Int>(floorTiles);
+
+        //remove door tiles from floor tiles
+        propFloorTiles.ExceptWith(doorTiles);
+
         //generate props
-        propMan.GenerateAllProps(floorTiles, wallTiles);
+        propMan.GenerateAllProps(propFloorTiles, wallTiles);
 
     }
 }

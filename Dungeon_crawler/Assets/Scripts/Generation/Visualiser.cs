@@ -9,12 +9,14 @@ public class Visualiser : MonoBehaviour
     [Header("Tiles")]
     [SerializeField] private TileBase floorTile;
     [SerializeField] private TileBase pathTile;
+    [SerializeField] private TileBase doorTile;
     [SerializeField] private TileBase wallTile;
     [SerializeField] private TileBase backgroundTile;
 
     [SerializeField] private Grid grid;
-    [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private Tilemap wallTilemap;
+    [SerializeField] private Tilemap doorTilemap;
+    [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private Tilemap backgroundTilemap;
 
 
@@ -37,7 +39,7 @@ public class Visualiser : MonoBehaviour
     //wall visualisation
     public void VisualiseWalls(HashSet<Vector2Int> positions)
     {
-        foreach (Vector2Int pos in positions.Distinct())
+        foreach (Vector2Int pos in positions)
         {
             wallTilemap.SetTile((Vector3Int)pos, wallTile);
             floorTilemap.SetTile((Vector3Int)pos, floorTile);
@@ -47,7 +49,7 @@ public class Visualiser : MonoBehaviour
     //path visualisation (+rooms if HashSet not BoundsInt)
     public void VisualisePaths(HashSet<Vector2Int> positions)
     {
-        foreach (Vector2Int pos in positions.Distinct())
+        foreach (Vector2Int pos in positions)
         {
             floorTilemap.SetTile((Vector3Int)pos, pathTile);
         }
@@ -56,7 +58,7 @@ public class Visualiser : MonoBehaviour
     //background visualisation
     public void VisualiseBackground(HashSet<Vector2Int> positions)
     {
-        foreach (Vector2Int pos in positions.Distinct())
+        foreach (Vector2Int pos in positions)
         {
             backgroundTilemap.SetTile((Vector3Int)pos, backgroundTile);
         }
