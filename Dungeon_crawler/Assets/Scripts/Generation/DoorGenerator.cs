@@ -29,6 +29,14 @@ public class DoorGenerator : MonoBehaviour
             doors.Add(door);
         }
     }
+    public void ClearDoors()
+    {
+        foreach (GameObject door in doors)
+        {
+            Destroy(door);
+        }
+        doors.Clear();
+    }
 
     public void OpenDoors()
     {

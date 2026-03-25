@@ -6,6 +6,11 @@ using Random = UnityEngine.Random;
 public class PathGenerator : MonoBehaviour
 {
     [SerializeField] int width = 2;
+    private LinkedList<Vector2Int> lastRooms = new LinkedList<Vector2Int>();
+    public Dictionary<Vector2Int, HashSet<Vector2Int>> roomFloors = new Dictionary<Vector2Int, HashSet<Vector2Int>>();
+    public List<BoundsInt> rooms = new List<BoundsInt>();
+    Dictionary<Vector2Int, BoundsInt> centerToRoom = new Dictionary<Vector2Int, BoundsInt>();
+    List<Vector2Int> roomCenters = new List<Vector2Int>();
 
     public HashSet<Vector2Int> GeneratePaths(List<BoundsInt> rooms)
     {
@@ -14,8 +19,13 @@ public class PathGenerator : MonoBehaviour
 
     private HashSet<Vector2Int> GeneratePaths(List<BoundsInt> rooms, int width)
     {
-        List<Vector2Int> roomCenters = new List<Vector2Int>();
-        Dictionary<Vector2Int, BoundsInt> centerToRoom = new Dictionary<Vector2Int, BoundsInt>();
+        centerToRoom.Clear();
+        this.rooms.Clear();
+        lastRooms.Clear();
+        roomCenters.Clear();
+
+        this.rooms = rooms;
+
         foreach (BoundsInt room in rooms)
         {
             Vector2Int center = new Vector2Int(
@@ -25,22 +35,67 @@ public class PathGenerator : MonoBehaviour
             roomCenters.Add(center);
             centerToRoom.Add(center, room);
         }
+
         HashSet<Vector2Int> corridors = new HashSet<Vector2Int>();
         Vector2Int currentRoom = roomCenters[0];
+
+        foreach(Vector2Int room in roomCenters)
+        {
+            Debug.Log("pg: "+room);
+        }
+
         while (roomCenters.Count > 0)
         {
-            roomCenters.Remove(currentRoom);
             Vector2Int closestRoom = FindClosestRoom(currentRoom, roomCenters);
-            roomCenters.Remove(closestRoom);
+
             List<Vector2Int> path = CreatePath(currentRoom, closestRoom, width);
-            corridors.UnionWith(path);
-            currentRoom = closestRoom;
+
+            if (path == null)
+            {
+                if (lastRooms.Count == 0)
+                    break;
+
+                roomCenters.Add(closestRoom);
+
+                currentRoom = lastRooms.Last.Value;
+                lastRooms.RemoveLast();
+            }
+            else
+            {
+                corridors.UnionWith(path);
+                lastRooms.AddLast(currentRoom);
+                roomCenters.Remove(closestRoom);
+                currentRoom = closestRoom;
+            }
         }
+
         return corridors;
+    }
+
+    private HashSet<Vector2Int> GetRoomFloors(Vector2Int center, List<BoundsInt> rooms)
+    {
+        if (roomFloors.ContainsKey(center))
+            return roomFloors[center];
+
+        throw new Exception("center not in any room");
     }
 
     private List<Vector2Int> CreatePath(Vector2Int start, Vector2Int target, int width)
     {
+        //DONT CREATE PATH FROM BOSS ROOM
+
+        HashSet<Vector2Int> room1 = GetRoomFloors(start, rooms);
+        HashSet<Vector2Int> room2 = GetRoomFloors(target, rooms);
+
+        HashSet<Vector2Int> trigger = new HashSet<Vector2Int>();
+        foreach (HashSet<Vector2Int> floors in roomFloors.Values)
+        {
+            if (floors != null)
+                trigger.UnionWith(floors);
+        }
+        trigger.ExceptWith(room1);
+        trigger.ExceptWith(room2);
+
         List<Vector2Int> path = new List<Vector2Int>();
         Vector2Int pos = start;
 
@@ -51,7 +106,7 @@ public class PathGenerator : MonoBehaviour
 
         while (pos != target && maxSteps-- > 0)
         {
-            Vector2Int dir = new Vector2Int((int)Mathf.Sign(target.x - pos.x),(int)Mathf.Sign(target.y - pos.y));
+            Vector2Int dir = new Vector2Int((int)Mathf.Sign(target.x - pos.x), (int)Mathf.Sign(target.y - pos.y));
 
             float n = Mathf.PerlinNoise(pos.x * noiseScale, pos.y * noiseScale);
 
@@ -75,12 +130,14 @@ public class PathGenerator : MonoBehaviour
                 {
                     if (dx * dx + dy * dy <= corridorWidth * corridorWidth)
                     {
+                        if (trigger.Contains(new Vector2Int(pos.x + dx, pos.y + dy)))
+                        {
+                            return null;
+                        }
                         path.Add(new Vector2Int(pos.x + dx, pos.y + dy));
                     }
                 }
             }
-
-
         }
 
         return path;
@@ -97,7 +154,6 @@ public class PathGenerator : MonoBehaviour
         };
         return dirs[Random.Range(0, dirs.Length)];
     }
-
 
     private Vector2Int FindClosestRoom(Vector2Int currentRoom, List<Vector2Int> roomCenters)
     {
@@ -149,6 +205,7 @@ public class PathGenerator : MonoBehaviour
 
         return padding;
     }
+
     public HashSet<Vector2Int> IntersectDoors(
     BoundsInt room,
     HashSet<Vector2Int> pathTiles)
@@ -164,7 +221,4 @@ public class PathGenerator : MonoBehaviour
 
         return doors;
     }
-
-
-
 }

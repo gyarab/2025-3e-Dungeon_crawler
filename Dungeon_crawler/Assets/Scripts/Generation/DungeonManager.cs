@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -20,9 +20,13 @@ public class DungeonManager : MonoBehaviour
     public DoorGenerator doorGen;
     [Header("Props references")]
     public PropManager propMan;
-    private List<GameObject> visualRooms = new List<GameObject>();
-    private List<GameObject> visualPaths = new List<GameObject>();
     public List<Room> allRooms = new List<Room>();
+
+    private List<Vector2Int> prefabRoomFloors;
+    private List<Vector2Int> prefabRoomWalls;
+    private List<Dictionary<Vector2Int, GameObject>> prefabRoomProps;
+
+    private List<PrefabRoom> prefabRoomsClass = new List<PrefabRoom>();
 
     void Awake()
     {
@@ -39,18 +43,27 @@ public class DungeonManager : MonoBehaviour
         // ------------- generation logic ------------- //
 
         //clear previous
+        allRooms.Clear();
         visualiser.ClearAll();
+        propMan.ClearAllProps();
+        doorGen.ClearDoors();
 
-        //generate rooms
         bsp.GenerateRooms();
         List<BoundsInt> rooms = bsp.GetRooms();
+        Dictionary<BoundsInt, RoomType> assigned = bsp.GetAssignedTypes();
+        Dictionary<BoundsInt, PrefabRoom> prefabAssigned = bsp.GetAssignedPrefabs();
+
         HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
+        prefabRoomsClass = bsp.GetPrefabRoomsClass();
 
         int index = 1;
+
+        // ---------------- NORMAL ROOMS ---------------- //
         foreach (BoundsInt room in rooms)
         {
-            GameObject roomGO = new GameObject("Room " + index);
+            if (assigned.ContainsKey(room)) continue;
 
+            GameObject roomGO = new GameObject("Room " + index);
             Room roomScript = roomGO.AddComponent<Room>();
             roomScript.Initialize(room, null);
             roomGO.transform.position = Vector3.zero;
@@ -58,13 +71,42 @@ public class DungeonManager : MonoBehaviour
             index++;
         }
 
-        allRooms[0].type = RoomType.Start;
-        StartRoom = allRooms[0];
+        // ---------------- PREFAB ROOMS ---------------- //
+        foreach (var pair in prefabAssigned)
+        {
+            BoundsInt slot = pair.Key;
+            PrefabRoom pr = pair.Value;
 
-        allRooms[allRooms.Count - 1].type = RoomType.Boss;
+            GameObject roomGO = new GameObject("Prefab room " + pr.roomType);
+            Room roomScript = roomGO.AddComponent<Room>();
 
+            HashSet<Vector2Int> floors = new HashSet<Vector2Int>();
+            foreach (Vector2Int p in pr.prefabRoomSO.floors)
+            {
+                Vector2Int offset = new Vector2Int(
+                    p.x - pr.prefabRoomSO.bounds.min.x + slot.min.x,
+                    p.y - pr.prefabRoomSO.bounds.min.y + slot.min.y
+                );
+                floors.Add(offset);
+            }
+
+            roomScript.Initialize(slot, floors);
+            roomScript.type = assigned[slot];
+
+            roomGO.transform.position = Vector3.zero;
+            allRooms.Add(roomScript);
+
+            if (roomScript.type == RoomType.Start)
+                StartRoom = roomScript;
+
+            index++;
+        }
+
+        // ---------------- CA FOR BSP ROOMS ONLY ---------------- //
         foreach (BoundsInt room in rooms)
         {
+            if (assigned.ContainsKey(room)) continue;
+
             HashSet<Vector2Int> tiles = ca.GenerateCaves(room);
             for (int i = 0; i < allRooms.Count; i++)
             {
@@ -76,70 +118,101 @@ public class DungeonManager : MonoBehaviour
             roomTiles.UnionWith(tiles);
         }
 
+        // ---------------- PREFAB FLOORS MERGED ---------------- //
+        foreach (var pair in prefabAssigned)
+        {
+            PrefabRoom pr = pair.Value;
+            BoundsInt slot = pair.Key;
+
+            foreach (Vector2Int p in pr.prefabRoomSO.floors)
+            {
+                Vector2Int offset = new Vector2Int(
+                    p.x - pr.prefabRoomSO.bounds.min.x + slot.min.x,
+                    p.y - pr.prefabRoomSO.bounds.min.y + slot.min.y
+                );
+                roomTiles.Add(offset);
+            }
+        }
+
         BoundsInt floor = bsp.GetFloorSize();
 
-
-
-        //generate walls
         HashSet<Vector2Int> floorTiles = new HashSet<Vector2Int>(roomTiles);
 
-        //generate paths
-        HashSet<Vector2Int> pathTiles = pathGen.GeneratePaths(rooms);
+        pathGen.roomFloors.Clear();
+        foreach (Room room in allRooms)
+        {
+            Vector2Int center = room.center;
+            HashSet<Vector2Int> floors = room.floors;
+
+            if (!pathGen.roomFloors.ContainsKey(center))
+                pathGen.roomFloors.Add(center, floors);
+            else
+                pathGen.roomFloors[center] = floors;
+        }
+        List<BoundsInt> allRoomBounds = new List<BoundsInt>();
+        foreach(Room room in allRooms) 
+        {
+            allRoomBounds.Add(room.bounds);
+        }
+        HashSet<Vector2Int> pathTiles = pathGen.GeneratePaths(allRoomBounds);
         floorTiles.UnionWith(pathTiles);
 
-        //generate dioors
         HashSet<Vector2Int> doorTiles = new HashSet<Vector2Int>();
 
-        foreach (BoundsInt room in rooms)
+        foreach (BoundsInt room in allRoomBounds)
         {
             var roomDoors = pathGen.IntersectDoors(room, pathTiles);
             doorTiles.UnionWith(roomDoors);
         }
 
-        //visualize dioors
         doorGen.GenerateDoors(doorTiles);
 
         HashSet<Vector2Int> wallTiles = wallGen.GenerateWalls(floorTiles, 3);
 
-        //generate cave islands
-        HashSet<Vector2Int> wallIslands = wallIslandGen.GenerateWallIslands(roomTiles, pathTiles);
+        HashSet<Vector2Int> viableIslandFloors = new HashSet<Vector2Int>(floorTiles);
+        foreach (var pair in prefabAssigned)
+        {
+            PrefabRoom pr = pair.Value;
+            foreach (Vector2Int p in pr.prefabRoomSO.floors)
+            {
+                Vector2Int offset = new Vector2Int(
+                    p.x - pr.prefabRoomSO.bounds.min.x + pair.Key.min.x,
+                    p.y - pr.prefabRoomSO.bounds.min.y + pair.Key.min.y
+                );
+                viableIslandFloors.Remove(offset);
+            }
+        }
+
+        //create wall islands and smooth caves
+        HashSet<Vector2Int> wallIslands = wallIslandGen.GenerateWallIslands(
+            viableIslandFloors, pathTiles);
         wallTiles.UnionWith(wallIslands);
         ca.SmoothCaves(wallTiles, floorTiles);
 
-        //visualise floors and walls
+        //visualise floor and walls before padding to check for errors
         visualiser.VisualisePaths(floorTiles);
         visualiser.VisualiseWalls(wallTiles);
 
-
-        //add background padding
+        //generate wall padding for bg
         HashSet<Vector2Int> bgPadding = wallGen.GenerateWalls(floorTiles, 1);
         floorTiles.UnionWith(bgPadding);
 
-        //find empty tiles (+ padding to hide outer walls)
+        //get empty tiles to visualise bg
         HashSet<Vector2Int> empty = new HashSet<Vector2Int>();
         for (int x = floor.min.x - 20; x < floor.max.x + 20; x++)
-        {
             for (int y = floor.min.y - 20; y < floor.max.y + 20; y++)
-            {
-                Vector2Int pos = new Vector2Int(x, y);
-                if (!floorTiles.Contains(pos))
-                {
-                    empty.Add(pos);
-                }
-            }
-        }
-        //visualise background
+                if (!floorTiles.Contains(new Vector2Int(x, y)))
+                    empty.Add(new Vector2Int(x, y));
+
+        //visualise bg
         visualiser.VisualiseBackground(empty);
 
-        // ------------------- PROPS ---------------------- //
+        // ----------------- PROPS ---------------- //
 
         HashSet<Vector2Int> propFloorTiles = new HashSet<Vector2Int>(floorTiles);
 
-        //remove door tiles from floor tiles
         propFloorTiles.ExceptWith(doorTiles);
 
-        //generate props
         propMan.GenerateAllProps(propFloorTiles, wallTiles);
-
     }
 }

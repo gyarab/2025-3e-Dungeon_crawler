@@ -9,13 +9,11 @@ public class Visualiser : MonoBehaviour
     [Header("Tiles")]
     [SerializeField] private TileBase floorTile;
     [SerializeField] private TileBase pathTile;
-    [SerializeField] private TileBase doorTile;
     [SerializeField] private TileBase wallTile;
     [SerializeField] private TileBase backgroundTile;
 
     [SerializeField] private Grid grid;
     [SerializeField] private Tilemap wallTilemap;
-    [SerializeField] private Tilemap doorTilemap;
     [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private Tilemap backgroundTilemap;
 

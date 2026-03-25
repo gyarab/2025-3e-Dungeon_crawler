@@ -130,7 +130,7 @@ MonoBehaviour:
   destroyOnDeath: 1
   transformToOnDeath: 1
   transformTo:
-  - {fileID: 80320388451735361, guid: a1f14356c07462948997df237aebbedb, type: 3}
+  - {fileID: 2210906771037280361, guid: 1ff848560c77e884fa6380a5a4c95c70, type: 3}
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []

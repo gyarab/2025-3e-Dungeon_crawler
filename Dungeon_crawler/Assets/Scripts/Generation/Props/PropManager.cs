@@ -7,10 +7,31 @@ public class PropManager : MonoBehaviour
 {
     public List<Dictionary<Vector2Int, GameObject>> props = new List<Dictionary<Vector2Int, GameObject>>();
     [HideInInspector] public UnityEvent<HashSet<Vector2Int>, HashSet<Vector2Int>> GenerateProps;
+    [HideInInspector] public UnityEvent ClearProps;
     public void GenerateAllProps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
     {
         Debug.Log("Generating props...");
         StartCoroutine(WaitAndCheckOverlaps(floorTiles, wallTiles));
+    }
+
+    public void MergePropDict(Dictionary<Vector2Int, GameObject> propsToAdd)
+    {
+        props.Add(propsToAdd);
+    }
+
+    public void ClearAllProps()
+    {
+        foreach (var dict in props)
+        {
+            foreach (var kvp in dict)
+            {
+                GameObject obj = kvp.Value;
+                if (obj != null)
+                    Destroy(obj);
+            }
+            dict.Clear();
+        }
+        ClearProps?.Invoke();
     }
 
     private IEnumerator WaitAndCheckOverlaps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)

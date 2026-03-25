@@ -6,6 +6,8 @@ public class TorchGenerator : MonoBehaviour
     public GameObject torchPrefab;
     public float torchChance = 0.05f;
 
+    public Dictionary<Vector2Int, GameObject> torchDict = new Dictionary<Vector2Int, GameObject>();
+
     private PropManager propMan;
 
     public void Awake()
@@ -46,7 +48,10 @@ public class TorchGenerator : MonoBehaviour
             if (!nearWall) continue;
 
             GameObject torch = Instantiate(torchPrefab, new Vector3(tile.x, tile.y, 0), Quaternion.identity);
+            torchDict[tile] = torch;
             torch.transform.parent = torchParent.transform;
         }
+        propMan.MergePropDict(new Dictionary<Vector2Int, GameObject>(torchDict));
+        torchDict.Clear();
     }
 }

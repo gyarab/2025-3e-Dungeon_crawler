@@ -23,6 +23,7 @@ public class DetectorManager : MonoBehaviour
             detector.name = "detector " + room.transform.name;
             PlayerDetector playerDetector = detector.GetComponent<PlayerDetector>();
             playerDetector.manager = this.GetComponent<DetectorManager>();
+            playerDetector.room = room.GetComponentInChildren<Tilemap>();
 
             HashSet<Vector2Int> shrunk = new HashSet<Vector2Int>();
             foreach (Vector2Int pos in room.floors)

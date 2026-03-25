@@ -1051,7 +1051,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719933409}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &719933411
 Camera:
   m_ObjectHideFlags: 0
@@ -1194,11 +1194,11 @@ Transform:
   m_Children:
   - {fileID: 1234035392}
   - {fileID: 1359685870}
-  - {fileID: 1230684614}
   - {fileID: 1398840413}
   - {fileID: 3122245}
   - {fileID: 3846410}
   - {fileID: 1902928487}
+  - {fileID: 1230684614}
   - {fileID: 1177034349}
   m_Father: {fileID: 539187359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1625,6 +1625,9 @@ MonoBehaviour:
   GenerateProps:
     m_PersistentCalls:
       m_Calls: []
+  ClearProps:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1230684612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,12 +1659,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorTile: {fileID: 11400000, guid: 289dc4e4e5a79544c8f10f8946eae31a, type: 2}
   pathTile: {fileID: 11400000, guid: 289dc4e4e5a79544c8f10f8946eae31a, type: 2}
-  doorTile: {fileID: 11400000, guid: 999585f940fbab144a205c7d112c1494, type: 2}
   wallTile: {fileID: 11400000, guid: 7f22566afc5628842b3834b4095b96d7, type: 2}
   backgroundTile: {fileID: 11400000, guid: 54ad79a6ec9c99743bf23d9bed00747e, type: 2}
   grid: {fileID: 1473643966}
   wallTilemap: {fileID: 1618075286}
-  doorTilemap: {fileID: 0}
   floorTilemap: {fileID: 61890408}
   backgroundTilemap: {fileID: 224719763}
 --- !u!4 &1230684614
@@ -1710,13 +1711,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorSize:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 100, y: 100, z: 0}
+    m_Size: {x: 200, y: 200, z: 0}
   minRoomSize: 25
   maxRoomSize: 35
   margin: 3
   shift: 1
-  maximumRooms: 10
-  minimumRooms: 6
+  maximumRooms: 15
+  minimumRooms: 13
+  prefabRooms:
+  - prefabRoomSO: {fileID: 11400000, guid: a5089fff2fcbc004288e88939687486f, type: 2}
+    roomType: 1
+    minCount: 1
+    maxCount: 1
+    minPercentDistance: 0
+    maxPercentDistance: 0
+  - prefabRoomSO: {fileID: 11400000, guid: 7819d464d82745e45a60b794fc8f51d1, type: 2}
+    roomType: 2
+    minCount: 1
+    maxCount: 1
+    minPercentDistance: 100
+    maxPercentDistance: 100
+  - prefabRoomSO: {fileID: 11400000, guid: 63beef6831483964ca94f74d6effe660, type: 2}
+    roomType: 0
+    minCount: 2
+    maxCount: 3
+    minPercentDistance: 20
+    maxPercentDistance: 80
 --- !u!4 &1234035392
 Transform:
   m_ObjectHideFlags: 0
@@ -1898,6 +1918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   width: 1
+  rooms: []
 --- !u!4 &1398840413
 Transform:
   m_ObjectHideFlags: 0
@@ -2218,7 +2239,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.40625
+  orthographic size: 10.90625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
