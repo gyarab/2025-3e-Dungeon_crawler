@@ -24,7 +24,7 @@ public class DoorGenerator : MonoBehaviour
         foreach (Vector2Int pos in positions)
         {
             //doorTilemap.SetTile((Vector3Int)pos, doorTile);
-            GameObject door = Instantiate(doorPrefab, new Vector3(pos.x+0.5f, pos.y+0.5f, 0), Quaternion.identity);
+            GameObject door = Instantiate(doorPrefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
             door.transform.parent = transform;
             doors.Add(door);
         }

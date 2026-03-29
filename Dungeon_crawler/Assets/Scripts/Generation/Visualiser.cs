@@ -18,22 +18,6 @@ public class Visualiser : MonoBehaviour
     [SerializeField] private Tilemap backgroundTilemap;
 
 
-
-    //room visualisation - BoundsInt
-    public void VisualiseRooms(List<BoundsInt> bounds)
-    {
-        foreach (BoundsInt bound in bounds)
-        {
-            for (int x = bound.xMin; x < bound.xMax; x++)
-            {
-                for (int y = bound.yMin; y < bound.yMax; y++)
-                {
-                    floorTilemap.SetTile(new Vector3Int(x, y, 0), floorTile);
-                }
-            }
-        }
-    }
-
     //wall visualisation
     public void VisualiseWalls(HashSet<Vector2Int> positions)
     {

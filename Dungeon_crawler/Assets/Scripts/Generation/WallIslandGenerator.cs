@@ -15,7 +15,7 @@ public class WallIslandGenerator : MonoBehaviour
 
         HashSet<Vector2Int> islands = new HashSet<Vector2Int>();
 
-        foreach (var tile in roomTiles)
+        foreach (Vector2Int tile in roomTiles)
         {
             if (corridorTiles != null && corridorTiles.Contains(tile))
                 continue;

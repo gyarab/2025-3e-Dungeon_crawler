@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,83 +8,72 @@ using UnityEngine.Tilemaps;
 public class PrefabRoomSO : ScriptableObject
 {
     public GameObject prefab;
-    public List<Vector2Int> floors;
-    public List<Vector2Int> walls;
-    public List<Dictionary<Vector2Int, GameObject>> props = new List<Dictionary<Vector2Int, GameObject>>();
+    public List<Vector2Int> floors = new List<Vector2Int>();
+    public List<Vector2Int> walls = new List<Vector2Int>();
+    //public List<Dictionary<Vector2Int, GameObject>> props = new List<Dictionary<Vector2Int, GameObject>>();
+    public List<Vector2Int> propPos = new List<Vector2Int>();
+    public List<GameObject> propGO = new List<GameObject>();
 
     public BoundsInt bounds;
     public Vector2Int center;
 
-    BoundsInt CalculateUsedBounds(Tilemap tilemap)
-    {
-        BoundsInt b = tilemap.cellBounds;
-        bool hasTile = false;
-
-        int minX = int.MaxValue, minY = int.MaxValue;
-        int maxX = int.MinValue, maxY = int.MinValue;
-
-        foreach (Vector3Int pos in b.allPositionsWithin)
-        {
-            if (tilemap.HasTile(pos))
-            {
-                hasTile = true;
-                if (pos.x < minX) minX = pos.x;
-                if (pos.y < minY) minY = pos.y;
-                if (pos.x > maxX) maxX = pos.x;
-                if (pos.y > maxY) maxY = pos.y;
-            }
-        }
-
-        if (!hasTile)
-            return new BoundsInt(0, 0, 0, 0, 0, 0);
-
-        return new BoundsInt(
-            new Vector3Int(minX, minY, 0),
-            new Vector3Int(maxX - minX + 1, maxY - minY + 1, 1)
-        );
-    }
-
     public void extract()
     {
         //extract floors and walls from prefab
-        GameObject grid = prefab.transform.GetChild(0).gameObject;
-        GameObject wallGrid = grid.transform.GetChild(0).gameObject;
-        GameObject floorGrid = grid.transform.GetChild(1).gameObject;
+        GameObject grid = prefab.transform.Find("Grid").gameObject;
+        GameObject wallGrid = grid.transform.Find("Walls").gameObject;
+        GameObject floorGrid = grid.transform.Find("Floors").gameObject;
 
         Tilemap wallTilemap = wallGrid.GetComponent<Tilemap>();
         Tilemap floorTilemap = floorGrid.GetComponent<Tilemap>();
 
-        floors = GetTilePositions(floorTilemap);
-        walls = GetTilePositions(wallTilemap);
+        List<Vector2Int> tempFloors = GetTilePositions(floorTilemap);
+        List<Vector2Int> tempWalls = GetTilePositions(wallTilemap);
+
+        int minX = Mathf.Min(tempFloors.Min(p => p.x), tempWalls.Min(p => p.x));
+        int minY = Mathf.Min(tempFloors.Min(p => p.y), tempWalls.Min(p => p.y));
+
+        //normalize 
+        floors = tempFloors.Select(t => new Vector2Int(t.x - minX, t.y - minY)).ToList();
+        walls = tempWalls.Select(t => new Vector2Int(t.x - minX, t.y - minY)).ToList();
+
+        //remove floor/wall overlap
+        floors = floors.Except(walls).ToList();
+
+        //bounds and center
+        int maxX = floors.Max(p => p.x);
+        int maxY = floors.Max(p => p.y);
+
+        bounds = new BoundsInt(0, 0, 0, maxX + 1, maxY + 1, 1);
+        center = new Vector2Int(bounds.size.x / 2, bounds.size.y / 2);
 
         //extract props
-        GameObject propGrid = prefab.transform.GetChild(1).gameObject;
-        foreach (Transform propT in propGrid.transform)
+        propPos.Clear();
+        propGO.Clear();
+
+        GameObject propGrid = prefab.transform.Find("Props").gameObject;
+        Transform gridTransform = prefab.transform.Find("Grid");
+
+        foreach (Transform prop in propGrid.transform)
         {
-            GameObject prop = propT.gameObject;
-            Dictionary<Vector2Int, GameObject> propDict = new Dictionary<Vector2Int, GameObject>();
-            Vector2Int pos = new Vector2Int((int)Mathf.Round(prop.transform.position.x), (int)Mathf.Round(prop.transform.position.y));
-            propDict.Add(pos, prop);
-            props.Add(propDict);
+            // local position relative to the prefab root
+            Vector3 local = prop.position - gridTransform.position;
+
+            // convert to integer tile coords
+            int x = Mathf.RoundToInt(local.x) - minX;
+            int y = Mathf.RoundToInt(local.y) - minY;
+
+            propPos.Add(new Vector2Int(x, y));
+            propGO.Add(prop.gameObject);
         }
-
-        //extract bounds and center
-        BoundsInt wallBounds = CalculateUsedBounds(wallTilemap);
-        BoundsInt floorBounds = CalculateUsedBounds(floorTilemap);
-
-        bounds.xMin = Mathf.Min(wallBounds.xMin, floorBounds.xMin);
-        bounds.yMin = Mathf.Min(wallBounds.yMin, floorBounds.yMin);
-        bounds.xMax = Mathf.Max(wallBounds.xMax, floorBounds.xMax);
-        bounds.yMax = Mathf.Max(wallBounds.yMax, floorBounds.yMax);
-
-        center = new Vector2Int((bounds.xMin + bounds.xMax) / 2, (bounds.yMin + bounds.yMax) / 2);
     }
 
     public List<Vector2Int> GetTilePositions(Tilemap tilemap)
     {
         List<Vector2Int> result = new List<Vector2Int>();
 
-        if (tilemap == null) return result;
+        if (tilemap == null)
+            return result;
 
         BoundsInt b = tilemap.cellBounds;
 
@@ -92,9 +81,11 @@ public class PrefabRoomSO : ScriptableObject
         {
             if (tilemap.HasTile(pos))
             {
-                result.Add((Vector2Int)pos);
+                result.Add(new Vector2Int(pos.x, pos.y));
             }
         }
+
         return result;
     }
+
 }

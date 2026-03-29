@@ -1,78 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.LightTransport.PostProcessing;
 
 public class PropManager : MonoBehaviour
 {
-    public List<Dictionary<Vector2Int, GameObject>> props = new List<Dictionary<Vector2Int, GameObject>>();
+    public Dictionary<Vector2Int, GameObject> props = new Dictionary<Vector2Int, GameObject>();
     [HideInInspector] public UnityEvent<HashSet<Vector2Int>, HashSet<Vector2Int>> GenerateProps;
     [HideInInspector] public UnityEvent ClearProps;
-    public void GenerateAllProps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
+
+    public IEnumerator GenerateAllProps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
     {
         Debug.Log("Generating props...");
-        StartCoroutine(WaitAndCheckOverlaps(floorTiles, wallTiles));
+        yield return new WaitForSeconds(0.1f);
+        GenerateProps?.Invoke(floorTiles, wallTiles);
+    }
+
+    public void GenerateSetProps(Dictionary<Vector2Int, GameObject> propsToGenerate, Room room)
+    {
+        Vector2Int bspCenter = room.center;
+        Vector2Int prefabCenter = room.prefabRoomSO.center;
+        Vector2Int centerOffset = bspCenter - prefabCenter;
+
+        foreach (var kvp in propsToGenerate)
+        {
+            Vector2Int world = kvp.Key + centerOffset;
+            GameObject obj = kvp.Value;
+
+            if (obj != null)
+            {
+                GameObject newObj = Instantiate(
+                    obj,
+                    new Vector3(world.x, world.y, 0),
+                    Quaternion.identity
+                );
+
+                newObj.transform.parent = transform;
+                props.Add(world, newObj);
+            }
+        }
     }
 
     public void MergePropDict(Dictionary<Vector2Int, GameObject> propsToAdd)
     {
-        props.Add(propsToAdd);
+        foreach (var kvp in propsToAdd)
+        {
+            if (!props.ContainsKey(kvp.Key))
+                props.Add(kvp.Key, kvp.Value);
+        }
     }
 
     public void ClearAllProps()
     {
-        foreach (var dict in props)
+        foreach (GameObject prop in props.Values)
         {
-            foreach (var kvp in dict)
-            {
-                GameObject obj = kvp.Value;
-                if (obj != null)
-                    Destroy(obj);
-            }
-            dict.Clear();
+            if (prop != null)
+                Destroy(prop);
         }
+        props.Clear();
         ClearProps?.Invoke();
     }
-
-    private IEnumerator WaitAndCheckOverlaps(HashSet<Vector2Int> floorTiles, HashSet<Vector2Int> wallTiles)
-    {
-        yield return new WaitForSeconds(0.5f);
-        GenerateProps?.Invoke(floorTiles, wallTiles);
-        yield return new WaitForSeconds(0.5f);
-        CheckOverlaps();
-    }
-
-    public void CheckOverlaps()
-    {
-        HashSet<Vector2Int> seenTiles = new HashSet<Vector2Int>();
-
-        foreach (var dict in props)
-        {
-            List<Vector2Int> toRemove = new List<Vector2Int>();
-
-            foreach (var kvp in dict)
-            {
-                Vector2Int tile = kvp.Key;
-                GameObject obj = kvp.Value;
-
-                if (seenTiles.Contains(tile))
-                {
-                    if (obj != null)
-                        Destroy(obj);
-
-                    toRemove.Add(tile);
-                }
-                else
-                {
-                    seenTiles.Add(tile);
-                }
-            }
-
-            foreach (Vector2Int t in toRemove)
-            {
-                dict.Remove(t);
-            }
-        }
-    }
-
 }

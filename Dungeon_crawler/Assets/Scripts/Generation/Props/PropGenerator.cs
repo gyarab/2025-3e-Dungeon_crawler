@@ -32,10 +32,6 @@ public class PropGenerator : MonoBehaviour
     private void Awake()
     {
         propMan = transform.parent.GetComponent<PropManager>();
-    }
-
-    private void Start()
-    {
         propMan.GenerateProps.AddListener(GenerateProps);
     }
 
@@ -51,7 +47,7 @@ public class PropGenerator : MonoBehaviour
         GameObject propParent = new GameObject("props_" + generatorName);
         propParent.transform.parent = transform;
 
-        Dictionary<Vector2Int, GameObject> propList = new Dictionary<Vector2Int, GameObject>();
+        Dictionary<Vector2Int, GameObject> propDict = new Dictionary<Vector2Int, GameObject>();
 
         foreach (Vector2Int tile in floorTiles)
         {
@@ -71,21 +67,24 @@ public class PropGenerator : MonoBehaviour
 
                 if (!floorTiles.Contains(spawnTile)) continue;
                 if (wallTiles.Contains(spawnTile)) continue;
-                if (avoidOverlap && propList.ContainsKey(spawnTile)) continue;
+                if (avoidOverlap && (propDict.ContainsKey(spawnTile)||propMan.props.ContainsKey(spawnTile))) continue;
 
                 GameObject prefab = ChoosePropByProbability(props.ToList());
 
                 if (prefab == null) continue;
 
-                Vector3 spawnPos = new Vector3(spawnTile.x + 0.5f, spawnTile.y + 0.5f, 0);
+                Vector3 spawnPos = new Vector3(spawnTile.x, spawnTile.y, 0);
                 GameObject obj = Instantiate(prefab, spawnPos, Quaternion.identity, propParent.transform);
 
-                propList[spawnTile] = obj;
+                propDict[spawnTile] = obj;
             }
         }
 
-        if (propMan != null)
-            propMan.props.Add(propList);
+        foreach (var kvp in propDict)
+        {
+            if (!propMan.props.ContainsKey(kvp.Key))
+                propMan.props.Add(kvp.Key, kvp.Value);
+        }
     }
     private GameObject ChoosePropByProbability(List<PropEntry> props)
     {

@@ -25,19 +25,7 @@ public class DetectorManager : MonoBehaviour
             playerDetector.manager = this.GetComponent<DetectorManager>();
             playerDetector.room = room.GetComponentInChildren<Tilemap>();
 
-            HashSet<Vector2Int> shrunk = new HashSet<Vector2Int>();
             foreach (Vector2Int pos in room.floors)
-            {
-                if (room.floors.Contains(new Vector2Int(pos.x + 1, pos.y)) &&
-                    room.floors.Contains(new Vector2Int(pos.x - 1, pos.y)) &&
-                    room.floors.Contains(new Vector2Int(pos.x, pos.y + 1)) &&
-                    room.floors.Contains(new Vector2Int(pos.x, pos.y - 1)))
-                {
-                    shrunk.Add(pos);
-                }
-            }
-
-            foreach (Vector2Int pos in shrunk)
             {
                 Vector3 worldPos = new Vector3(pos.x, pos.y, 0);
                 Vector3Int localPos = playerDetector.room.WorldToCell(worldPos);

@@ -6,21 +6,19 @@ public class Room : MonoBehaviour
 {
     public BoundsInt bounds;
     public HashSet<Vector2Int> floors = new HashSet<Vector2Int>();
+    public HashSet<Vector2Int> walls = new HashSet<Vector2Int>(); 
+    public Dictionary<Vector2Int, GameObject> props = new Dictionary<Vector2Int, GameObject>();
+    public HashSet<Vector2Int> accessableFloors = new HashSet<Vector2Int>();
+    public int distanceIndex;
     public Vector2Int center;
     public RoomType type;
-
-    public void Initialize(BoundsInt bounds, HashSet<Vector2Int> floors, RoomType type = RoomType.Normal)
-    {
-        this.bounds = bounds;
-        this.floors = floors;
-        this.center = new Vector2Int(Mathf.FloorToInt(bounds.center.x), Mathf.FloorToInt(bounds.center.y));
-        this.type = type;
-    }
+    public PrefabRoomSO prefabRoomSO;
+    public List<Room> neighbours = new List<Room>();
 }
 
 public enum RoomType
 {
-    Normal,
+    Generated,
     Start,
     Boss,
     Treasure,

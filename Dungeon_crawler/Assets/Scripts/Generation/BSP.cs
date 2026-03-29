@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,63 +30,16 @@ public class BSP : MonoBehaviour
     [Header("Prefab room settings")]
     [SerializeField] private List<PrefabRoom> prefabRooms = new List<PrefabRoom>();
 
-    private List<BoundsInt> rooms = new List<BoundsInt>();
-    private Dictionary<BoundsInt, RoomType> assignedTypes = new Dictionary<BoundsInt, RoomType>();
-    private Dictionary<BoundsInt, PrefabRoom> prefabAssignments = new Dictionary<BoundsInt, PrefabRoom>();
+    private List<Room> allRooms = new List<Room>();
 
     public BoundsInt GetFloorSize()
     {
         return floorSize;
     }
-    public List<BoundsInt> GetRooms()
-    {
-        return rooms;
-    }
 
-    public Dictionary<BoundsInt, RoomType> GetAssignedTypes()
+    public List<Room> GenerateRooms()
     {
-        return assignedTypes;
-    }
-
-    public Dictionary<BoundsInt, PrefabRoom> GetAssignedPrefabs()
-    {
-        return prefabAssignments;
-    }
-
-    public List<BoundsInt> GetPrefabRooms()
-    {
-        List<BoundsInt> prefabRoomsBounds = new List<BoundsInt>();
-        foreach (PrefabRoom prefabRoom in prefabRooms)
-        {
-            prefabRoomsBounds.Add(prefabRoom.prefabRoomSO.bounds);
-        }
-        return prefabRoomsBounds;
-    }
-
-    public List<PrefabRoom> GetPrefabRoomsClass()
-    {
-        return prefabRooms;
-    }
-
-    public HashSet<Vector2Int> GetRoomTiles()
-    {
-        HashSet<Vector2Int> roomTiles = new HashSet<Vector2Int>();
-        foreach (BoundsInt room in rooms)
-        {
-            for (int x = room.min.x; x < room.max.x; x++)
-            {
-                for (int y = room.min.y; y < room.max.y; y++)
-                {
-                    roomTiles.Add(new Vector2Int(x, y));
-                }
-            }
-        }
-        return roomTiles;
-    }
-
-    public List<BoundsInt> GenerateRooms()
-    {
-        List<BoundsInt> result = null;
+        List<Room> result = null;
         int attempts = 0;
 
         while (result == null && attempts < 20)
@@ -102,7 +56,7 @@ public class BSP : MonoBehaviour
         return result;
     }
 
-    private List<BoundsInt> GenerateRooms(BoundsInt floor, int MinRoomSize, int MaxRoomSize, int Margin, int minimumRooms, int maximumRooms, bool Shift)
+    private List<Room> GenerateRooms(BoundsInt floor, int MinRoomSize, int MaxRoomSize, int Margin, int minimumRooms, int maximumRooms, bool Shift)
     {
         int safetyCap = 10000;
         int safetyCounter = 0;
@@ -160,8 +114,18 @@ public class BSP : MonoBehaviour
             roomsList[i] = room;
         }
 
-        rooms = roomsList;
-        return roomsList;
+        int index = 1;
+        foreach (BoundsInt room in roomsList)
+        {
+            GameObject roomGO = new GameObject("Room "+index);
+            roomGO.transform.position = new Vector3Int((int)Mathf.Ceil(room.center.x), (int)Mathf.Ceil(room.center.y),0);
+            Room roomSC = roomGO.AddComponent<Room>();  
+            roomSC.bounds = room;
+            roomSC.center = new Vector2Int(Mathf.FloorToInt(room.center.x), Mathf.FloorToInt(room.center.y));
+            allRooms.Add(roomSC);
+            index++;
+        }
+        return allRooms;
     }
 
     private List<BoundsInt> SplitY(BoundsInt room, int MinRoomSize, int MaxRoomSize)
@@ -220,11 +184,23 @@ public class BSP : MonoBehaviour
         return rooms;
     }
 
-    private void AssignPrefabRooms(List<BoundsInt> rooms)
+    private void AssignPrefabRooms(List<Room> rooms)
     {
-        List<BoundsInt> pair = GetFurthest(rooms);
-        BoundsInt spawn = pair[0];
-        BoundsInt boss = pair[1];
+        List<Room> pair = GetFurthest(rooms);
+        Room spawn = pair[0];
+        Room boss = pair[1];
+
+        for (int i = 0; i < rooms.Count; i++)
+        {
+            if (rooms[i].center == spawn.center)
+            {
+                rooms[i].type = RoomType.Start;
+            }
+            else if (rooms[i].center == boss.center)
+            {
+                rooms[i].type = RoomType.Boss;
+            }
+        }
 
         rooms.Sort((a, b) =>
         {
@@ -232,10 +208,6 @@ public class BSP : MonoBehaviour
             float db = Vector2.Distance((Vector2)spawn.center, (Vector2)b.center);
             return da.CompareTo(db);
         });
-
-        Dictionary<BoundsInt, RoomType> finalAssigned = new Dictionary<BoundsInt, RoomType>();
-        finalAssigned.Add(spawn, RoomType.Start);
-        finalAssigned.Add(boss, RoomType.Boss);
 
         float maxDist = Vector2.Distance((Vector2)spawn.center, (Vector2)boss.center);
 
@@ -250,44 +222,53 @@ public class BSP : MonoBehaviour
 
                 if (percent >= pr.minPercentDistance && percent <= pr.maxPercentDistance)
                 {
-                    if (!prefabAssignments.ContainsKey(rooms[i]))
+                    for (int j = 0; j < allRooms.Count; j++)
                     {
-                        prefabAssignments.Add(rooms[i], pr);
-                        if (!finalAssigned.ContainsKey(rooms[i]))
-                            finalAssigned.Add(rooms[i], pr.roomType);
-                        count--;
-                    }
+                        if (allRooms[j].center == rooms[i].center)
+                        {
+                            Room room = allRooms[j];
+                            room.type = pr.roomType;
+                            room.prefabRoomSO = pr.prefabRoomSO;
 
+                            room.floors = new HashSet<Vector2Int>(pr.prefabRoomSO.floors);
+                            room.walls = new HashSet<Vector2Int>(pr.prefabRoomSO.walls);
+
+
+                            room.props = new Dictionary<Vector2Int, GameObject>();
+
+                            for (int p = 0; p < pr.prefabRoomSO.propPos.Count; p++)
+                            {
+                                Dictionary<Vector2Int, GameObject> dict = new Dictionary<Vector2Int, GameObject>();
+                                room.props.Add(pr.prefabRoomSO.propPos[p], pr.prefabRoomSO.propGO[p]);
+                            }
+
+                            room.transform.name += " (" + pr.roomType.ToString() + ")";
+
+                            count--;
+                            break;
+                        }
+                    }
                     if (count <= 0)
                         break;
                 }
             }
         }
-
-        assignedTypes = finalAssigned;
-        foreach (BoundsInt r in finalAssigned.Keys)
-        {
-            rooms.Remove(r);
-        }
     }
 
-    private List<BoundsInt> GetFurthest(List<BoundsInt> rooms)
+    private List<Room> GetFurthest(List<Room> rooms)
     {
-        BoundsInt a = rooms[0];
-        BoundsInt b = rooms[0];
+        Room a = rooms[0];
+        Room b = rooms[0];
 
         float maxDist = -1f;
 
-        foreach (BoundsInt r1 in rooms)
+        foreach (Room r1 in rooms)
         {
-            foreach (BoundsInt r2 in rooms)
+            foreach (Room r2 in rooms)
             {
                 if (r1.Equals(r2)) continue;
 
-                float dist = Vector2.Distance(
-                    (Vector2)r1.center,
-                    (Vector2)r2.center
-                );
+                float dist = Vector2.Distance((Vector2)r1.center, (Vector2)r2.center);
 
                 if (dist > maxDist)
                 {
@@ -298,7 +279,7 @@ public class BSP : MonoBehaviour
             }
         }
 
-        return new List<BoundsInt>() { a, b };
+        return new List<Room>() { a, b };
     }
 
 }
