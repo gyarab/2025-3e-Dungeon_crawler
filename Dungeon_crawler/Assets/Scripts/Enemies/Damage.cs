@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Damage : MonoBehaviour
@@ -7,6 +8,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private int knockbackForce;
     [SerializeField] private bool destroyOnHit = false;
+    [SerializeField] private List<string> unhittableTags = new List<string>();
 
     private HashSet<GameObject> ignore = new HashSet<GameObject>();
 
@@ -23,6 +25,14 @@ public class Damage : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         if (ignore.Contains(other.gameObject)) return;
+
+        for (int i = 0; i < unhittableTags.Count; i++)
+        {
+            if (other.tag == unhittableTags[i])
+            {
+                return;
+            }
+        }
 
         if (!other.TryGetComponent(out Health health))
         {

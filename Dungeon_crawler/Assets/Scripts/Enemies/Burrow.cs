@@ -10,11 +10,11 @@ public class Burrow : MonoBehaviour
 
     [Header("Burrow Settings")]
     public float burrowSpeed = 2f;
-    public ParticleSystem buryEffect;
-    public GameObject maskPrefab;
+    public GameObject buryEffect;
+    public GameObject mask;
+    public float burrowParticleYpos = 1.5f;
 
     private Vector3 originalPos;
-    private GameObject mask;
     private Health health;
     private Damage damage;
     private BoxCollider2D boxCollider;
@@ -41,19 +41,13 @@ public class Burrow : MonoBehaviour
         originalPos = enemy.transform.position;
 
         if (buryEffect != null)
-            buryEffect.Play();
-
-        if (maskPrefab != null)
         {
-            mask = Instantiate(maskPrefab,
-                new Vector3(transform.position.x, transform.position.y - enemySizeY * 1.5f, 0),
-                Quaternion.identity);
-
-            mask.transform.localScale = new Vector3(enemySizeX * 1.5f, enemySizeY * 1.5f, 1);
-            mask.transform.parent = transform;
-
-            RefreshSpritesForMasking();
+            GameObject buryEffectGO = Instantiate(buryEffect, new Vector3(transform.position.x, transform.position.y - enemySizeY / burrowParticleYpos, transform.position.z-1f), Quaternion.identity);
+            buryEffectGO.transform.localScale = new Vector3(transform.localScale.x*1.5f, transform.localScale.y*1.5f, 0);
+            buryEffectGO.GetComponent<ParticleSystem>().Play();
+            Destroy(buryEffectGO, buryEffectGO.GetComponent<ParticleSystem>().main.duration + buryEffectGO.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
         }
+        mask.SetActive(true);
 
         health.enabled = false;
         damage.enabled = false;
@@ -85,7 +79,56 @@ public class Burrow : MonoBehaviour
             enemy.transform.position = Vector3.Lerp(jumpTarget, dropTarget, Mathf.SmoothStep(0, 1, t));
             yield return null;
         }
+
         RefreshSpritesForMasking();
+    }
+
+    public void Unbury()
+    {
+        if (mask == null)
+            return;
+
+        StartCoroutine(UnburrowSequence());
+    }
+
+    private IEnumerator UnburrowSequence()
+    {
+        Vector3 maskCenter = mask.transform.position;
+        Vector3 riseTarget = maskCenter + Vector3.up * jumpHeight;
+
+        if (buryEffect != null)
+        {
+            GameObject buryEffectGO = Instantiate(buryEffect, new Vector3(transform.position.x, transform.position.y - enemySizeY / burrowParticleYpos, transform.position.z - 1f), Quaternion.identity);
+            buryEffectGO.transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y*1.5f, 0);
+            buryEffectGO.GetComponent<ParticleSystem>().Play();
+            Destroy(buryEffectGO, buryEffectGO.GetComponent<ParticleSystem>().main.duration + buryEffectGO.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
+        }
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * burrowSpeed;
+            enemy.transform.position = Vector3.Lerp(maskCenter, riseTarget, Mathf.SmoothStep(0, 1, t));
+            yield return null;
+        }
+
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * jumpSpeed;
+            enemy.transform.position = Vector3.Lerp(riseTarget, originalPos, Mathf.SmoothStep(0, 1, t));
+            yield return null;
+        }
+
+        health.enabled = true;
+        damage.enabled = true;
+        boxCollider.enabled = true;
+
+        isBurried?.Invoke(false);
+
+        RefreshSpritesForMasking();
+
+        mask.SetActive(false);
     }
 
     private void RefreshSpritesForMasking()
@@ -94,9 +137,11 @@ public class Burrow : MonoBehaviour
 
         foreach (var sr in renderers)
         {
-            var s = sr.sprite;
-            sr.sprite = null;
-            sr.sprite = s;
+            sr.enabled = false;
+            sr.enabled = true;
         }
+        mask.GetComponent<SpriteMask>().frontSortingLayerID = SortingLayer.NameToID("Background"); 
+        mask.GetComponent<SpriteMask>().frontSortingLayerID = SortingLayer.NameToID("Default");
+
     }
 }
