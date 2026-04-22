@@ -7,16 +7,23 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryPanel;
     public Transform slotsParent;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            inventoryPanel.SetActive(!inventoryPanel.activeSelf);
+    public PlayerMovement playerMovement;
 
-            if (inventoryPanel.activeSelf)
-            {
-                UpdateUI();
-            }
+    public bool isOpen = false;
+
+    public void ToggleInventory()
+    {
+        isOpen = !isOpen;
+        inventoryPanel.SetActive(isOpen);
+
+        if (isOpen)
+        {
+            UpdateUI();
+            playerMovement.canMove = false;
+        }
+        else
+        {
+            playerMovement.canMove = true;
         }
     }
 

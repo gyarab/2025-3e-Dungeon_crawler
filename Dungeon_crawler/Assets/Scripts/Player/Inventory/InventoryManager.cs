@@ -9,6 +9,18 @@ public class InventoryManager : MonoBehaviour
 
     public Item testItem;
 
+    public int gold = 100;
+
+    public InventoryUI inventoryUI;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventoryUI.ToggleInventory();
+        }
+    }
+
     void Awake()
     {
         if (Instance == null)
@@ -24,27 +36,17 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        // Try stacking first
         foreach (InventorySlot slot in slots)
         {
             if (slot.item == item && slot.amount < item.maxStack)
             {
                 slot.amount++;
-                Debug.Log("Stacked: " + item.itemName + " (" + slot.amount + ")");
+                //Debug.Log("Stacked: " + item.itemName + " (" + slot.amount + ")");
                 return;
             }
         }
 
-        // Create new slot
         slots.Add(new InventorySlot(item, 1));
-        Debug.Log("Added new: " + item.itemName);
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            AddItem(testItem);
-        }
+        //Debug.Log("Added new: " + item.itemName);
     }
 }

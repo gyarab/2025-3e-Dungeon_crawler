@@ -1584,12 +1584,6 @@ MonoBehaviour:
     maxCount: 2
     minPercentDistance: 50
     maxPercentDistance: 80
-  - prefabRoomSO: {fileID: 11400000, guid: 7a8d52164720ddf4fbd3069d6900de55, type: 2}
-    roomType: 3
-    minCount: 1
-    maxCount: 2
-    minPercentDistance: 30
-    maxPercentDistance: 80
 --- !u!4 &1234035392
 Transform:
   m_ObjectHideFlags: 0
@@ -1969,7 +1963,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.9166665
+  orthographic size: 2.15625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

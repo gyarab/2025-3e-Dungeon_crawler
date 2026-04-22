@@ -31,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction dashAction;
+
+    public bool canMove = true;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!canMove) return;
+
         movementDir = context.ReadValue<Vector2>();
     }
 
@@ -59,6 +63,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed / (1 + speedDebuff) : walkSpeed / (1 + speedDebuff);
+        
+        if (!canMove)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+        
         rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity, movementDir * speed, ref velocity, smoothTime);
     }
 
@@ -93,6 +104,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
-
-
 }
