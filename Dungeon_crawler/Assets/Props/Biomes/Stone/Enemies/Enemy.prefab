@@ -473,6 +473,9 @@ MonoBehaviour:
   destroyOnDeath: 1
   transformToOnDeath: 0
   transformTo: []
+  ActionsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -489,10 +492,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  knockbackForce: 1000
+  knockbackForce: 50
   destroyOnHit: 0
   unhittableTags:
   - Enemy
+  effectsOnHit:
+  - {fileID: 11400000, guid: ab50e4e691f538649921139970ea2b72, type: 2}
 --- !u!61 &2601656578609518911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -572,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e461c662e3784ec42ab723699c0856bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTest
-  speed: 2
+  speed: 0
   target: {fileID: 0}
   isBurried: 0
 --- !u!1001 &2344685578491337201

@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool destroyOnDeath = true;
     [SerializeField] private bool transformToOnDeath = false;
     [SerializeField] private GameObject[] transformTo;
+    public UnityEvent ActionsOnDeath;
 
     [HideInInspector] public UnityEvent<int> HealthChanged;
 
@@ -36,6 +37,18 @@ public class Health : MonoBehaviour
     public int GetHealth()
     {
         return currentHealth;
+    }
+
+    public void ChangeHealth(int value)
+    {
+        if (value > 0)
+        {
+            Heal(value);
+        }
+        else
+        {
+            TakeDamage(value);
+        }
     }
 
     public bool TakeDamage(int damage)
@@ -120,6 +133,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        ActionsOnDeath?.Invoke();
         Destroy(gameObject);
     }
     private void TransformToOnDeath()

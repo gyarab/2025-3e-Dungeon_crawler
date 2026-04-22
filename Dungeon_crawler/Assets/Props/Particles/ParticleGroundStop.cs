@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ParticleGroundStop : MonoBehaviour
 {
-    public float groundY = 0f;
-
     private ParticleSystem ps;
     private ParticleSystem.Particle[] particles;
 
@@ -15,7 +13,8 @@ public class ParticleGroundStop : MonoBehaviour
 
     void LateUpdate()
     {
-        groundY = transform.position.y-0.1f;
+        float groundY = transform.position.y-0.1f;
+
         int count = ps.GetParticles(particles);
 
         for (int i = 0; i < count; i++)

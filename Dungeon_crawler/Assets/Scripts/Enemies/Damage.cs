@@ -9,6 +9,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private int knockbackForce;
     [SerializeField] private bool destroyOnHit = false;
     [SerializeField] private List<string> unhittableTags = new List<string>();
+    [SerializeField] private List<EffectSO> effectsOnHit = new List<EffectSO>();
 
     private HashSet<GameObject> ignore = new HashSet<GameObject>();
 
@@ -20,6 +21,10 @@ public class Damage : MonoBehaviour
     public void SetKnockbackForce(int knockbackForce)
     {
         this.knockbackForce = knockbackForce;
+    }
+    public void SetUnhittableTags(List<string> tags)
+    {
+        this.unhittableTags = tags;
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -41,11 +46,19 @@ public class Damage : MonoBehaviour
         }
 
         bool damaged = health.TakeDamage(damage);
+        //apply effects
+        if (damaged) {
+            foreach (EffectSO effect in effectsOnHit)
+            {
+                EffectInstance instance = other.gameObject.AddComponent<EffectInstance>();
+                instance.effectData = effect;
+            }
+        }
 
         if (other.TryGetComponent(out Rigidbody2D rb) && damaged)
         {
             Vector2 knockbackDir = (other.transform.position - transform.position).normalized;
-            rb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
+            rb.AddForce(knockbackDir * knockbackForce*100, ForceMode2D.Impulse);
         }
 
         if (destroyOnHit)
