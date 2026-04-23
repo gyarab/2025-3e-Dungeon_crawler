@@ -264,7 +264,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4666953457568224205, guid: 3f9c9f76609478a47b3ad7f6662c7ed1, type: 3}
+  m_Sprite: {fileID: 8967388408334713173, guid: 7e52af175f749e74a801cf23b8a26e0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
   playerMesh: {fileID: 3504927870891290679}
   walkSpeed: 5
   runSpeed: 9
-  smoothTime: 0.25
+  smoothTime: 0.1
   animator: {fileID: 5601322485935169915}
   speedDebuff: 0
   dashEnabled: 1
@@ -517,6 +517,8 @@ MonoBehaviour:
   flipped:
     m_PersistentCalls:
       m_Calls: []
+  canMove: 1
+  canAttack: 1
 --- !u!114 &7033629274935065752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,10 +533,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
   currentWeapon: {fileID: 0}
   weapons:
-  - {fileID: 5970919842118661931, guid: 625030a22446a544692e6623c2e8e5e2, type: 3}
-  - {fileID: 6831108679806021001, guid: 08df22591f9ca994280f3abb7e9da90a, type: 3}
-  - {fileID: 3038339311501877969, guid: 88893531d44132c47aba2f7141296271, type: 3}
-  - {fileID: 9014852168623718245, guid: b256801ddcea4e048b66bb80b360bb74, type: 3}
+  - {fileID: 267880758066640977, guid: e33f7ee9d52010049b4424a361f58bff, type: 3}
+  - {fileID: 3875052342849371294, guid: 997e5250db46bfa45a56d25fb0bacb5e, type: 3}
+  - {fileID: 4661349444541952550, guid: 8b50fefe672e88d40876ee61398465c6, type: 3}
+  - {fileID: 267880758066640977, guid: a1e4dea1da906cc479021bbfedeec71f, type: 3}
 --- !u!114 &7148818142055508367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +550,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 0}
+  slotsParent: {fileID: 0}
+  playerMovement: {fileID: 0}
+  isOpen: 0
 --- !u!114 &7191260294188626943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,7 +711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9bd17e25ed21444919106e38089252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 100000
   currentHealth: 0
   immunityFrames: 60
   shakeOnHitIntensity: 0.1
@@ -717,6 +722,9 @@ MonoBehaviour:
   destroyOnDeath: 0
   transformToOnDeath: 0
   transformTo: []
+  ActionsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
