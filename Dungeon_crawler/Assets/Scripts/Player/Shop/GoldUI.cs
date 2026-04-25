@@ -7,6 +7,6 @@ public class GoldUI : MonoBehaviour
 
     void Update()
     {
-        goldText.text = "Gold: " + InventoryManager.Instance.gold;
+        goldText.text = InventoryManager.Instance.gold.ToString();
     }
 }

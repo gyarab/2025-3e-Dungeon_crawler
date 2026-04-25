@@ -10,9 +10,8 @@ public class Shop : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && Input.GetKeyDown(KeyCode.E) && !InventoryManager.Instance.inventoryUI.isOpen)
         {
-            if (shopUI != null)
             shopUI.ToggleShop();
         }
     }

@@ -3,6 +3,10 @@ using UnityEngine;
 public class ShopUI : MonoBehaviour
 {
     public GameObject shopPanel;
+
+    public GameObject itemsPanel;
+
+    public GameObject upgradesPanel;
     
     public Shop shop;
 
@@ -23,6 +27,18 @@ public class ShopUI : MonoBehaviour
         {
             playerMovement.canMove = true;
         }
+    }
+
+    public void OpenItems()
+    {
+        itemsPanel.SetActive(true);
+        upgradesPanel.SetActive(false);
+    }
+
+    public void OpenUpgrades()
+    {
+        itemsPanel.SetActive(false);
+        upgradesPanel.SetActive(true);
     }
 
     public void Buy()

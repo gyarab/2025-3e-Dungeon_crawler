@@ -13,10 +13,17 @@ public class InventoryManager : MonoBehaviour
 
     public InventoryUI inventoryUI;
 
+    public ShopUI shopUI;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if (shopUI != null && shopUI.isOpen) 
+            {
+                return;
+            }
+
             inventoryUI.ToggleInventory();
         }
     }
