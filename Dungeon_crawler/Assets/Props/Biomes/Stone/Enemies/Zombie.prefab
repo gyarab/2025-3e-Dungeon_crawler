@@ -193,6 +193,11 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 1
   animator: {fileID: 8426039853712420773}
+  attackDistance: 2.5
+  windUpTime: 0.8
+  dashSpeed: 20
+  dashTime: 0.5
+  cooldownTime: 1.5
 --- !u!61 &-4932002946443918953
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -262,6 +267,9 @@ MonoBehaviour:
   destroyOnDeath: 1
   transformToOnDeath: 0
   transformTo: []
+  deathDelay: 1
+  deathTriggerName: Die
+  animator: {fileID: 8426039853712420773}
   ActionsOnDeath:
     m_PersistentCalls:
       m_Calls: []

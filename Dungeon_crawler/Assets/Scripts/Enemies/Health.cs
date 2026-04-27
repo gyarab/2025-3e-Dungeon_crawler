@@ -8,25 +8,38 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
     [SerializeField] private int immunityFrames = 60;
+
     [Header("Effects")]
     [SerializeField] private float shakeOnHitIntensity = 1f;
     [SerializeField] private float shakeDuration = 0.15f;
     [SerializeField] private Color particleColor = Color.red;
     [SerializeField] private ParticleSystem hitParticles;
     [SerializeField] private ParticleSystem deathParticles;
+
     [Header("Death")]
     [SerializeField] private bool destroyOnDeath = true;
     [SerializeField] private bool transformToOnDeath = false;
     [SerializeField] private GameObject[] transformTo;
+    [SerializeField] private float deathDelay = 1f;
+    [SerializeField] private string deathTriggerName = "Die";
+    [SerializeField] private Animator animator;
+    private Rigidbody2D rb;
+
     public UnityEvent ActionsOnDeath;
 
     [HideInInspector] public UnityEvent<int> HealthChanged;
 
     private bool hittable = true;
+    private bool isDead = false;
 
     private void Start()
     {
         currentHealth = maxHealth;
+    }
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public int GetMaxHealth()
@@ -53,12 +66,14 @@ public class Health : MonoBehaviour
 
     public bool TakeDamage(int damage)
     {
-        if (!hittable) return false;
+        if (!hittable || isDead) return false;
 
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
+            isDead = true;
+
             if (deathParticles != null)
             {
                 ParticleSystem ps = Instantiate(deathParticles, transform.position, Quaternion.identity);
@@ -73,8 +88,8 @@ public class Health : MonoBehaviour
 
             if (transformToOnDeath && transformTo.Length > 0)
                 TransformToOnDeath();
-            if (destroyOnDeath)
-                Die();
+
+            StartCoroutine(Die());
             return false;
         }
 
@@ -87,7 +102,7 @@ public class Health : MonoBehaviour
 
             var main = ps.main;
             main.startColor = particleColor;
-            ps.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+0.1f);
+            ps.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
 
             ps.Play();
             Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
@@ -99,6 +114,8 @@ public class Health : MonoBehaviour
 
     public bool Heal(int amount)
     {
+        if (isDead) return false;
+
         currentHealth += amount;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
@@ -131,14 +148,33 @@ public class Health : MonoBehaviour
         transform.localPosition = originalPos;
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
         ActionsOnDeath?.Invoke();
-        Destroy(gameObject);
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+            rb.bodyType = RigidbodyType2D.Static;
+        }
+
+
+        if (animator != null && !string.IsNullOrEmpty(deathTriggerName))
+        {
+            animator.SetTrigger(deathTriggerName);
+        }
+
+        yield return new WaitForSeconds(deathDelay);
+
+        if (destroyOnDeath)
+        {
+            Destroy(gameObject);
+        }
     }
+
     private void TransformToOnDeath()
     {
-        Random.Range(0, transformTo.Length);
         Instantiate(transformTo[Random.Range(0, transformTo.Length)], transform.position, Quaternion.identity);
     }
 }

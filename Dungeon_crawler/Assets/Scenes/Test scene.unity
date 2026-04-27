@@ -996,6 +996,7 @@ MonoBehaviour:
   testItem: {fileID: 11400000, guid: 64625291734416d099e593b5cb5dc4c4, type: 2}
   gold: 100
   inventoryUI: {fileID: 1848103307}
+  shopUI: {fileID: 0}
 --- !u!4 &414051581
 Transform:
   m_ObjectHideFlags: 0
@@ -1043,6 +1044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopUI
   shopPanel: {fileID: 443712143}
+  itemsPanel: {fileID: 0}
+  upgradesPanel: {fileID: 0}
   shop: {fileID: 1183706179}
   isOpen: 0
   playerMovement: {fileID: 5155860693128891659}
@@ -1863,7 +1866,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.65625
+  orthographic size: 10.1875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -24437,7 +24440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 1848103305}
-  slotsParent: {fileID: 1911556339}
+  slotsTop: {fileID: 0}
+  slotsBottom: {fileID: 0}
   playerMovement: {fileID: 5155860693128891659}
   isOpen: 0
 --- !u!114 &1848103308
@@ -24508,7 +24512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 1848103305}
-  slotsParent: {fileID: 1911556339}
+  slotsTop: {fileID: 0}
+  slotsBottom: {fileID: 0}
   playerMovement: {fileID: 0}
   isOpen: 0
 --- !u!4 &1860079113
@@ -27208,10 +27213,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 4669257586987373350}
-    - target: {fileID: 8108572976369513445, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
-      propertyPath: attackDistance
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
