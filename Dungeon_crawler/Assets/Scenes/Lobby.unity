@@ -37645,7 +37645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 1622521163}
-  slotsParent: {fileID: 1142843147}
+  slotsTop: {fileID: 1142843147}
+  slotsBottom: {fileID: 390632492}
   playerMovement: {fileID: 4892368103921301095}
   isOpen: 0
 --- !u!1 &1626418478
@@ -41243,7 +41244,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.68, y: 7.68}
+    oldSize: {x: 2.41, y: 2.41}
     newSize: {x: 2.1, y: 2.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -41311,7 +41312,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2660968328804394481, guid: 17c5f0950a252d83cb98c14b14d310c7, type: 3}
+  m_Sprite: {fileID: 1563444754670240353, guid: adb98089e8a14eb41ad8cf23b7b0dc3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -41488,7 +41489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 1622521163}
-  slotsParent: {fileID: 1142843147}
+  slotsTop: {fileID: 0}
+  slotsBottom: {fileID: 0}
   playerMovement: {fileID: 0}
   isOpen: 0
 --- !u!4 &1988928520

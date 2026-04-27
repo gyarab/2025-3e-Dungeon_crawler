@@ -5,11 +5,31 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryPanel;
-    public Transform slotsParent;
+    public Transform slotsTop;
+    public Transform slotsBottom;
 
     public PlayerMovement playerMovement;
 
     public bool isOpen = false;
+
+    void Start()
+    {
+        InventoryManager.Instance.inventoryUI = this;
+    }
+
+    void Update()
+    {
+        /*if(playerMovement == null && GameManager.Instance != null)
+        {
+            playerMovement =
+                GameManager.Instance.playerInstance.GetComponent<PlayerMovement>();
+        }*/
+        if(playerMovement == null && GameManager.Instance != null)
+        {
+            playerMovement = FindObjectOfType<PlayerMovement>();
+        }
+        
+    }
 
     public void ToggleInventory()
     {
@@ -20,6 +40,7 @@ public class InventoryUI : MonoBehaviour
         {
             UpdateUI();
             playerMovement.canMove = false;
+            Debug.Log("Player cannot move");
         }
         else
         {
@@ -31,22 +52,24 @@ public class InventoryUI : MonoBehaviour
     {
         if (InventoryManager.Instance == null) return;
 
-        for (int i = 0; i < slotsParent.childCount; i++)
+        int itemIndex = 0;
+
+        UpdateSlots(slotsTop, ref itemIndex);
+        UpdateSlots(slotsBottom, ref itemIndex);
+    }
+
+    void UpdateSlots(Transform parent, ref int itemIndex)
+    {
+        for (int i = 0; i < parent.childCount; i++)
         {
-            Transform slot = slotsParent.GetChild(i);
+            Transform slot = parent.GetChild(i);
 
             Transform itemImage = slot.Find("ItemImage");
             Transform amountText = slot.Find("AmountText");
 
-            if (itemImage == null || amountText == null)
+            if (itemIndex < InventoryManager.Instance.slots.Count)
             {
-                Debug.LogError("Slot missing ItemImage or AmountText!");
-                continue;
-            }
-
-            if (i < InventoryManager.Instance.slots.Count)
-            {
-                InventorySlot slotData = InventoryManager.Instance.slots[i];
+                InventorySlot slotData = InventoryManager.Instance.slots[itemIndex];
 
                 Image img = itemImage.GetComponent<Image>();
                 img.sprite = slotData.item.icon;
@@ -55,12 +78,15 @@ public class InventoryUI : MonoBehaviour
                 if (slotData.amount > 1)
                 {
                     amountText.gameObject.SetActive(true);
-                    amountText.GetComponent<TMPro.TMP_Text>().text = slotData.amount.ToString();
+                    amountText.GetComponent<TMP_Text>().text =
+                        slotData.amount.ToString();
                 }
                 else
                 {
                     amountText.gameObject.SetActive(false);
                 }
+
+                itemIndex++;
             }
             else
             {
