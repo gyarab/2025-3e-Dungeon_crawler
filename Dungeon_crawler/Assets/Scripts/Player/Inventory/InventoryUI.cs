@@ -19,32 +19,43 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        /*if(playerMovement == null && GameManager.Instance != null)
-        {
-            playerMovement =
-                GameManager.Instance.playerInstance.GetComponent<PlayerMovement>();
-        }*/
         if(playerMovement == null && GameManager.Instance != null)
         {
-            playerMovement = FindObjectOfType<PlayerMovement>();
+            playerMovement = GameManager.Instance.playerInstance.GetComponent<PlayerMovement>();
         }
         
     }
 
     public void ToggleInventory()
     {
+        if(playerMovement == null && GameManager.Instance != null)
+        {
+            playerMovement =
+                GameManager.Instance.playerInstance.GetComponent<PlayerMovement>();
+        }
+
+        if(playerMovement == null)
+        {
+            Debug.LogError("PlayerMovement still null");
+            return;
+        }
+
         isOpen = !isOpen;
-        inventoryPanel.SetActive(isOpen);
+        if (inventoryPanel != null)
+            inventoryPanel.SetActive(isOpen);
 
         if (isOpen)
         {
             UpdateUI();
-            playerMovement.canMove = false;
-            Debug.Log("Player cannot move");
+            
+            playerMovement.moveBlockers.Add(transform);
         }
         else
         {
-            playerMovement.canMove = true;
+            if(playerMovement.moveBlockers.Contains(transform))
+            {
+                playerMovement.moveBlockers.Remove(transform);
+            }
         }
     }
 

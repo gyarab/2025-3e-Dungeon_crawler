@@ -21,11 +21,13 @@ public class ShopUI : MonoBehaviour
 
         if (isOpen)
         {
-            playerMovement.canMove = false;
+            playerMovement.moveBlockers.Add(gameObject.transform);
         }
         else
         {
-            playerMovement.canMove = true;
+            if(playerMovement.moveBlockers.Contains(gameObject.transform)){
+                playerMovement.moveBlockers.Remove(gameObject.transform);
+            }
         }
     }
 
@@ -49,5 +51,9 @@ public class ShopUI : MonoBehaviour
     public void CloseShop()
     {
         shopPanel.SetActive(false);
+        isOpen = false;
+
+        if(playerMovement.moveBlockers.Contains(transform))
+            playerMovement.moveBlockers.Remove(transform);
     }
 }

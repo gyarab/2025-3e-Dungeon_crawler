@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private InputAction moveAction;
     private InputAction dashAction;
 
-    public bool canMove = true;
+    private bool canMove = true;
+    public HashSet<Transform> moveBlockers = new HashSet<Transform>();
 
     private float lastMoveX = 1f;
     private bool hasInput;
@@ -84,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        canMove = moveBlockers.Count>0 ? false : true;
+
         speed = Input.GetKey(KeyCode.LeftShift)
             ? runSpeed / (1 + speedDebuff)
             : walkSpeed / (1 + speedDebuff);
