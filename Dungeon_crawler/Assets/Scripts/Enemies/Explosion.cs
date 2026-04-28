@@ -34,10 +34,10 @@ public class Explosion : MonoBehaviour
         explosionCollider.radius = radius;
         explosionCollider.isTrigger = true;
         Damage dmg = explosionCollider.gameObject.AddComponent<Damage>();
+        dmg.effectsOnHit = effectsOnHit;
         dmg.SetDamage(damage);
         dmg.SetKnockbackForce(knockbackForce);
         dmg.SetUnhittableTags(unhittableTags);
-        dmg.effectsOnHit = effectsOnHit;
         Destroy(explosion, explosionDuration);
     }
 }
