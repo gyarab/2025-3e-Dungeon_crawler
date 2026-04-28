@@ -2,10 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
-    [SerializeField] private int difficulty;
-    [SerializeField] private int rarity;
-    [SerializeField] private int minimalWave;
+    public GameObject prefab;
+    public int difficulty;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

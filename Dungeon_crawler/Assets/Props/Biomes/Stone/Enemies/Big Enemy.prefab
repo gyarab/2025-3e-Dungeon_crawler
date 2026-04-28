@@ -294,7 +294,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.23018867, b: 0.23018867, a: 1}
+  m_Color: {r: 1, g: 0.9363792, b: 0.23137254, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 511445727342733584}
   - component: {fileID: 128958654715157308}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Big Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 0.9349049, y: 0.9349049, z: 0.9349049}
+  m_LocalScale: {x: 1.7679051, y: 1.7679051, z: 1.7679051}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5362630066572213462}
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9bd17e25ed21444919106e38089252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
   immunityFrames: 10
   shakeOnHitIntensity: 0.1
@@ -495,14 +495,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9274bae6dcb3d44b39d295657180c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  knockbackForce: 50
+  damage: 20
+  knockbackForce: 100
   destroyOnHit: 0
   unhittableTags:
   - Enemy
   - Prop
-  effectsOnHit:
-  - {fileID: 11400000, guid: ab50e4e691f538649921139970ea2b72, type: 2}
+  effectsOnHit: []
 --- !u!61 &2601656578609518911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -582,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e461c662e3784ec42ab723699c0856bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTest
-  speed: 1
+  speed: 0.5
   target: {fileID: 0}
   isBurried: 0
 --- !u!114 &128958654715157308
@@ -598,7 +597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   prefab: {fileID: 9082229247938196679}
-  difficulty: 1
+  difficulty: 5
 --- !u!1001 &2344685578491337201
 PrefabInstance:
   m_ObjectHideFlags: 0

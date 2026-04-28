@@ -7,6 +7,7 @@ public class Healthbar : MonoBehaviour
     private Health health;
     private Transform healthbarBG;
     private Transform healthbarBar;
+    private float initialBarScaleX;
 
     private void Start()
     {
@@ -17,12 +18,24 @@ public class Healthbar : MonoBehaviour
         health = target.transform.GetComponent<Health>();
         health.HealthChanged.AddListener(ChangeHealthbar);
         healthbarBG = transform.GetChild(0).gameObject.transform;
+        healthbarBar = transform.GetChild(1).gameObject.transform; 
         healthbarBar = transform.GetChild(1).gameObject.transform;
+        initialBarScaleX = healthbarBar.localScale.x;
+
     }
 
     private void ChangeHealthbar(int hp)
     {
-        healthbarBar.transform.localScale = new Vector3((float)hp / health.GetMaxHealth(), healthbarBG.localScale.y, healthbarBG.localScale.z);
-        healthbarBar.transform.localPosition = new Vector3(-((1 - (float)hp / health.GetMaxHealth()) / 2) * healthbarBG.localScale.x, healthbarBar.transform.localPosition.y, healthbarBar.transform.localPosition.z);
+        if (hp < 0)
+        {
+            hp = 0;
+        }
+        float maxHealth = health.GetMaxHealth();
+        float percent = Mathf.Clamp01((float)hp / maxHealth);
+
+        healthbarBar.localScale = new Vector3(initialBarScaleX * percent, healthbarBar.localScale.y, healthbarBar.localScale.z);
+        healthbarBar.localPosition = new Vector3(-((1 - percent) / 2) * initialBarScaleX, healthbarBar.localPosition.y, healthbarBar.localPosition.z);
     }
+
+
 }

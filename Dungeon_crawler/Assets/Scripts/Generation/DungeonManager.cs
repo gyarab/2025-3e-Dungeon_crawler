@@ -31,9 +31,9 @@ public class DungeonManager : MonoBehaviour
     HashSet<Vector2Int> prefabFloorTiles = new HashSet<Vector2Int>();
     HashSet<Vector2Int> genFloorTiles = new HashSet<Vector2Int>();
     //walls
-    private HashSet<Vector2Int> allWallTiles = new HashSet<Vector2Int>();
-    private HashSet<Vector2Int> genWallTiles = new HashSet<Vector2Int>();
-    private HashSet<Vector2Int> prefabWallTiles = new HashSet<Vector2Int>();
+    public HashSet<Vector2Int> allWallTiles = new HashSet<Vector2Int>();
+    HashSet<Vector2Int> genWallTiles = new HashSet<Vector2Int>();
+    HashSet<Vector2Int> prefabWallTiles = new HashSet<Vector2Int>();
 
     void Awake()
     {
@@ -150,7 +150,6 @@ public class DungeonManager : MonoBehaviour
         HashSet<Vector2Int> genFloorsOnly = new HashSet<Vector2Int>(genFloorTiles.Union(pathTiles));    // only generated floors + paths
 
         ca.SmoothCaves(genWallsOnly, genFloorsOnly);
-
 
         //visualise floor and walls before padding to check for errors
         visualiser.VisualisePaths(allFloorTiles);

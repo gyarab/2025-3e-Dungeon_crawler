@@ -65,6 +65,18 @@ public class FloodFill : MonoBehaviour
 
         //assign tiles to rooms
 
+        foreach (Vector2Int wall in GameManager.Instance.dungeonManager.allWallTiles)
+        {
+            foreach (Vector2Int tile in visited)
+            {
+                if (tile== wall)
+                {
+                    visited.Remove(tile);
+                    break;
+                }
+            }
+        }
+
         foreach (Vector2Int tile in visited)
         {
             if(!tileToRoom.ContainsKey(tile)) //path

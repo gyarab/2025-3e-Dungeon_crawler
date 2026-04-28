@@ -243,6 +243,7 @@ public class BSP : MonoBehaviour
                             }
 
                             room.transform.name += " (" + pr.roomType.ToString() + ")";
+                            room.hasEnemies = pr.prefabRoomSO.hasEnemies;
 
                             count--;
                             break;

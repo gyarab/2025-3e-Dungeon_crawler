@@ -11,6 +11,7 @@ public class Explosion : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private int knockbackForce;
     [SerializeField] private List<string> unhittableTags = new List<string>();
+    [SerializeField] private List<EffectSO> effectsOnHit = new List<EffectSO>();
 
     public void Explode()
     {
@@ -36,6 +37,7 @@ public class Explosion : MonoBehaviour
         dmg.SetDamage(damage);
         dmg.SetKnockbackForce(knockbackForce);
         dmg.SetUnhittableTags(unhittableTags);
+        dmg.effectsOnHit = effectsOnHit;
         Destroy(explosion, explosionDuration);
     }
 }

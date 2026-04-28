@@ -17,6 +17,8 @@ public class PrefabRoomSO : ScriptableObject
     public BoundsInt bounds;
     public Vector2Int center;
 
+    public bool hasEnemies = false;
+
     public void extract()
     {
         //extract floors and walls from prefab

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8381983416424512860}
   - component: {fileID: 1743614529873296568}
   m_Layer: 0
-  m_Name: Poison
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,8 +223,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.05389105, g: 0.3283019, b: 0.08585426, a: 1}
-      maxColor: {r: 0.3540313, g: 0.7584905, b: 0.33058733, a: 1}
+      minColor: {r: 1, g: 0.118867874, b: 0.13701317, a: 1}
+      maxColor: {r: 1, g: 0.8348624, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -612,7 +612,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: -0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2

@@ -14,7 +14,7 @@ public class DetectorManager : MonoBehaviour
     {
         foreach (Room room in allRooms)
         {
-            if(room.type == RoomType.Start)
+            if(room.type == RoomType.Start||!room.hasEnemies)
             {
                 continue;
             }

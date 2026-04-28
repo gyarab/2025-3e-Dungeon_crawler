@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
         }
         Vector2 spawnPos = dungeonManager.StartRoom.center;
         //Instantiate(playerPrefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
-        playerInstance = Instantiate(character, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+        playerInstance.transform.position = spawnPos;
+        //playerInstance = Instantiate(character, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
         Debug.Log("player spawned at: " + spawnPos);
         Camera.main.GetComponent<CameraFollow>().target = playerInstance.transform;
     }

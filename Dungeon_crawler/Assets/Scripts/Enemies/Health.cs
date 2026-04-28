@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     [SerializeField] private bool destroyOnDeath = true;
     [SerializeField] private bool transformToOnDeath = false;
     [SerializeField] private GameObject[] transformTo;
-    [SerializeField] private float deathDelay = 1f;
+    [SerializeField] private float delayDeath = 0f;
     [SerializeField] private string deathTriggerName = "Die";
     [SerializeField] private Animator animator;
     private Rigidbody2D rb;
@@ -70,21 +70,11 @@ public class Health : MonoBehaviour
 
         currentHealth -= damage;
 
+        HealthChanged?.Invoke(currentHealth);
+
         if (currentHealth <= 0)
         {
             isDead = true;
-
-            if (deathParticles != null)
-            {
-                ParticleSystem ps = Instantiate(deathParticles, transform.position, Quaternion.identity);
-
-                var main = ps.main;
-                main.startColor = particleColor;
-                ps.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
-
-                ps.Play();
-                Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
-            }
 
             if (transformToOnDeath && transformTo.Length > 0)
                 TransformToOnDeath();
@@ -108,7 +98,6 @@ public class Health : MonoBehaviour
             Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
         }
 
-        HealthChanged?.Invoke(currentHealth);
         return true;
     }
 
@@ -165,7 +154,28 @@ public class Health : MonoBehaviour
             animator.SetTrigger(deathTriggerName);
         }
 
-        yield return new WaitForSeconds(deathDelay);
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+        {
+            if (script != this)
+            {
+                script.enabled = false;
+            }
+        }
+
+        yield return new WaitForSeconds(delayDeath);
+
+        if (deathParticles != null)
+        {
+            ParticleSystem ps = Instantiate(deathParticles, transform.position, Quaternion.identity);
+
+            var main = ps.main;
+            main.startColor = particleColor;
+            ps.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.1f);
+
+            ps.Play();
+            Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+        }
 
         if (destroyOnDeath)
         {

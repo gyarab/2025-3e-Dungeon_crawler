@@ -9,7 +9,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private int knockbackForce;
     [SerializeField] private bool destroyOnHit = false;
     [SerializeField] private List<string> unhittableTags = new List<string>();
-    [SerializeField] private List<EffectSO> effectsOnHit = new List<EffectSO>();
+    [SerializeField] public List<EffectSO> effectsOnHit = new List<EffectSO>();
 
     private HashSet<GameObject> ignore = new HashSet<GameObject>();
 

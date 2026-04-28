@@ -36,6 +36,22 @@ public class Burrow : MonoBehaviour
         enemy = transform.Find("enemy").gameObject;
     }
 
+    public void InstaBurry()
+    {
+        Start();
+
+        originalPos = enemy.transform.position;
+
+        mask.SetActive(true);
+
+        health.enabled = false;
+        damage.enabled = false;
+        boxCollider.enabled = false;
+
+        isBurried?.Invoke(true);
+        RefreshSpritesForMasking();
+    }
+
     public void Bury()
     {
         originalPos = enemy.transform.position;

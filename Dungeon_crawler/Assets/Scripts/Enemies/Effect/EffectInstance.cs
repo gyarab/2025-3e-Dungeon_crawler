@@ -13,46 +13,53 @@ public class EffectInstance : MonoBehaviour
 
     void Start()
     {
-        healthComponent = GetComponentInChildren<Health>() ?? GetComponent<Health>();
-        StartCoroutine(Effect());
-
-        //remove this component if gameobject already has the same effect
-        EffectInstance[] existingEffects = GetComponents<EffectInstance>();
-        foreach (EffectInstance effect in existingEffects)
+        try
         {
-            if (effect != this && effect.effectData == effectData)
+            healthComponent = GetComponentInChildren<Health>() ?? GetComponent<Health>();
+            StartCoroutine(Effect());
+
+            //remove this component if gameobject already has the same effect
+            EffectInstance[] existingEffects = GetComponents<EffectInstance>();
+            foreach (EffectInstance effect in existingEffects)
             {
-                Destroy(this);
-                return;
+                if (effect != this && effect.effectData == effectData)
+                {
+                    Destroy(this);
+                    return;
+                }
             }
         }
-    }
+        catch (System.Exception e)
+        {
+            Destroy(this);
+        }
 
-    IEnumerator Effect()
-    {
-        if(effectData.particles != null)
+        IEnumerator Effect()
         {
-            ps = Instantiate(effectData.particles, new Vector3(transform.position.x,transform.position.y,transform.position.z-2), Quaternion.identity);
-            
-            ps.transform.SetParent(transform);
-            ps.Play();
-        }
-        if(gameObject.tag== "Player")
-        {
-            id = Camera.main.GetComponent<CameraTint>().GetFreeID();
-            Camera.main.GetComponent<CameraTint>().AddTint(id, effectData.CameraColorEffect);
-        }
-        while (elapsedTime < effectData.duration)
-        {
-            if (healthComponent != null)
+            if (effectData.particles != null)
             {
-                healthComponent.ChangeHealth((int)effectData.healthChangePerTick);
+                ps = Instantiate(effectData.particles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.identity);
+
+                ps.transform.SetParent(transform);
+                ps.Play();
             }
-            elapsedTime += effectData.tickInterval;
-            yield return effectData.tickInterval;
+            if (gameObject.tag == "Player")
+            {
+                id = Camera.main.GetComponent<CameraTint>().GetFreeID();
+                Camera.main.GetComponent<CameraTint>().AddTint(id, effectData.CameraColorEffect);
+            }
+            while (elapsedTime < effectData.duration)
+            {
+                if (healthComponent != null)
+                {
+                    healthComponent.ChangeHealth((int)effectData.healthChangePerTick);
+                }
+                elapsedTime += effectData.tickInterval;
+                yield return effectData.tickInterval;
+            }
+            Camera.main.GetComponent<CameraTint>().RemoveTint(id);
+            Destroy(this);
+            Destroy(ps);
         }
-        Camera.main.GetComponent<CameraTint>().RemoveTint(id);
-        Destroy(this);
-        Destroy(ps);
     }
 }

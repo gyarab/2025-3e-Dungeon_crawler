@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 148365895833911838}
   m_Layer: 6
   m_Name: Big Crate 1
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,12 @@ MonoBehaviour:
   transformToOnDeath: 1
   transformTo:
   - {fileID: 80320388451735361, guid: 6c35229304baf334ba9854c2df5ca31c, type: 3}
+  deathDelay: 1
+  deathTriggerName: Die
+  animator: {fileID: 0}
+  ActionsOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []

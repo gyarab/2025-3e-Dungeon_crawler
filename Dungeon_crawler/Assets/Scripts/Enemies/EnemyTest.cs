@@ -9,11 +9,12 @@ public class EnemyTest : MonoBehaviour
     private void Start()
     {
         transform.GetComponent<Burrow>().isBurried.AddListener((burried) => { isBurried = burried; });
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (target == null||isBurried)
+        if (target == null||isBurried||gameObject.GetComponent<Health>().GetHealth()<=0)
             return;
         Vector3 direction = (target.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;

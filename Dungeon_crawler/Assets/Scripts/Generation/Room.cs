@@ -14,6 +14,7 @@ public class Room : MonoBehaviour
     public RoomType type;
     public PrefabRoomSO prefabRoomSO;
     public List<Room> neighbours = new List<Room>();
+    public bool hasEnemies = true;
 }
 
 public enum RoomType
