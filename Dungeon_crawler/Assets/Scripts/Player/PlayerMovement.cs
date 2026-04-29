@@ -7,11 +7,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject playerMesh;
+    [SerializeField] private GameObject bodyMesh;
+    [SerializeField] private GameObject handsMesh;
     [SerializeField] private float walkSpeed = 4f;
     [SerializeField] private float runSpeed = 7f;
     [SerializeField] private float smoothTime = 0.1f;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator bodyAnimator;
+    [SerializeField] private Animator handsAnimator;
+    [SerializeField] private Renderer handsRenderer;
+
 
     private float speed;
     [HideInInspector] public float speedDebuff;
@@ -116,8 +120,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashing)
         {
-            animator.SetFloat("Speed", 0f);
-            animator.SetFloat("MoveX", lastMoveX);
+            bodyAnimator.SetFloat("Speed", 0f);
+            handsAnimator.SetFloat("Speed", 0f);
+            bodyAnimator.SetFloat("MoveX", lastMoveX);
+            handsAnimator.SetFloat("MoveX", lastMoveX);
             return;
         }
 
@@ -130,8 +136,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        animator.SetFloat("Speed", hasInput ? rb.linearVelocity.magnitude : 0f);
-        animator.SetFloat("MoveX", lastMoveX);
+        bodyAnimator.SetFloat("Speed", hasInput ? rb.linearVelocity.magnitude : 0f);
+        handsAnimator.SetFloat("Speed", hasInput ? rb.linearVelocity.magnitude : 0f);
+        bodyAnimator.SetFloat("MoveX", lastMoveX);
+        handsAnimator.SetFloat("MoveX", lastMoveX);
     }
 
     public void Flip(float dir)
@@ -140,13 +148,16 @@ public class PlayerMovement : MonoBehaviour
 
         flip = (int)Mathf.Sign(dir);
         flipped.Invoke(flip);
-        playerMesh.transform.localScale = new Vector3(flip, 1, 1);
+        bodyMesh.transform.localScale = new Vector3(flip, 1, 1);
+        handsMesh.transform.localScale = new Vector3(flip, 1, 1);
     }
 
     private void Dash()
     {
-        animator.SetTrigger("Dash");
+        bodyAnimator.SetTrigger("Dash");
         isDashing = true;
+        handsRenderer.enabled = false;
+
 
         dashDirection = movementDir.sqrMagnitude > 0.01f
             ? movementDir.normalized
@@ -165,12 +176,15 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity *= 0.2f;
 
         isDashing = false;
+        
+
     }
 
     IEnumerator DashCooldown()
     {
         canDash = false;
         yield return new WaitForSeconds(dashCooldown);
+        handsRenderer.enabled = true;
         canDash = true;
     }
 }

@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected bool rotateMesh = false;
     [SerializeField] protected Transform weaponMesh;
     [SerializeField] protected float attackCooldown = 0.4f;
+    [SerializeField] private Renderer handsRenderer;
+    private SpriteRenderer[] spriteRenderers;
 
     public bool canAttack = true;
     [HideInInspector] public UnityEvent attackEnd;
@@ -40,6 +42,12 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         transform.parent.GetComponent<PlayerMovement>().flipped.AddListener(Flip);
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (var sr in spriteRenderers)
+        {
+            sr.enabled = false;
+        }
     }
 
     private void Update()
@@ -82,6 +90,13 @@ public class Weapon : MonoBehaviour
     {
         if (!canAttack) return false;
 
+        handsRenderer.enabled = false;
+
+        foreach (var sr in spriteRenderers)
+        {
+            sr.enabled = true;
+        }
+
         followMouseDuringAttack = true;
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -103,6 +118,13 @@ public class Weapon : MonoBehaviour
 
     public void AttackFinished()
     {
+        handsRenderer.enabled = true;
+
+        foreach (var sr in spriteRenderers)
+        {
+            sr.enabled = false;
+        }
+
         followMouseDuringAttack = false;
 
         canAttack = true;

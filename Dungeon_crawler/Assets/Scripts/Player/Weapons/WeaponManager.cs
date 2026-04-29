@@ -8,6 +8,7 @@ public class WeaponManager : MonoBehaviour
 {
     public GameObject currentWeapon;
     public List<GameObject> weapons;
+    
     //private int currentWeaponIndex = 0;
     private Weapon weaponScript;
     private PlayerInput playerInput;
@@ -66,7 +67,9 @@ public class WeaponManager : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        
         weaponScript?.OnAttack();
+        
     }
 
     private void OnAttackReleased(InputAction.CallbackContext context)
