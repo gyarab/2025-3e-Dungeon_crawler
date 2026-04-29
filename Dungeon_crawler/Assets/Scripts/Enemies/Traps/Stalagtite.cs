@@ -6,6 +6,7 @@ public class Stalagtite : MonoBehaviour
     [SerializeField] private float finalSpeed = 25f;
     [SerializeField] private float delayBeforeFall = 0.5f;
     [SerializeField] private float heightToDamage = 1.3f;
+    public bool playerOnly = true;
 
     private BoxCollider2D hitbox;
     private bool isFalling = false;
@@ -24,7 +25,7 @@ public class Stalagtite : MonoBehaviour
     private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         if (isFalling) return;
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player")&&playerOnly)
         {
             return;
 

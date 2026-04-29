@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.SearchService;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public SceneAsset targetScene;
+    public String targetScene;
     public void Change()
     {
-        SceneManager.LoadScene(targetScene.name);
+        SceneManager.LoadScene(targetScene);
     }
 }
