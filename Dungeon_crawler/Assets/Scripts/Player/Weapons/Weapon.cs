@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Transform weaponMesh;
     [SerializeField] protected float attackCooldown = 0.4f;
     [SerializeField] private Renderer handsRenderer;
-    private SpriteRenderer[] spriteRenderers;
+    private SpriteRenderer[] spriteRenderers = new SpriteRenderer[0];
 
     public bool canAttack = true;
     [HideInInspector] public UnityEvent attackEnd;
@@ -37,6 +37,7 @@ public class Weapon : MonoBehaviour
                 Debug.LogWarning("Weapon mesh not assigned and 'Mesh' child not found.");
             }
         }
+        handsRenderer = transform.parent.Find("Hands").GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -91,10 +92,11 @@ public class Weapon : MonoBehaviour
         if (!canAttack) return false;
 
         handsRenderer.enabled = false;
-
-        foreach (var sr in spriteRenderers)
-        {
-            sr.enabled = true;
+        if(spriteRenderers.Length>0){
+            foreach (var sr in spriteRenderers)
+            {
+                sr.enabled = true;
+            }
         }
 
         followMouseDuringAttack = true;

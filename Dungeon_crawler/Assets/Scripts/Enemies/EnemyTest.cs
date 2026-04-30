@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyTest : MonoBehaviour
 {
     public float speed = 2f;
+    public float aggroDistance=20f;
     public Transform target;
     public bool isBurried = false;
 
@@ -14,7 +15,7 @@ public class EnemyTest : MonoBehaviour
 
     void Update()
     {
-        if (target == null||isBurried||gameObject.GetComponent<Health>().GetHealth()<=0)
+        if (target == null||isBurried||gameObject.GetComponent<Health>().GetHealth()<=0||Vector3.Distance(transform.position, target.position)>aggroDistance)
             return;
         Vector3 direction = (target.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;
