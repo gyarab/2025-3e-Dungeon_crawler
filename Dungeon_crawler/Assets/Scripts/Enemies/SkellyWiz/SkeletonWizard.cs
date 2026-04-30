@@ -12,14 +12,19 @@ public class SkeletonWizard : MonoBehaviour
     [SerializeField] private float idleMin = 1.5f;
     [SerializeField] private float idleMax = 3.5f;
 
-    [SerializeField] private float teleportAnimLength = 1f;
-    [SerializeField] private float shootAnimLength = 1.2f;
-    [SerializeField] private float projectileSpawnDelay = 0.4f;
+    [SerializeField] private float teleportOutTime = 0.4f;
+    [SerializeField] private float teleportInTime = 0.4f;
+    [SerializeField] private float shootTime = 0.6f;
 
     void Start()
     {
-        StartCoroutine(Loop());
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(Loop());
+    }
+
+    void Update()
+    {
+        FacePlayer();
     }
 
     IEnumerator Loop()
@@ -28,39 +33,71 @@ public class SkeletonWizard : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(idleMin, idleMax));
 
-            animator.SetTrigger("Teleport");
-            yield return new WaitForSeconds(teleportAnimLength);
+            animator.SetTrigger("TeleportOut");
+            yield return new WaitForSeconds(teleportOutTime);
 
             TeleportToRandomFloor();
 
-            animator.SetTrigger("Shoot");
-            StartCoroutine(ShootProjectile());
+            animator.SetTrigger("TeleportIn");
+            yield return new WaitForSeconds(teleportInTime);
 
-            yield return new WaitForSeconds(shootAnimLength);
+            animator.SetTrigger("Shoot");
+            SpawnProjectile();
+            yield return new WaitForSeconds(shootTime);
         }
     }
 
     void TeleportToRandomFloor()
     {
-        var accessableFloors = transform.parent.GetComponent<Room>().accessableFloors;
+        var room = transform.parent.GetComponent<Room>();
+
+        if (room == null)
+        {
+            Debug.LogError("Room is NULL");
+            return;
+        }
+
+        if (room.accessableFloors == null)
+        {
+            Debug.LogError("accessableFloors is NULL");
+            return;
+        }
+
+        if (room.accessableFloors.Count == 0)
+        {
+            Debug.LogError("accessableFloors is EMPTY");
+            return;
+        }
+
+        var accessableFloors = room.accessableFloors;
         var floorList = new List<Vector2Int>(accessableFloors);
 
-        if (floorList.Count == 0)
-            return;
-
         Vector2Int randomFloor = floorList[Random.Range(0, floorList.Count)];
+
+        Debug.Log("Teleporting to: " + randomFloor);
+
         transform.position = new Vector3(randomFloor.x, randomFloor.y, 0);
     }
 
-    IEnumerator ShootProjectile()
+    void SpawnProjectile()
     {
-        yield return new WaitForSeconds(projectileSpawnDelay);
+        if (!projectilePrefab || !player || !projectileSpawn)
+            return;
 
-        if (projectilePrefab && player && projectileSpawn)
-        {
-            GameObject proj = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
-            Vector2 dir = (player.position - projectileSpawn.position).normalized;
-            proj.transform.up = dir;
-        }
+        GameObject proj = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
+        Vector2 dir = (player.position - projectileSpawn.position).normalized;
+        proj.transform.up = dir;
+    }
+
+    void FacePlayer()
+    {
+        if (!player) return;
+
+        Vector2 direction = (player.position - transform.position).normalized;
+
+        if (direction.x > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (direction.x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 }

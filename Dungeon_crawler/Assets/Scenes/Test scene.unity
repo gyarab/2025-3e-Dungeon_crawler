@@ -27056,11 +27056,6 @@ Transform:
   - {fileID: 1943394126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &222588427953079282 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8542122321679550816, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-  m_PrefabInstance: {fileID: 8507793175051664924}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &295849091347614851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27175,6 +27170,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d050be226a7fd42b3733778dd800a8, type: 3}
+--- !u!1001 &2036047710121404433
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1763777521057151050, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_Name
+      value: Worm
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
 --- !u!4 &4669257586987373350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4669257586226265821, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
@@ -27309,32 +27361,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
---- !u!1 &6789748552194914226 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-  m_PrefabInstance: {fileID: 8507793175051664924}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8147036950095261749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6789748552194914226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19abff8ff5c711a4f8dcf06ae582ee14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkeletonWizard
-  animator: {fileID: 222588427953079282}
-  player: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  projectileSpawn: {fileID: 0}
-  idleMin: 1.5
-  idleMax: 3.5
-  teleportAnimLength: 1
-  shootAnimLength: 1.2
-  projectileSpawnDelay: 0.4
 --- !u!1001 &8507793175051664924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27390,10 +27416,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 8147036950095261749}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -27418,7 +27441,8 @@ SceneRoots:
   - {fileID: 1747367966768519380}
   - {fileID: 295849091347614851}
   - {fileID: 5212774458377675470}
-  - {fileID: 5623636800028128459}
   - {fileID: 248335219}
   - {fileID: 1437234575}
+  - {fileID: 5623636800028128459}
   - {fileID: 8507793175051664924}
+  - {fileID: 2036047710121404433}

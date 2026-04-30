@@ -64,6 +64,7 @@ public class EnemyWaveManager : MonoBehaviour
                 }
 
                 activeEnemies.Add(enemyInstance);
+                enemyInstance.transform.parent = transform.parent;
             }
 
             yield return new WaitUntil(() => activeEnemies.TrueForAll(item => item == null));
