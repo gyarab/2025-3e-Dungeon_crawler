@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 73f74365bf5fd0348993cbf03b02b12e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8933231046795883260
+    second: PropMap_IceStone_0
+  - first:
+      213: 2087906678115723307
+    second: PropMap_IceStone_1
+  - first:
+      213: 3557147531701305210
+    second: PropMap_IceStone_2
+  - first:
+      213: 6535904235306658758
+    second: PropMap_IceStone_3
+  - first:
+      213: -9144543617208672000
+    second: PropMap_IceStone_4
+  - first:
+      213: 3140115939196522064
+    second: PropMap_IceStone_5
+  - first:
+      213: -6157953746120265709
+    second: PropMap_IceStone_6
+  - first:
+      213: -2190175750133992268
+    second: PropMap_IceStone_7
+  - first:
+      213: 7159396824724062881
+    second: PropMap_IceStone_8
+  - first:
+      213: 1082882735374131054
+    second: PropMap_IceStone_9
+  - first:
+      213: 7929596320727096681
+    second: PropMap_IceStone_10
+  - first:
+      213: 3869472895426971425
+    second: PropMap_IceStone_11
+  - first:
+      213: -5087462287944041983
+    second: PropMap_IceStone_12
+  - first:
+      213: 1829084870363960164
+    second: PropMap_IceStone_13
+  - first:
+      213: 1939441473240274660
+    second: PropMap_IceStone_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PropMap_IceStone_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 783
+        width: 145
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf272c88e4639fb70800000000000000
+      internalID: 8933231046795883260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 767
+        width: 114
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b28e041cf0cb9fc10800000000000000
+      internalID: 2087906678115723307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 783
+        width: 482
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7fb6b065d68d5130800000000000000
+      internalID: 3557147531701305210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_3
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 767
+        width: 241
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbac67f54234ba50800000000000000
+      internalID: 6535904235306658758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 511
+        width: 497
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001263fa70e081180800000000000000
+      internalID: -9144543617208672000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_5
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 511
+        width: 242
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ec9554fcee39b20800000000000000
+      internalID: 3140115939196522064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_6
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 511
+        width: 257
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3103733b1bd8a8aa0800000000000000
+      internalID: -6157953746120265709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_7
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 415
+        width: 162
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4b69162ceea91e0800000000000000
+      internalID: -2190175750133992268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 287
+        width: 257
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a2ccbfda794b5360800000000000000
+      internalID: 7159396824724062881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_9
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 255
+        width: 642
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6fd0674c1c270f00800000000000000
+      internalID: 1082882735374131054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_10
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 111
+        width: 257
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96dde2547d59b0e60800000000000000
+      internalID: 7929596320727096681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 257
+        height: 241
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1274de7d81123b530800000000000000
+      internalID: 3869472895426971425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_12
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 0
+        width: 210
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a36eee004b569b0800000000000000
+      internalID: -5087462287944041983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_13
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 15
+        width: 242
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 463d51aaff6326910800000000000000
+      internalID: 1829084870363960164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_IceStone_14
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 0
+        width: 257
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e6952b8eb74aea10800000000000000
+      internalID: 1939441473240274660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PropMap_IceStone_0: 8933231046795883260
+      PropMap_IceStone_1: 2087906678115723307
+      PropMap_IceStone_10: 7929596320727096681
+      PropMap_IceStone_11: 3869472895426971425
+      PropMap_IceStone_12: -5087462287944041983
+      PropMap_IceStone_13: 1829084870363960164
+      PropMap_IceStone_14: 1939441473240274660
+      PropMap_IceStone_2: 3557147531701305210
+      PropMap_IceStone_3: 6535904235306658758
+      PropMap_IceStone_4: -9144543617208672000
+      PropMap_IceStone_5: 3140115939196522064
+      PropMap_IceStone_6: -6157953746120265709
+      PropMap_IceStone_7: -2190175750133992268
+      PropMap_IceStone_8: 7159396824724062881
+      PropMap_IceStone_9: 1082882735374131054
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

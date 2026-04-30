@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: b0bc16438f0aaf648995cb1fdb12d0a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5171652922215860580
+    second: PropMap_LavaStone_0
+  - first:
+      213: 20296070879375342
+    second: PropMap_LavaStone_1
+  - first:
+      213: 707031739232520191
+    second: PropMap_LavaStone_2
+  - first:
+      213: -4100208391401603463
+    second: PropMap_LavaStone_3
+  - first:
+      213: -612519095475316157
+    second: PropMap_LavaStone_4
+  - first:
+      213: 6883753611474940654
+    second: PropMap_LavaStone_5
+  - first:
+      213: -4148544721521578022
+    second: PropMap_LavaStone_6
+  - first:
+      213: 4260656568421745813
+    second: PropMap_LavaStone_7
+  - first:
+      213: 7446629976809353477
+    second: PropMap_LavaStone_8
+  - first:
+      213: -7239478353226689726
+    second: PropMap_LavaStone_9
+  - first:
+      213: 7409950617582719189
+    second: PropMap_LavaStone_10
+  - first:
+      213: -4458144000516703837
+    second: PropMap_LavaStone_11
+  - first:
+      213: 7354691527026353499
+    second: PropMap_LavaStone_12
+  - first:
+      213: -7780760871440404914
+    second: PropMap_LavaStone_13
+  - first:
+      213: 8303582670277563207
+    second: PropMap_LavaStone_14
+  - first:
+      213: 1539567025382765857
+    second: PropMap_LavaStone_15
+  - first:
+      213: -8366676603679772648
+    second: PropMap_LavaStone_16
+  - first:
+      213: 5912740623445401356
+    second: PropMap_LavaStone_17
+  - first:
+      213: 6616733816762497050
+    second: PropMap_LavaStone_18
+  - first:
+      213: 3946005878220913873
+    second: PropMap_LavaStone_19
+  - first:
+      213: -5863735004966632711
+    second: PropMap_LavaStone_20
+  - first:
+      213: 368522991145024330
+    second: PropMap_LavaStone_21
+  - first:
+      213: 9112169032320140693
+    second: PropMap_LavaStone_22
+  - first:
+      213: -973650489597320463
+    second: PropMap_LavaStone_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PropMap_LavaStone_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 799
+        width: 194
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4698942aee665c740800000000000000
+      internalID: 5171652922215860580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_1
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 783
+        width: 210
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefe91f3b2b184000800000000000000
+      internalID: 20296070879375342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_2
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 815
+        width: 178
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff781edee91efc900800000000000000
+      internalID: 707031739232520191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_3
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 815
+        width: 146
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e7e6d11322917c0800000000000000
+      internalID: -4100208391401603463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 511
+        width: 257
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34adc00c025ef77f0800000000000000
+      internalID: -612519095475316157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_5
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 543
+        width: 226
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2b64d1071088f50800000000000000
+      internalID: 6883753611474940654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_6
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 527
+        width: 226
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf62e24e886d66c0800000000000000
+      internalID: -4148544721521578022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_7
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 543
+        width: 178
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59486b63394e02b30800000000000000
+      internalID: 4260656568421745813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_8
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 575
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5013f7d828eb75760800000000000000
+      internalID: 7446629976809353477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_9
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 303
+        width: 98
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2431bcc4bc4388b90800000000000000
+      internalID: -7239478353226689726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_10
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 383
+        width: 210
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0543cb3de65d660800000000000000
+      internalID: 7409950617582719189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_11
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 399
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a9b9abd6ad7122c0800000000000000
+      internalID: -4458144000516703837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_12
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 255
+        width: 210
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b552bfc1afc111660800000000000000
+      internalID: 7354691527026353499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_13
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 287
+        width: 50
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e298f263f250490800000000000000
+      internalID: -7780760871440404914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_14
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 287
+        width: 98
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 743dbf0c1704c3370800000000000000
+      internalID: 8303582670277563207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_15
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 287
+        width: 114
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12538d77d04ad5510800000000000000
+      internalID: 1539567025382765857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 210
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810781f15f793eb80800000000000000
+      internalID: -8366676603679772648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_17
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 15
+        width: 130
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f1c7d15464e0250800000000000000
+      internalID: 5912740623445401356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_18
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 111
+        width: 66
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a187171795c53db50800000000000000
+      internalID: 6616733816762497050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_19
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 159
+        width: 98
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dcf5fc707703c630800000000000000
+      internalID: 3946005878220913873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_20
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 111
+        width: 66
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f2c0f39414df9ea0800000000000000
+      internalID: -5863735004966632711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_21
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 31
+        width: 82
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b73ca35b14d1500800000000000000
+      internalID: 368522991145024330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_22
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 63
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 595c1c0e47de47e70800000000000000
+      internalID: 9112169032320140693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PropMap_LavaStone_23
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 47
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f2aa20d906ec72f0800000000000000
+      internalID: -973650489597320463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PropMap_LavaStone_0: 5171652922215860580
+      PropMap_LavaStone_1: 20296070879375342
+      PropMap_LavaStone_10: 7409950617582719189
+      PropMap_LavaStone_11: -4458144000516703837
+      PropMap_LavaStone_12: 7354691527026353499
+      PropMap_LavaStone_13: -7780760871440404914
+      PropMap_LavaStone_14: 8303582670277563207
+      PropMap_LavaStone_15: 1539567025382765857
+      PropMap_LavaStone_16: -8366676603679772648
+      PropMap_LavaStone_17: 5912740623445401356
+      PropMap_LavaStone_18: 6616733816762497050
+      PropMap_LavaStone_19: 3946005878220913873
+      PropMap_LavaStone_2: 707031739232520191
+      PropMap_LavaStone_20: -5863735004966632711
+      PropMap_LavaStone_21: 368522991145024330
+      PropMap_LavaStone_22: 9112169032320140693
+      PropMap_LavaStone_23: -973650489597320463
+      PropMap_LavaStone_3: -4100208391401603463
+      PropMap_LavaStone_4: -612519095475316157
+      PropMap_LavaStone_5: 6883753611474940654
+      PropMap_LavaStone_6: -4148544721521578022
+      PropMap_LavaStone_7: 4260656568421745813
+      PropMap_LavaStone_8: 7446629976809353477
+      PropMap_LavaStone_9: -7239478353226689726
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
