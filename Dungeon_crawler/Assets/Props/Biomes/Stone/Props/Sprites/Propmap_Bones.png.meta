@@ -1,52 +1,49 @@
 fileFormatVersion: 2
-guid: 73f74365bf5fd0348993cbf03b02b12e
+guid: c8b1822d7cf1a324b8837bb9c1d44afd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8933231046795883260
-    second: PropMap_IceStone_0
+      213: 5099043973286964236
+    second: Propmap_Bones_0
   - first:
-      213: 2087906678115723307
-    second: PropMap_IceStone_1
+      213: 4342671614162523289
+    second: Propmap_Bones_1
   - first:
-      213: 3557147531701305210
-    second: PropMap_IceStone_2
+      213: -3891916695392351034
+    second: Propmap_Bones_2
   - first:
-      213: 6535904235306658758
-    second: PropMap_IceStone_3
+      213: -2146882343564107623
+    second: Propmap_Bones_3
   - first:
-      213: -9144543617208672000
-    second: PropMap_IceStone_4
+      213: -113641440693230750
+    second: Propmap_Bones_4
   - first:
-      213: 3140115939196522064
-    second: PropMap_IceStone_5
+      213: -4562952115136610114
+    second: Propmap_Bones_5
   - first:
-      213: -6157953746120265709
-    second: PropMap_IceStone_6
+      213: -949768255878073917
+    second: Propmap_Bones_6
   - first:
-      213: -2190175750133992268
-    second: PropMap_IceStone_7
+      213: -2432098199338001381
+    second: Propmap_Bones_7
   - first:
-      213: 7159396824724062881
-    second: PropMap_IceStone_8
+      213: -11457029317172405
+    second: Propmap_Bones_8
   - first:
-      213: 1082882735374131054
-    second: PropMap_IceStone_9
+      213: -661201241878134408
+    second: Propmap_Bones_9
   - first:
-      213: 7929596320727096681
-    second: PropMap_IceStone_10
+      213: 6159942760318742865
+    second: Propmap_Bones_10
   - first:
-      213: 3869472895426971425
-    second: PropMap_IceStone_11
+      213: 4452687716706294612
+    second: Propmap_Bones_11
   - first:
-      213: -5087462287944041983
-    second: PropMap_IceStone_12
+      213: -4682768801620876759
+    second: Propmap_Bones_12
   - first:
-      213: 1829084870363960164
-    second: PropMap_IceStone_13
-  - first:
-      213: 1939441473240274660
-    second: PropMap_IceStone_14
+      213: -5479243016834995865
+    second: Propmap_Bones_13
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PropMap_IceStone_0
+      name: Propmap_Bones_0
       rect:
         serializedVersion: 2
         x: 0
@@ -157,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf272c88e4639fb70800000000000000
-      internalID: 8933231046795883260
+      spriteID: c0cadd15a7173c640800000000000000
+      internalID: 5099043973286964236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_1
+      name: Propmap_Bones_1
       rect:
         serializedVersion: 2
         x: 256
@@ -179,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b28e041cf0cb9fc10800000000000000
-      internalID: 2087906678115723307
+      spriteID: 994545a13d4444c30800000000000000
+      internalID: 4342671614162523289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_2
+      name: Propmap_Bones_2
       rect:
         serializedVersion: 2
         x: 512
@@ -201,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7fb6b065d68d5130800000000000000
-      internalID: 3557147531701305210
+      spriteID: 6cc0ab3c2622df9c0800000000000000
+      internalID: -3891916695392351034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_3
+      name: Propmap_Bones_3
       rect:
         serializedVersion: 2
         x: 768
@@ -223,14 +220,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6cbac67f54234ba50800000000000000
-      internalID: 6535904235306658758
+      spriteID: 990ad4912edb432e0800000000000000
+      internalID: -2146882343564107623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_4
+      name: Propmap_Bones_4
       rect:
         serializedVersion: 2
         x: 0
@@ -245,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 001263fa70e081180800000000000000
-      internalID: -9144543617208672000
+      spriteID: 26367b736b34c6ef0800000000000000
+      internalID: -113641440693230750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_5
+      name: Propmap_Bones_5
       rect:
         serializedVersion: 2
         x: 256
@@ -267,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05ec9554fcee39b20800000000000000
-      internalID: 3140115939196522064
+      spriteID: eb04a221a332da0c0800000000000000
+      internalID: -4562952115136610114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_6
+      name: Propmap_Bones_6
       rect:
         serializedVersion: 2
         x: 512
@@ -289,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3103733b1bd8a8aa0800000000000000
-      internalID: -6157953746120265709
+      spriteID: 3c1f179adceb1d2f0800000000000000
+      internalID: -949768255878073917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_7
+      name: Propmap_Bones_7
       rect:
         serializedVersion: 2
         x: 768
@@ -311,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b4b69162ceea91e0800000000000000
-      internalID: -2190175750133992268
+      spriteID: b1c5791d2937f3ed0800000000000000
+      internalID: -2432098199338001381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_8
+      name: Propmap_Bones_8
       rect:
         serializedVersion: 2
         x: 0
@@ -333,14 +330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a2ccbfda794b5360800000000000000
-      internalID: 7159396824724062881
+      spriteID: b436e5d74eb47dff0800000000000000
+      internalID: -11457029317172405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_9
+      name: Propmap_Bones_9
       rect:
         serializedVersion: 2
         x: 256
@@ -355,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6fd0674c1c270f00800000000000000
-      internalID: 1082882735374131054
+      spriteID: 8718ec449f0f2d6f0800000000000000
+      internalID: -661201241878134408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_10
+      name: Propmap_Bones_10
       rect:
         serializedVersion: 2
         x: 512
@@ -377,14 +374,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 96dde2547d59b0e60800000000000000
-      internalID: 7929596320727096681
+      spriteID: 151b981cd438c7550800000000000000
+      internalID: 6159942760318742865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_11
+      name: Propmap_Bones_11
       rect:
         serializedVersion: 2
         x: 768
@@ -399,14 +396,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1274de7d81123b530800000000000000
-      internalID: 3869472895426971425
+      spriteID: 45b160213ef1bcd30800000000000000
+      internalID: 4452687716706294612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_12
+      name: Propmap_Bones_12
       rect:
         serializedVersion: 2
         x: 0
@@ -421,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 10a36eee004b569b0800000000000000
-      internalID: -5087462287944041983
+      spriteID: 9222b16d596730fb0800000000000000
+      internalID: -4682768801620876759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_13
+      name: Propmap_Bones_13
       rect:
         serializedVersion: 2
         x: 256
@@ -443,14 +440,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 463d51aaff6326910800000000000000
-      internalID: 1829084870363960164
+      spriteID: 769a287a181d5f3b0800000000000000
+      internalID: -5479243016834995865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_14
+      name: Propmap_Bones_14
       rect:
         serializedVersion: 2
         x: 512
@@ -463,16 +460,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4e6952b8eb74aea10800000000000000
-      internalID: 1939441473240274660
+      spriteID: f95430173b0fce644b9a4800792eeb23
+      internalID: -36707693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PropMap_IceStone_15
+      name: Propmap_Bones_15
       rect:
         serializedVersion: 2
         x: 768
@@ -487,8 +484,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee3f46579fc0684ea178d66502addc5
-      internalID: 2125487042
+      spriteID: b2e9dd143050eb74d9e53cf7a50b7125
+      internalID: -121418633
       vertices: []
       indices: 
       edges: []
@@ -497,7 +494,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 80c0cdfa85469be44a3e3e59155f5b02
+    spriteID: 19415ba06ac5cd14e8bb65ddd9de8dfe
     internalID: 0
     vertices: []
     indices: 
@@ -509,22 +506,22 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      PropMap_IceStone_0: 8933231046795883260
-      PropMap_IceStone_1: 2087906678115723307
-      PropMap_IceStone_10: 7929596320727096681
-      PropMap_IceStone_11: 3869472895426971425
-      PropMap_IceStone_12: -5087462287944041983
-      PropMap_IceStone_13: 1829084870363960164
-      PropMap_IceStone_14: 1939441473240274660
-      PropMap_IceStone_15: 2125487042
-      PropMap_IceStone_2: 3557147531701305210
-      PropMap_IceStone_3: 6535904235306658758
-      PropMap_IceStone_4: -9144543617208672000
-      PropMap_IceStone_5: 3140115939196522064
-      PropMap_IceStone_6: -6157953746120265709
-      PropMap_IceStone_7: -2190175750133992268
-      PropMap_IceStone_8: 7159396824724062881
-      PropMap_IceStone_9: 1082882735374131054
+      Propmap_Bones_0: 5099043973286964236
+      Propmap_Bones_1: 4342671614162523289
+      Propmap_Bones_10: 6159942760318742865
+      Propmap_Bones_11: 4452687716706294612
+      Propmap_Bones_12: -4682768801620876759
+      Propmap_Bones_13: -5479243016834995865
+      Propmap_Bones_14: -36707693
+      Propmap_Bones_15: -121418633
+      Propmap_Bones_2: -3891916695392351034
+      Propmap_Bones_3: -2146882343564107623
+      Propmap_Bones_4: -113641440693230750
+      Propmap_Bones_5: -4562952115136610114
+      Propmap_Bones_6: -949768255878073917
+      Propmap_Bones_7: -2432098199338001381
+      Propmap_Bones_8: -11457029317172405
+      Propmap_Bones_9: -661201241878134408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

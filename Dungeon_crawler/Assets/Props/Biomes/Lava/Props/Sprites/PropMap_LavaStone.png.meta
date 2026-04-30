@@ -106,7 +106,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -120,7 +120,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -144,7 +144,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -172,12 +172,12 @@ TextureImporter:
       name: PropMap_LavaStone_0
       rect:
         serializedVersion: 2
-        x: 31
-        y: 799
-        width: 194
-        height: 162
+        x: 0
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: PropMap_LavaStone_1
       rect:
         serializedVersion: 2
-        x: 271
-        y: 783
-        width: 210
-        height: 226
+        x: 256
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: PropMap_LavaStone_2
       rect:
         serializedVersion: 2
-        x: 543
-        y: 815
-        width: 178
-        height: 114
+        x: 512
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -238,12 +238,12 @@ TextureImporter:
       name: PropMap_LavaStone_3
       rect:
         serializedVersion: 2
-        x: 815
-        y: 815
-        width: 146
-        height: 82
+        x: 768
+        y: 768
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -261,11 +261,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 511
-        width: 257
-        height: 210
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -282,12 +282,12 @@ TextureImporter:
       name: PropMap_LavaStone_5
       rect:
         serializedVersion: 2
-        x: 271
-        y: 543
-        width: 226
-        height: 146
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -304,12 +304,12 @@ TextureImporter:
       name: PropMap_LavaStone_6
       rect:
         serializedVersion: 2
-        x: 527
-        y: 527
-        width: 226
-        height: 210
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -326,12 +326,12 @@ TextureImporter:
       name: PropMap_LavaStone_7
       rect:
         serializedVersion: 2
-        x: 767
-        y: 543
-        width: 178
-        height: 82
+        x: 768
+        y: 512
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -348,12 +348,12 @@ TextureImporter:
       name: PropMap_LavaStone_8
       rect:
         serializedVersion: 2
-        x: 959
-        y: 575
-        width: 50
-        height: 50
+        x: 0
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -370,12 +370,12 @@ TextureImporter:
       name: PropMap_LavaStone_9
       rect:
         serializedVersion: 2
-        x: 79
-        y: 303
-        width: 98
-        height: 162
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -392,12 +392,12 @@ TextureImporter:
       name: PropMap_LavaStone_10
       rect:
         serializedVersion: 2
-        x: 287
-        y: 383
-        width: 210
-        height: 114
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: PropMap_LavaStone_11
       rect:
         serializedVersion: 2
-        x: 543
-        y: 399
-        width: 98
-        height: 98
+        x: 768
+        y: 256
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: PropMap_LavaStone_12
       rect:
         serializedVersion: 2
-        x: 287
-        y: 255
-        width: 210
-        height: 114
+        x: 0
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -458,12 +458,12 @@ TextureImporter:
       name: PropMap_LavaStone_13
       rect:
         serializedVersion: 2
-        x: 575
-        y: 287
-        width: 50
-        height: 98
+        x: 256
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -480,12 +480,12 @@ TextureImporter:
       name: PropMap_LavaStone_14
       rect:
         serializedVersion: 2
-        x: 655
-        y: 287
-        width: 98
-        height: 66
+        x: 512
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -502,12 +502,12 @@ TextureImporter:
       name: PropMap_LavaStone_15
       rect:
         serializedVersion: 2
-        x: 815
-        y: 287
-        width: 114
-        height: 98
+        x: 768
+        y: 0
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -520,187 +520,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_16
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 15
-        width: 210
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 810781f15f793eb80800000000000000
-      internalID: -8366676603679772648
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_17
-      rect:
-        serializedVersion: 2
-        x: 335
-        y: 15
-        width: 130
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0f1c7d15464e0250800000000000000
-      internalID: 5912740623445401356
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_18
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 111
-        width: 66
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a187171795c53db50800000000000000
-      internalID: 6616733816762497050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_19
-      rect:
-        serializedVersion: 2
-        x: 655
-        y: 159
-        width: 98
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1dcf5fc707703c630800000000000000
-      internalID: 3946005878220913873
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_20
-      rect:
-        serializedVersion: 2
-        x: 879
-        y: 111
-        width: 66
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9f2c0f39414df9ea0800000000000000
-      internalID: -5863735004966632711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_21
-      rect:
-        serializedVersion: 2
-        x: 543
-        y: 31
-        width: 82
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a4b73ca35b14d1500800000000000000
-      internalID: 368522991145024330
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_22
-      rect:
-        serializedVersion: 2
-        x: 799
-        y: 63
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 595c1c0e47de47e70800000000000000
-      internalID: 9112169032320140693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PropMap_LavaStone_23
-      rect:
-        serializedVersion: 2
-        x: 927
-        y: 47
-        width: 66
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1f2aa20d906ec72f0800000000000000
-      internalID: -973650489597320463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fd7c5bc31dcc53b41b9f05974f444e61
     internalID: 0
     vertices: []
     indices: 
@@ -708,7 +532,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       PropMap_LavaStone_0: 5171652922215860580
       PropMap_LavaStone_1: 20296070879375342
@@ -718,15 +544,7 @@ TextureImporter:
       PropMap_LavaStone_13: -7780760871440404914
       PropMap_LavaStone_14: 8303582670277563207
       PropMap_LavaStone_15: 1539567025382765857
-      PropMap_LavaStone_16: -8366676603679772648
-      PropMap_LavaStone_17: 5912740623445401356
-      PropMap_LavaStone_18: 6616733816762497050
-      PropMap_LavaStone_19: 3946005878220913873
       PropMap_LavaStone_2: 707031739232520191
-      PropMap_LavaStone_20: -5863735004966632711
-      PropMap_LavaStone_21: 368522991145024330
-      PropMap_LavaStone_22: 9112169032320140693
-      PropMap_LavaStone_23: -973650489597320463
       PropMap_LavaStone_3: -4100208391401603463
       PropMap_LavaStone_4: -612519095475316157
       PropMap_LavaStone_5: 6883753611474940654
