@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Layers/6 Magic layer.unity
     guid: 10c1e6585814d4349a1fc1a82862e1d8
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 79bc05ef7e413b44eb3d280050beac69
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
