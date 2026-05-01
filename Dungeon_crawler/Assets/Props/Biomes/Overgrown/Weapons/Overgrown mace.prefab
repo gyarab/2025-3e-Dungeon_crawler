@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mace
   icon: {fileID: 8485287189988470181, guid: 5cdeb0867f94b8c379d0f4216fec27d0, type: 3}
-  type: 5
+  type: 6
   rotateMesh: 0
   weaponMesh: {fileID: 0}
   attackCooldown: 0.7

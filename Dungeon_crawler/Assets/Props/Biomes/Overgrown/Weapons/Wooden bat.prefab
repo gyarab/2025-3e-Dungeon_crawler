@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sword
   icon: {fileID: -1628754297522458341, guid: cdc5e2c8ee4c32354a9d3bfe5a292c4f, type: 3}
-  type: 0
+  type: 2
   rotateMesh: 0
   weaponMesh: {fileID: 0}
   attackCooldown: 0.2

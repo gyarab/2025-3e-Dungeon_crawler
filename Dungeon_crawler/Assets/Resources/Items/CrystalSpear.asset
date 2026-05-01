@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01b26407a5553614b9df3febaa4816fa, type: 3}
-  m_Name: OvergrownMace
+  m_Name: CrystalSpear
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: OvergrownMace
-  type: 6
-  prefab: {fileID: 9014852168623718245, guid: c1746e233f07d7318b93d8b838c9b705, type: 3}
-  icon: {fileID: 8485287189988470181, guid: 5cdeb0867f94b8c379d0f4216fec27d0, type: 3}
+  itemName: CrystalSpear
+  type: 3
+  prefab: {fileID: 6831108679806021001, guid: 0cded61f7dd34ac34bcea933bc670c8f, type: 3}
+  icon: {fileID: 21300000, guid: 1850ab6d4a9c335c5af731170a11e340, type: 3}
   maxStack: 1
-  price: 50
+  price: 60
