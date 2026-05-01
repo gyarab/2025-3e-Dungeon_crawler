@@ -49,20 +49,20 @@ MonoBehaviour:
   type: 1
   rotateMesh: 0
   weaponMesh: {fileID: 0}
-  attackCooldown: 0.2
+  attackCooldown: 0.25
   handsRenderer: {fileID: 0}
   canAttack: 1
   attackEnd:
     m_PersistentCalls:
       m_Calls: []
   cancelCooldownOnReturn: 0
-  damage: 20
+  damage: 40
   knockbackForce: 2
-  hitboxRange: 1
+  hitboxRange: 2
   hitboxWidth: 0.5
   attackOffset: 0.7
-  attackAngle: 40
-  attackDuration: 0.3
+  attackAngle: 60
+  attackDuration: 0.6
 --- !u!1 &3390938974912481794
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sword
   icon: {fileID: -6462864508616356408, guid: 990b7f4b635dfebd59595afc8eea86c2, type: 3}
+  type: 0
   rotateMesh: 0
   weaponMesh: {fileID: 0}
   attackCooldown: 0.15
@@ -61,7 +62,7 @@ MonoBehaviour:
   hitboxWidth: 0.5
   attackOffset: 0.8
   attackAngle: 60
-  attackDuration: 0.4
+  attackDuration: 0.35
 --- !u!1 &2613026254035444387
 GameObject:
   m_ObjectHideFlags: 0

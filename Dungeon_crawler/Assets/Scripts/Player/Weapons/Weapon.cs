@@ -10,6 +10,7 @@ public enum WeaponType
     Hammer,
     Spear,
     Daggers,
+    ShortRange,
     Mace,
     Bomb
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5831001485285690080}
   - component: {fileID: 5301368546011429897}
   m_Layer: 0
-  m_Name: Wooden Katana
+  m_Name: Wooden bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3286884278c2d53418e35397b71eb0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sword
-  icon: {fileID: 1713571701436483679, guid: 51d9b53a71fef044fb2b5a1e094cbd32, type: 3}
+  icon: {fileID: -1628754297522458341, guid: cdc5e2c8ee4c32354a9d3bfe5a292c4f, type: 3}
   type: 0
   rotateMesh: 0
   weaponMesh: {fileID: 0}
@@ -56,13 +56,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cancelCooldownOnReturn: 0
-  damage: 30
-  knockbackForce: 5
+  damage: 25
+  knockbackForce: 6
   hitboxRange: 2
   hitboxWidth: 0.5
   attackOffset: 1.1
   attackAngle: 60
-  attackDuration: 0.4
+  attackDuration: 0.5
 --- !u!1 &2613026254035444387
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 2613026254035444387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -0.11, y: -0.095, z: -5}
+  m_LocalPosition: {x: 0.035, y: -0.042, z: -5}
   m_LocalScale: {x: 0.802493, y: 0.802493, z: 2.6749763}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3725942564675361229, guid: 206f6a82f23d5b44a9ce7ed6666241da, type: 3}
+  m_Sprite: {fileID: -1628754297522458341, guid: cdc5e2c8ee4c32354a9d3bfe5a292c4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,7 +272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2762941794547227717}
   - {fileID: 1876514295980799634}
+  - {fileID: 2762941794547227717}
   m_Father: {fileID: 5831001485285690080}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
