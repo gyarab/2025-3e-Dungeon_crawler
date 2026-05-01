@@ -26,6 +26,7 @@ public class Burrow : MonoBehaviour
 
     private void Start()
     {
+        //initializes variables and gets components
         health = GetComponent<Health>();
         damage = GetComponent<Damage>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -38,6 +39,7 @@ public class Burrow : MonoBehaviour
 
     public void InstaBurry()
     {
+        //for enemies instantiated and needed to be burried immediately
         Start();
 
         originalPos = enemy.transform.position;
@@ -54,17 +56,19 @@ public class Burrow : MonoBehaviour
 
     public void Bury()
     {
+        //normal burry
         originalPos = enemy.transform.position;
 
         if (buryEffect != null)
         {
+            //particle effect
             GameObject buryEffectGO = Instantiate(buryEffect, new Vector3(transform.position.x, transform.position.y - enemySizeY / burrowParticleYpos, transform.position.z-1f), Quaternion.identity);
             buryEffectGO.transform.localScale = new Vector3(transform.localScale.x*1.5f, transform.localScale.y*1.5f, 0);
             buryEffectGO.GetComponent<ParticleSystem>().Play();
             Destroy(buryEffectGO, buryEffectGO.GetComponent<ParticleSystem>().main.duration + buryEffectGO.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
         }
         mask.SetActive(true);
-
+        //disable scripts
         health.enabled = false;
         damage.enabled = false;
         boxCollider.enabled = false;
@@ -76,6 +80,7 @@ public class Burrow : MonoBehaviour
 
     private IEnumerator BurrowSequence()
     {
+        //burrow animation
         Vector3 jumpTarget = originalPos + Vector3.up * jumpHeight;
         //jump up
         float t = 0;
@@ -109,17 +114,19 @@ public class Burrow : MonoBehaviour
 
     private IEnumerator UnburrowSequence()
     {
+        //same as burrow but in reverse
         Vector3 maskCenter = mask.transform.position;
         Vector3 riseTarget = maskCenter + Vector3.up * jumpHeight;
 
         if (buryEffect != null)
         {
+            //particle effect
             GameObject buryEffectGO = Instantiate(buryEffect, new Vector3(transform.position.x, transform.position.y - enemySizeY / burrowParticleYpos, transform.position.z - 1f), Quaternion.identity);
             buryEffectGO.transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y*1.5f, 0);
             buryEffectGO.GetComponent<ParticleSystem>().Play();
             Destroy(buryEffectGO, buryEffectGO.GetComponent<ParticleSystem>().main.duration + buryEffectGO.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
         }
-
+        //jump up
         float t = 0f;
         while (t < 1f)
         {
@@ -128,6 +135,7 @@ public class Burrow : MonoBehaviour
             yield return null;
         }
 
+        //drop down
         t = 0f;
         while (t < 1f)
         {
@@ -136,6 +144,7 @@ public class Burrow : MonoBehaviour
             yield return null;
         }
 
+        //enable scripts
         health.enabled = true;
         damage.enabled = true;
         boxCollider.enabled = true;
@@ -149,6 +158,7 @@ public class Burrow : MonoBehaviour
 
     private void RefreshSpritesForMasking()
     {
+        //refreshes sprites to update the sprite mask
         var renderers = enemy.GetComponentsInChildren<SpriteRenderer>();
 
         foreach (var sr in renderers)

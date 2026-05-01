@@ -58,18 +58,20 @@ public class Mace : Weapon
     private void StartSpinning()
     {
         if (isSpinning) return;
+        //starts spinning around the player, creating a hitbox that damages enemies on contact
         isSpinning = true;
         spinDuration = 0f;
         currentSpinSpeed = minSpinSpeed;
         StartCoroutine(SpinRoutine());
 
+        //creates mace hitbox
         hitbox = new GameObject("MaceHitbox");
         hitbox.transform.parent = transform;
         hitbox.transform.localPosition = Vector3.zero;
         var col = hitbox.AddComponent<BoxCollider2D>();
         col.size = new Vector2(hitboxRange, hitboxWidth);
         col.isTrigger = true;
-
+        //rotates hitbox to match the mace rotation
         var dmg = hitbox.AddComponent<Damage>();
         dmg.SetDamage(baseDamage);
         dmg.SetKnockbackForce(knockbackForce);
@@ -79,6 +81,8 @@ public class Mace : Weapon
     {
         angle = 0f;
 
+        //spins the mace around the player, accelerating up to max speed
+        //keeps track of how long it has been spinning for damage and throw multipliers
         while (isSpinning)
         {
             spinDuration += Time.deltaTime;
@@ -101,13 +105,13 @@ public class Mace : Weapon
     private IEnumerator ThrowMace()
     {
         isSpinning = false;
-
+        //throws the mace in the direction of the mouse, then returns it to the player
         Vector3 playerPos = transform.parent.position;
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0f;
 
         Vector3 dir = (mouseWorld - playerPos).normalized;
-
+        //multiplies throw range, speed, and damage based on how long the mace was spinning, up to a max multiplier
         float rangeMultiplier = Mathf.Min(1 + spinDuration, maxRangeMultiplier);
         float speedMultiplier = Mathf.Min(1 + spinDuration, maxSpeedMultiplier);
         float damageMultiplier = Mathf.Min(1 + spinDuration, maxDamageMultiplier);
@@ -119,6 +123,7 @@ public class Mace : Weapon
         float traveled = 0f;
         Vector3 startPos = playerPos;
 
+        //throw
         while (traveled < throwRange)
         {
             float step = baseSpeed * speedMultiplier * Time.deltaTime;
@@ -143,7 +148,7 @@ public class Mace : Weapon
             yield return null;
         }
 
-
+        //resets position and rotation to be ready for next attack
         transform.localPosition = originalLocalPos;
         transform.localRotation = originalLocalRot;
         transform.localScale = originalLocalScale;

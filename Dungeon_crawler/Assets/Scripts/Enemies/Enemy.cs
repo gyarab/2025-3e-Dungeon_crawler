@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //each enemy needs its difficulty for token wave spending
     public GameObject prefab;
     public int difficulty;
 

@@ -29,6 +29,7 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        //when collides with something, checks if it can be damaged, and if so, applies damage and knockback
         if (ignore.Contains(other.gameObject)) return;
 
         for (int i = 0; i < unhittableTags.Count; i++)

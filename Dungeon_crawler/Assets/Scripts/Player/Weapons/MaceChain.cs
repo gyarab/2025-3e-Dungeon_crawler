@@ -12,6 +12,7 @@ public class MaceChain : MonoBehaviour
 
     private void Update()
     {
+        //updates the line renderer to connect the mace to the player and scales the texture to fit the distance
         line.SetPosition(0, transform.parent.position);
         line.SetPosition(1, transform.position);
 

@@ -3,6 +3,7 @@ using UnityEngine.TextCore.Text;
 
 public class CharacterChooser : MonoBehaviour
 {
+    //obsolete, but this was used to select the character prefab to spawn in the game, and then hide the character chooser menu
     [SerializeField] private GameObject character;
     private GameObject parent;
 

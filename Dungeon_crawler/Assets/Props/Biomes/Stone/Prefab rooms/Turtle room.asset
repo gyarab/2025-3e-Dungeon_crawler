@@ -320,15 +320,12 @@ MonoBehaviour:
   - {x: 14, y: 6}
   - {x: 9, y: 8}
   - {x: 13, y: 11}
-  - {x: 22, y: 7}
-  - {x: 22, y: 10}
   propGO:
   - {fileID: 6167905880530847310, guid: bf649c5e53021fc00b0f39460545320b, type: 3}
   - {fileID: 5795240875132994979, guid: bf649c5e53021fc00b0f39460545320b, type: 3}
   - {fileID: 6986441144827515059, guid: bf649c5e53021fc00b0f39460545320b, type: 3}
-  - {fileID: 6981254251055469455, guid: bf649c5e53021fc00b0f39460545320b, type: 3}
-  - {fileID: 6505310552510005235, guid: bf649c5e53021fc00b0f39460545320b, type: 3}
   bounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 24, y: 16, z: 1}
   center: {x: 12, y: 8}
+  hasEnemies: 0

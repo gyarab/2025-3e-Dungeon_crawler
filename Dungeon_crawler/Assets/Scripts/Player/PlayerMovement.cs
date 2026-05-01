@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        //gets components and sets up input actions
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
 
@@ -68,13 +69,14 @@ public class PlayerMovement : MonoBehaviour
             movementDir = context.ReadValue<Vector2>();
             return;
         }
-
+        //reads movement input and updates animation parameters
         movementDir = context.ReadValue<Vector2>();
 
         hasInput = movementDir.sqrMagnitude > 0.01f;
 
         if (Mathf.Abs(movementDir.x) > 0.1f)
         {
+            //stores the last horizontal input for animation purposes, so the player can stop but still have the correct facing direction
             lastMoveX = Mathf.Sign(movementDir.x);
         }
     }
@@ -83,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canDash && dashEnabled)
         {
+            //initiates dash if the player can dash and the ability is enabled
             Dash();
         }
     }
@@ -91,15 +94,15 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = moveBlockers.Count>0 ? false : true;
 
-        speed = Input.GetKey(KeyCode.LeftShift)
-            ? runSpeed / (1 + speedDebuff)
-            : walkSpeed / (1 + speedDebuff);
+        //calculates current speed based on whether the player is holding the run button and any speed debuffs
+        //speed debuffs not implemented
+        speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed / (1 + speedDebuff) : walkSpeed / (1 + speedDebuff);
 
         if (!canMove || isDashing)
         {
             return;
         }
-
+        //calculates target velocity based on input and applies it to the rigidbody with smoothing
         Vector2 input = isDashing ? Vector2.zero : movementDir;
         Vector2 target = input * speed;
 
@@ -108,16 +111,12 @@ public class PlayerMovement : MonoBehaviour
             target = Vector2.zero;
         }
 
-        rb.linearVelocity = Vector2.SmoothDamp(
-            rb.linearVelocity,
-            target,
-            ref velocity,
-            smoothTime
-        );
+        rb.linearVelocity = Vector2.SmoothDamp(rb.linearVelocity,target,ref velocity,smoothTime);
     }
 
     void Update()
     {
+        //animations
         if (isDashing)
         {
             bodyAnimator.SetFloat("Speed", 0f);
@@ -144,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Flip(float dir)
     {
+        //flips the player sprite based on movement direction, but not while dashing to avoid visual glitches
         if (isDashing) return;
 
         flip = (int)Mathf.Sign(dir);
@@ -158,10 +158,8 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         handsRenderer.enabled = false;
 
-
-        dashDirection = movementDir.sqrMagnitude > 0.01f
-            ? movementDir.normalized
-            : new Vector2(flip, 0);
+        //if the player is giving directional input, dash in that direction, otherwise dash in the facing direction
+        dashDirection = movementDir.sqrMagnitude > 0.01f? movementDir.normalized: new Vector2(flip, 0);
 
         rb.AddForce(dashDirection * speed * dashForce, ForceMode2D.Impulse);
 
@@ -171,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DashEnd()
     {
+        //after a short duration, end the dash by reducing velocity and allowing the player to move again
         yield return new WaitForSeconds(0.3f);
 
         rb.linearVelocity *= 0.2f;
@@ -182,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DashCooldown()
     {
+        //during the dash cooldown, the player cannot dash again and their hands are hidden for visual feedback
         canDash = false;
         yield return new WaitForSeconds(dashCooldown);
         handsRenderer.enabled = true;

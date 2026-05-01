@@ -187,16 +187,5 @@ public class DungeonManager : MonoBehaviour
         // ----------------- SPECIALS ---------------- //
 
         ff.FindAccessibleTiles(allRooms,allFloorTiles);
-
-        /*
-        foreach (Room room in allRooms)
-        {
-            Debug.Log(room.name);
-            foreach(Room neighbour in room.neighbours)
-            {
-                Debug.Log("  - " + neighbour.name);
-            }
-        }
-        */
     }
 }

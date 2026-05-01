@@ -105,10 +105,11 @@ public class PathGenerator : MonoBehaviour
 
         while (pos != targetPos && maxSteps-- > 0)
         {
+            //determines direction to move in, with some randomness and noise to make it more natural
             Vector2Int dir = new Vector2Int((int)Mathf.Sign(targetPos.x - pos.x), (int)Mathf.Sign(targetPos.y - pos.y));
 
             float n = Mathf.PerlinNoise(pos.x * noiseScale, pos.y * noiseScale);
-
+            //more likely to turn if noise is high, and more likely to sidestep if noise is low, but both can happen at any time
             if (n > 0.6f || Random.value < turnChance)
             {
                 dir = RandomDirection();
@@ -119,7 +120,8 @@ public class PathGenerator : MonoBehaviour
             }
 
             pos += dir;
-
+            //creates a corridor of the specified width around the current position
+            //checks if it intersects with any other rooms
             int corridorWidth = width + Random.Range(-1, 1);
             corridorWidth = Mathf.Clamp(corridorWidth, 1, width);
 
@@ -139,6 +141,7 @@ public class PathGenerator : MonoBehaviour
             }
         }
 
+        //if we failed to find a path, return null
         if (start != target)
         {
             if (!start.neighbours.Contains(target))
@@ -153,6 +156,7 @@ public class PathGenerator : MonoBehaviour
 
     private Vector2Int RandomDirection()
     {
+        //returns a random direction, including diagonals, to add some variation to the paths
         Vector2Int[] dirs =
         {
         new Vector2Int(1,0), new Vector2Int(-1,0),
@@ -165,6 +169,7 @@ public class PathGenerator : MonoBehaviour
 
     private Room FindClosestRoom(Room currentRoom, List<Room> rooms)
     {
+        //finds the closest room to the current room, excluding the current room itself, to determine where to create the next path
         Room closestRoom = rooms[0];
         float closestDistance = Vector2Int.Distance(currentRoom.center, closestRoom.center);
         foreach (Room room in rooms)
@@ -186,6 +191,7 @@ public class PathGenerator : MonoBehaviour
     {
         HashSet<Vector2Int> room = new HashSet<Vector2Int>(roomTiles);
 
+        //directions to check for neighbors, including diagonals, to create a ring of tiles around the room
         Vector2Int[] dirs = new Vector2Int[]
         {
         new Vector2Int(1, 0),
@@ -233,6 +239,7 @@ public class PathGenerator : MonoBehaviour
 
     public HashSet<Vector2Int> IntersectDoors(Room room, HashSet<Vector2Int> pathTiles)
     {
+        //intersects the ring with path tiles
         HashSet<Vector2Int> ring = GetRoomRing(room.floors);
         HashSet<Vector2Int> doors = new HashSet<Vector2Int>();
 

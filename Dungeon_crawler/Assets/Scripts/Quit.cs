@@ -6,8 +6,9 @@ public class Quit : MonoBehaviour
 {
     public void QuitGame()
     {
+        //quits the game, but if in the editor, it stops play mode
         #if UNITY_STANDALONE
-                Application.Quit();
+        Application.Quit();
         #endif
         #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;

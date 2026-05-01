@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EffectInstance : MonoBehaviour
 {
+    //applies the effect of an EffectSO to the gameobject it is attached to, then destroys itself after the duration of the effect is over
     public EffectSO effectData;
 
     private Health healthComponent;
@@ -38,6 +39,7 @@ public class EffectInstance : MonoBehaviour
         {
             if (effectData.particles != null)
             {
+                //particle effects
                 ps = Instantiate(effectData.particles, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.identity);
 
                 ps.transform.SetParent(transform);
@@ -45,11 +47,13 @@ public class EffectInstance : MonoBehaviour
             }
             if (gameObject.tag == "Player")
             {
+                //camera tint effect for player
                 id = Camera.main.GetComponent<CameraTint>().GetFreeID();
                 Camera.main.GetComponent<CameraTint>().AddTint(id, effectData.CameraColorEffect);
             }
             while (elapsedTime < effectData.duration)
             {
+                //damage over time or heal over time
                 if (healthComponent != null)
                 {
                     healthComponent.ChangeHealth((int)effectData.healthChangePerTick);

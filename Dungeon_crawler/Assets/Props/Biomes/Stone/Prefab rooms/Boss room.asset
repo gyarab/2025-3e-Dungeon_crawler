@@ -383,3 +383,4 @@ MonoBehaviour:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 22, y: 16, z: 1}
   center: {x: 11, y: 8}
+  hasEnemies: 0

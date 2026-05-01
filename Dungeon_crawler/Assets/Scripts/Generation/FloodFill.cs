@@ -86,7 +86,7 @@ public class FloodFill : MonoBehaviour
         }
 
 
-        //room distance
+        //room distance 
         Dictionary<Room, int> roomDistances = new Dictionary<Room, int>();
 
         foreach (Room room in allRooms)

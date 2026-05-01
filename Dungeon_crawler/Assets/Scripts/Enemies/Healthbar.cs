@@ -11,6 +11,8 @@ public class Healthbar : MonoBehaviour
 
     private void Start()
     {
+        //getting components and setting up listeners
+        //children are the bar and the background
         if (target == null)
         {
             target = transform.parent.gameObject;
@@ -26,6 +28,7 @@ public class Healthbar : MonoBehaviour
 
     private void ChangeHealthbar(int hp)
     {
+        //just changes the scale and position of the healthbar based on the percentage of health left, and clamps it to 0 if it goes below 0
         if (hp < 0)
         {
             hp = 0;

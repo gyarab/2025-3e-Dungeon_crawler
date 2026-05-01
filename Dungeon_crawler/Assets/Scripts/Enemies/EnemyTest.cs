@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyTest : MonoBehaviour
 {
+    //basic enemy that moves towards the target (player) when they are within a certain distance, but only if they are not burried and have health
     public float speed = 2f;
     public float aggroDistance=20f;
     public Transform target;
@@ -9,12 +10,14 @@ public class EnemyTest : MonoBehaviour
 
     private void Start()
     {
+        //gets components and sets up listeners
         transform.GetComponent<Burrow>().isBurried.AddListener((burried) => { isBurried = burried; });
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
+        //move towards target (player)
         if (target == null||isBurried||gameObject.GetComponent<Health>().GetHealth()<=0||Vector3.Distance(transform.position, target.position)>aggroDistance)
             return;
         Vector3 direction = (target.position - transform.position).normalized;

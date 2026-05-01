@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class DetectorManager : MonoBehaviour
 {
+    //manages all detectors on layer
     public HashSet<PlayerDetector> detectors = new HashSet<PlayerDetector>();
     [SerializeField] private GameObject detectorPrefab;
     [SerializeField] private TileBase blank;
@@ -18,6 +19,7 @@ public class DetectorManager : MonoBehaviour
             {
                 continue;
             }
+            //instantiates a detector in the center of the room, and sets its room to the tilemap of the room, and adds it to the list of detectors
             GameObject detector = Instantiate(detectorPrefab, room.transform);
             detector.transform.position = room.transform.position;
             detector.name = "detector " + room.transform.name;

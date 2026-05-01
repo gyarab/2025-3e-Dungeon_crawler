@@ -15,21 +15,25 @@ public class Explosion : MonoBehaviour
 
     public void Explode()
     {
+        //called by events, creates explosion effect, applies damage and knockback to anything in the radius, and shakes the camera
         GameObject explosion = Instantiate(new GameObject("Explosion"),transform.position, Quaternion.identity).gameObject;
         foreach(ParticleSystem ps in explosionEffect)
         {
+            //particle effect
             ParticleSystem effect = Instantiate(ps, explosion.transform.position, Quaternion.identity);
             effect.transform.position = new Vector3(explosion.transform.position.x, explosion.transform.position.y, explosion.transform.position.z + 0.1f);
             effect.Play();
             Destroy(effect.gameObject, effect.main.duration + effect.main.startLifetime.constantMax);
         }
 
+        //camera shake
         CameraShake cameraShakeInstance = Camera.main.GetComponent<CameraShake>();
         if (cameraShakeInstance != null)
         {
             cameraShakeInstance.Shake(0.5f, cameraShakeIntensity);
         }
 
+        //damage and knockback
         CircleCollider2D explosionCollider = explosion.AddComponent<CircleCollider2D>();
         explosionCollider.radius = radius;
         explosionCollider.isTrigger = true;

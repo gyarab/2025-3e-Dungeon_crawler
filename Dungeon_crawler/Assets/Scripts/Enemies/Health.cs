@@ -66,6 +66,7 @@ public class Health : MonoBehaviour
 
     public bool TakeDamage(int damage)
     {
+        //called by damage.cs
         if (!hittable || isDead) return false;
 
         currentHealth -= damage;
@@ -83,11 +84,13 @@ public class Health : MonoBehaviour
             return false;
         }
 
+        //player has immunity frames and shake on hit effect
         StartCoroutine(Immunity());
         StartCoroutine(Shake());
 
         if (hitParticles != null)
         {
+            //particle effect
             ParticleSystem ps = Instantiate(hitParticles, transform.position, Quaternion.identity);
 
             var main = ps.main;
@@ -122,6 +125,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator Shake()
     {
+        //shake GO on hit
         Vector3 originalPos = transform.localPosition;
         float t = 0f;
 
@@ -139,6 +143,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator Die()
     {
+        //actions on death, delay
         ActionsOnDeath?.Invoke();
 
         if (rb != null)
@@ -154,6 +159,7 @@ public class Health : MonoBehaviour
             animator.SetTrigger(deathTriggerName);
         }
 
+        //disable other scripts on death, so death animation doesnt deal damage etc
         MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
         foreach (MonoBehaviour script in scripts)
         {
@@ -165,6 +171,7 @@ public class Health : MonoBehaviour
 
         yield return new WaitForSeconds(delayDeath);
 
+        //bursts into particles on death, then destroys GO
         if (deathParticles != null)
         {
             ParticleSystem ps = Instantiate(deathParticles, transform.position, Quaternion.identity);
@@ -185,6 +192,7 @@ public class Health : MonoBehaviour
 
     private void TransformToOnDeath()
     {
+        //when dies, transforms into something else, used for breaking barrels, pots etc
         Instantiate(transformTo[Random.Range(0, transformTo.Length)], transform.position, Quaternion.identity);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.InputSystem.Controls;
 
 public class WeaponManager : MonoBehaviour
 {
+    //keeps track of player weapons and equips them
     public static WeaponManager Instance;
     public GameObject currentWeapon;
     public List<GameObject> weapons = new List<GameObject>();
@@ -19,6 +20,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Awake()
     {
+        //initializes singleton and sets up input actions
         playerInput = GetComponent<PlayerInput>();
         attackAction = playerInput.actions["Attack"];
 
@@ -32,6 +34,8 @@ public class WeaponManager : MonoBehaviour
 
     public void OnWeaponKey(InputAction.CallbackContext ctx)
     {
+        //handles weapon switching input
+        //checks if the key pressed is a number key, switches to the corresponding weapon in the list
         KeyControl keyControl = ctx.control as KeyControl;
 
         string keyName = keyControl.keyCode.ToString();
@@ -48,6 +52,7 @@ public class WeaponManager : MonoBehaviour
 
     public void ChangeWeapon(int index)
     {
+        //switches to the weapon at the given index in the list
         if (index < 1 || index > weapons.Count) return;
         if (weaponScript !=null && !weaponScript.canAttack)
         {

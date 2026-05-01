@@ -16,6 +16,7 @@ public class Stalagtite : MonoBehaviour
 
     void Start()
     {
+        //gets refenrences
         hitbox = transform.Find("Hitbox").GetComponent<BoxCollider2D>();
         stalagtite = transform.Find("Stalagtite");
         fallEffect = GetComponentInChildren<ParticleSystem>();
@@ -30,6 +31,7 @@ public class Stalagtite : MonoBehaviour
             return;
 
         }
+        //only of player
         StartCoroutine(Fall());
     }
 
@@ -37,12 +39,14 @@ public class Stalagtite : MonoBehaviour
     {
         isFalling = true;
         Camera mainCamera = Camera.main;
+        //spawns above the camera
         if (mainCamera != null)
         {
             float cameraTopY = mainCamera.transform.position.y + mainCamera.orthographicSize;
             stalagtite.position = new Vector3(stalagtite.position.x, cameraTopY + 1f, stalagtite.position.z);
         }
 
+        //accelerates to terminal velocity
         float distance = stalagtite.localPosition.y;
 
         float acceleration = (finalSpeed * finalSpeed) / (2f * distance);
@@ -52,6 +56,7 @@ public class Stalagtite : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeFall);
         stalagtite.gameObject.SetActive(true);
 
+        //activates hitbox only if stlagtite is low enough
         while (stalagtite.localPosition.y > 0)
         {
             speed += acceleration * Time.deltaTime;
@@ -62,6 +67,7 @@ public class Stalagtite : MonoBehaviour
             }
             yield return null;
         }
+        //particle effect and destroy
         fallEffect.gameObject.SetActive(true);
         fallEffect.transform.parent = null;
         fallEffect.Play();

@@ -23,7 +23,7 @@ public class DoorGenerator : MonoBehaviour
     {
         foreach (Vector2Int pos in positions)
         {
-            //doorTilemap.SetTile((Vector3Int)pos, doorTile);
+            //instantiates a door at the position, and adds it to the list of doors
             GameObject door = Instantiate(doorPrefab, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
             door.transform.parent = transform;
             doors.Add(door);

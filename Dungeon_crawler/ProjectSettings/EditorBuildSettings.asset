@@ -6,10 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 76b9947c2500775478ad64f1159989db
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/GameScene.unity
+    path: Assets/Scenes/Layers/1 Stone Layer.unity
     guid: dad944282fd43a141af3c884cd082e05
+  - enabled: 1
+    path: Assets/Scenes/Layers/2 Overgrown layer.unity
+    guid: a2719498c749bb705bb9ac95d2e0c544
+  - enabled: 1
+    path: Assets/Scenes/Layers/3 Crystal layer.unity
+    guid: 21cef67ef3a11976d9ee7f9e41104a0c
+  - enabled: 1
+    path: Assets/Scenes/Layers/6 Magic layer.unity
+    guid: 10c1e6585814d4349a1fc1a82862e1d8
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

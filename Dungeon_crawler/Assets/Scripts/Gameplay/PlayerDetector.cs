@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class PlayerDetector : MonoBehaviour
 {
+    //detector per room
     public bool playerDetected = false;
     public Tilemap room;
     public DetectorManager manager;
@@ -14,6 +15,7 @@ public class PlayerDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //detects player entering room, invokes events
         if (other.CompareTag("Player")&&manager!=null)
         {
             playerDetected = true;
@@ -24,6 +26,7 @@ public class PlayerDetector : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        //detects player exiting room, invokes events
         if (other.CompareTag("Player") && manager != null)
         {
             playerDetected = false;

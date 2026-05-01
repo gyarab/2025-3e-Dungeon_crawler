@@ -38,7 +38,7 @@ public class WallGenerator : MonoBehaviour
             }
         }
         Dictionary<Vector2Int, bool> thickWalls = new Dictionary<Vector2Int, bool>(wallTiles);
-
+        //adds another layer of walls around the walls, to make them thicker, and marks them as thick walls
         for (int i = 0; i < width; i++)
         {
             Dictionary<Vector2Int, bool> tempThickWalls = new Dictionary<Vector2Int, bool>(thickWalls);
@@ -61,6 +61,7 @@ public class WallGenerator : MonoBehaviour
                 }
             }
         }
+        //adds thick walls to wall tiles, so they can be drawn together, and marked as thick walls
         foreach (Vector2Int wall in thickWalls.Keys)
         {
             if (!wallTiles.ContainsKey(wall))
@@ -68,8 +69,8 @@ public class WallGenerator : MonoBehaviour
                 wallTiles.Add(wall, thickWalls[wall]);
             }
         }
-
-        List <HashSet<Vector2Int>> result = new List<HashSet<Vector2Int>>();
+        //returns a list of hashsets, one for thin walls and one for thick walls, to be drawn separately, and marked as thin or thick walls
+        List<HashSet<Vector2Int>> result = new List<HashSet<Vector2Int>>();
         result.Add(new HashSet<Vector2Int>(wallTiles.Where(r => r.Value == false).Select(r => r.Key)));
         result.Add(new HashSet<Vector2Int>(wallTiles.Where(r => r.Value == true).Select(r => r.Key)));
 

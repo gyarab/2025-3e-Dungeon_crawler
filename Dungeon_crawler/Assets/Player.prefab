@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9bd17e25ed21444919106e38089252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100000
+  maxHealth: 1000
   currentHealth: 0
   immunityFrames: 60
   shakeOnHitIntensity: 0.1

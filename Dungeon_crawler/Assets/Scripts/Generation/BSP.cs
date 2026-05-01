@@ -39,6 +39,7 @@ public class BSP : MonoBehaviour
 
     public List<Room> GenerateRooms()
     {
+        //tries to generate rooms until it gets a valid result (between min and max rooms)
         List<Room> result = null;
         int attempts = 0;
 
@@ -58,6 +59,7 @@ public class BSP : MonoBehaviour
 
     private List<Room> GenerateRooms(BoundsInt floor, int MinRoomSize, int MaxRoomSize, int Margin, int minimumRooms, int maximumRooms, bool Shift)
     {
+        //generates rooms using BSP, returns null if it fails to generate a valid number of rooms after a certain number of attempts
         int safetyCap = 10000;
         int safetyCounter = 0;
         Queue<BoundsInt> roomsQueue = new Queue<BoundsInt>();
@@ -68,6 +70,7 @@ public class BSP : MonoBehaviour
             safetyCounter++;
             BoundsInt room = roomsQueue.Dequeue();
             List<BoundsInt> splitRooms = new List<BoundsInt>();
+            //randomly splits the room in half, either horizontally or vertically
             if (Random.value > 0.5f)
             {
                 splitRooms = SplitY(room, MinRoomSize, MaxRoomSize);
@@ -79,6 +82,7 @@ public class BSP : MonoBehaviour
 
             foreach (BoundsInt splitRoom in splitRooms)
             {
+                //if the split room is too big, add it to the queue to be split again, otherwise add it to the list of rooms
                 if (splitRoom.size.x > MaxRoomSize || splitRoom.size.y > MaxRoomSize)
                 {
                     roomsQueue.Enqueue(splitRoom);
@@ -117,6 +121,7 @@ public class BSP : MonoBehaviour
         int index = 1;
         foreach (BoundsInt room in roomsList)
         {
+            //instantiates a gameobject for each room, and adds a Room component to it, and sets its bounds and center
             GameObject roomGO = new GameObject("Room "+index);
             roomGO.transform.position = new Vector3Int((int)Mathf.Ceil(room.center.x), (int)Mathf.Ceil(room.center.y),0);
             Room roomSC = roomGO.AddComponent<Room>();  
@@ -130,6 +135,7 @@ public class BSP : MonoBehaviour
 
     private List<BoundsInt> SplitY(BoundsInt room, int MinRoomSize, int MaxRoomSize)
     {
+        //if the room is small enough, return it as is, otherwise split it in half horizontally and return the two halves
         if (room.size.y <= MaxRoomSize && room.size.x <= MaxRoomSize)
             return new List<BoundsInt>() { room };
         if (room.size.y < 2 * MinRoomSize - 1)
@@ -141,6 +147,7 @@ public class BSP : MonoBehaviour
         }
         List<BoundsInt> rooms = new List<BoundsInt>();
 
+        //splits the room in half horizontally, with a random split point between minRoomSize
         BoundsInt room1 = new BoundsInt();
         BoundsInt room2 = new BoundsInt();
         int maxSplit = room.size.y - MinRoomSize;
@@ -158,6 +165,7 @@ public class BSP : MonoBehaviour
 
     private List<BoundsInt> SplitX(BoundsInt room, int MinRoomSize, int MaxRoomSize)
     {
+        //same as SplitY but splits the room in half vertically instead of horizontally
         if (room.size.y <= MaxRoomSize && room.size.x <= MaxRoomSize)
             return new List<BoundsInt>() { room };
         if (room.size.x < 2 * MinRoomSize - 1)
@@ -190,6 +198,7 @@ public class BSP : MonoBehaviour
         Room spawn = pair[0];
         Room boss = pair[1];
 
+        //assigns the start and boss rooms based on the furthest rooms
         for (int i = 0; i < rooms.Count; i++)
         {
             if (rooms[i].center == spawn.center)
@@ -202,6 +211,7 @@ public class BSP : MonoBehaviour
             }
         }
 
+        //sorts the rooms based on their distance from the spawn room, so that the prefab rooms can be assigned based on their distance from the spawn room
         rooms.Sort((a, b) =>
         {
             float da = Vector2.Distance((Vector2)spawn.center, (Vector2)a.center);
@@ -211,6 +221,8 @@ public class BSP : MonoBehaviour
 
         float maxDist = Vector2.Distance((Vector2)spawn.center, (Vector2)boss.center);
 
+        //iterates through the prefab rooms
+        //assigns them to the rooms based on their distance from the spawn room
         foreach (PrefabRoom pr in prefabRooms)
         {
             int count = Random.Range(pr.minCount, pr.maxCount + 1);
@@ -226,6 +238,7 @@ public class BSP : MonoBehaviour
                     {
                         if (allRooms[j].center == rooms[i].center)
                         {
+                            //assigns the prefab room to the room, and sets its floors, walls, and props based on the prefab room scriptable object
                             Room room = allRooms[j];
                             room.type = pr.roomType;
                             room.prefabRoomSO = pr.prefabRoomSO;
@@ -262,7 +275,7 @@ public class BSP : MonoBehaviour
         Room b = rooms[0];
 
         float maxDist = -1f;
-
+        //iterates through all pairs of rooms, and finds the pair that is furthest apart based on the distance between their centers
         foreach (Room r1 in rooms)
         {
             foreach (Room r2 in rooms)

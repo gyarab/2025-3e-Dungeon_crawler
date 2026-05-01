@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraTint : MonoBehaviour
 {
+    //creates a filter on camera, used by effects
     [SerializeField] private float sizePadding = 0.5f;
     [SerializeField] private float fadeDuration = 0.25f;
     [SerializeField] private string sortingLayerName = "Overlay";
@@ -30,6 +31,7 @@ public class CameraTint : MonoBehaviour
 
     public string GetFreeID()
     {
+        //generates a unique ID for each tint, starting from 0 and incrementing until it finds an unused ID
         int id = 0;
         while (true)
         {
@@ -44,7 +46,7 @@ public class CameraTint : MonoBehaviour
     {
         if (activeTints.ContainsKey(id))
             return;
-
+        //creates a new gameobject with a sprite renderer for the tint, sets its color and sorting order, and starts fading it in
         GameObject tintGO = new GameObject($"Tint_{id}");
         tintGO.transform.SetParent(transform);
         tintGO.transform.localPosition = new Vector3(0f, 0f, 1f);
@@ -66,6 +68,7 @@ public class CameraTint : MonoBehaviour
 
     public void RemoveTint(string id)
     {
+        //fades out the tint and destroys the gameobject, also removes it from the dictionaries
         if (!activeTints.TryGetValue(id, out GameObject tintGO))
             return;
 
@@ -79,6 +82,7 @@ public class CameraTint : MonoBehaviour
 
     private IEnumerator Fade(SpriteRenderer sr, float from, float to)
     {
+        //fades the tint from the starting alpha to the target alpha over the fade duration
         float t = 0f;
         Color c = sr.color;
 
@@ -96,6 +100,7 @@ public class CameraTint : MonoBehaviour
 
     private IEnumerator FadeAndDestroy(string id, SpriteRenderer sr, GameObject go)
     {
+        //fades the tint out and destroys the gameobject, also removes it from the dictionaries
         float startAlpha = sr.color.a;
         float t = 0f;
         Color c = sr.color;
@@ -116,6 +121,7 @@ public class CameraTint : MonoBehaviour
 
     private Sprite CreateWhiteSprite()
     {
+        //creates a 1x1 white texture and converts it to a sprite, which is used for the tints
         Texture2D tex = new Texture2D(1, 1, TextureFormat.RGBA32, false);
         tex.SetPixel(0, 0, Color.white);
         tex.Apply();
@@ -126,14 +132,11 @@ public class CameraTint : MonoBehaviour
 
     private void ResizeToCamera(SpriteRenderer sr)
     {
+        //resizes the sprite to cover the entire camera view, with some padding to prevent gaps
         float camHeight = cam.orthographicSize * 2f;
         float camWidth = camHeight * cam.aspect;
         Vector2 spriteSize = sr.sprite.bounds.size;
 
-        sr.transform.localScale = new Vector3(
-            camWidth / spriteSize.x + sizePadding,
-            camHeight / spriteSize.y + sizePadding,
-            1f
-        );
+        sr.transform.localScale = new Vector3(camWidth / spriteSize.x + sizePadding,camHeight / spriteSize.y + sizePadding,1f);
     }
 }

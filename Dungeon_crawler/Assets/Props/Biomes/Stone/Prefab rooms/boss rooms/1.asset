@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e840070049c68d4d9b7b13a810ad904, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: Assembly-CSharp::PrefabRoomSO
+  prefab: {fileID: 8289435805866208671, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  floors:
+  - {x: 3, y: 1}
+  - {x: 4, y: 1}
+  - {x: 5, y: 1}
+  - {x: 6, y: 1}
+  - {x: 7, y: 1}
+  - {x: 8, y: 1}
+  - {x: 2, y: 2}
+  - {x: 3, y: 2}
+  - {x: 4, y: 2}
+  - {x: 5, y: 2}
+  - {x: 6, y: 2}
+  - {x: 7, y: 2}
+  - {x: 8, y: 2}
+  - {x: 9, y: 2}
+  - {x: 1, y: 3}
+  - {x: 2, y: 3}
+  - {x: 3, y: 3}
+  - {x: 4, y: 3}
+  - {x: 5, y: 3}
+  - {x: 6, y: 3}
+  - {x: 7, y: 3}
+  - {x: 8, y: 3}
+  - {x: 9, y: 3}
+  - {x: 10, y: 3}
+  - {x: 1, y: 4}
+  - {x: 2, y: 4}
+  - {x: 3, y: 4}
+  - {x: 4, y: 4}
+  - {x: 5, y: 4}
+  - {x: 6, y: 4}
+  - {x: 7, y: 4}
+  - {x: 8, y: 4}
+  - {x: 9, y: 4}
+  - {x: 10, y: 4}
+  - {x: 1, y: 5}
+  - {x: 2, y: 5}
+  - {x: 3, y: 5}
+  - {x: 4, y: 5}
+  - {x: 5, y: 5}
+  - {x: 6, y: 5}
+  - {x: 7, y: 5}
+  - {x: 8, y: 5}
+  - {x: 9, y: 5}
+  - {x: 10, y: 5}
+  - {x: 1, y: 6}
+  - {x: 2, y: 6}
+  - {x: 3, y: 6}
+  - {x: 4, y: 6}
+  - {x: 5, y: 6}
+  - {x: 6, y: 6}
+  - {x: 7, y: 6}
+  - {x: 8, y: 6}
+  - {x: 9, y: 6}
+  - {x: 10, y: 6}
+  - {x: 1, y: 7}
+  - {x: 2, y: 7}
+  - {x: 3, y: 7}
+  - {x: 4, y: 7}
+  - {x: 5, y: 7}
+  - {x: 6, y: 7}
+  - {x: 7, y: 7}
+  - {x: 8, y: 7}
+  - {x: 9, y: 7}
+  - {x: 10, y: 7}
+  - {x: 2, y: 8}
+  - {x: 3, y: 8}
+  - {x: 4, y: 8}
+  - {x: 5, y: 8}
+  - {x: 6, y: 8}
+  - {x: 7, y: 8}
+  - {x: 8, y: 8}
+  - {x: 9, y: 8}
+  - {x: 3, y: 9}
+  - {x: 4, y: 9}
+  - {x: 5, y: 9}
+  - {x: 6, y: 9}
+  - {x: 7, y: 9}
+  - {x: 8, y: 9}
+  walls:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: 2, y: 0}
+  - {x: 3, y: 0}
+  - {x: 4, y: 0}
+  - {x: 5, y: 0}
+  - {x: 6, y: 0}
+  - {x: 7, y: 0}
+  - {x: 8, y: 0}
+  - {x: 9, y: 0}
+  - {x: 10, y: 0}
+  - {x: 11, y: 0}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 2, y: 1}
+  - {x: 9, y: 1}
+  - {x: 10, y: 1}
+  - {x: 11, y: 1}
+  - {x: 0, y: 2}
+  - {x: 1, y: 2}
+  - {x: 10, y: 2}
+  - {x: 11, y: 2}
+  - {x: 0, y: 3}
+  - {x: 11, y: 3}
+  - {x: 0, y: 4}
+  - {x: 11, y: 4}
+  - {x: 0, y: 5}
+  - {x: 11, y: 5}
+  - {x: 0, y: 6}
+  - {x: 11, y: 6}
+  - {x: 0, y: 7}
+  - {x: 11, y: 7}
+  - {x: 0, y: 8}
+  - {x: 1, y: 8}
+  - {x: 10, y: 8}
+  - {x: 11, y: 8}
+  - {x: 0, y: 9}
+  - {x: 1, y: 9}
+  - {x: 2, y: 9}
+  - {x: 9, y: 9}
+  - {x: 10, y: 9}
+  - {x: 11, y: 9}
+  - {x: 0, y: 10}
+  - {x: 1, y: 10}
+  - {x: 2, y: 10}
+  - {x: 3, y: 10}
+  - {x: 4, y: 10}
+  - {x: 5, y: 10}
+  - {x: 6, y: 10}
+  - {x: 7, y: 10}
+  - {x: 8, y: 10}
+  - {x: 9, y: 10}
+  - {x: 10, y: 10}
+  - {x: 11, y: 10}
+  propPos:
+  - {x: 1, y: 3}
+  - {x: 3, y: 1}
+  - {x: 8, y: 2}
+  - {x: 10, y: 3}
+  - {x: 1, y: 7}
+  - {x: 10, y: 7}
+  - {x: 3, y: 6}
+  - {x: 5, y: 5}
+  - {x: 6, y: 5}
+  propGO:
+  - {fileID: 88394826274405123, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 2017349803856902079, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 7339867995772470381, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 6027845603484615708, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 5233646015141930044, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 5491683366084408809, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 2145636526865255925, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 8559022249715277649, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  - {fileID: 6679477825088273000, guid: 39e68b2aad878b04da0509a0d9fed067, type: 3}
+  bounds:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 11, y: 10, z: 1}
+  center: {x: 5, y: 5}
+  hasEnemies: 0

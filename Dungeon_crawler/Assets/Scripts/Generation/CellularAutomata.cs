@@ -31,6 +31,7 @@ public class CellularAutomata : MonoBehaviour
     }
     public HashSet<Vector2Int> SmoothCaves(HashSet<Vector2Int> WallTiles, HashSet<Vector2Int> FloorTiles)
     {
+        // false = empty, true = floor
         Dictionary<Vector2Int, bool> floorTiles = new Dictionary<Vector2Int, bool>();
         foreach (Vector2Int tile in WallTiles)
         {

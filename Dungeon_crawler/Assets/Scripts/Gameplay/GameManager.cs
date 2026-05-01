@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //manages important refenrences
     public static GameManager Instance;
     public GameObject character;
     public GameObject playerInstance;
@@ -15,7 +16,6 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnPlayer()
     {
+        //spawns player at start room
         if (dungeonManager.StartRoom == null)
         {
             Debug.LogError("startroom is null");

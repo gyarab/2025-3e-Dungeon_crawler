@@ -46,7 +46,7 @@ public class Visualiser : MonoBehaviour
         }
     }
 
-    //clear
+    //clear 
     public void ClearAll()
     {
         floorTilemap?.ClearAllTiles();

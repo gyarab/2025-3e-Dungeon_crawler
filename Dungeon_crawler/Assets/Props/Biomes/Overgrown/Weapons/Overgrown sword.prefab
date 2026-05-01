@@ -51,6 +51,7 @@ MonoBehaviour:
   weaponMesh: {fileID: 0}
   attackCooldown: 0.15
   handsRenderer: {fileID: 0}
+  allowFlip: 1
   canAttack: 1
   attackEnd:
     m_PersistentCalls:

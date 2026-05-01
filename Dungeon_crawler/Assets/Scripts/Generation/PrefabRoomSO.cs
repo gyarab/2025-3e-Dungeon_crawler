@@ -7,10 +7,10 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "PrefabRoom", menuName = "Rooms/Prefab Room")]
 public class PrefabRoomSO : ScriptableObject
 {
+    //premade rooms
     public GameObject prefab;
     public List<Vector2Int> floors = new List<Vector2Int>();
     public List<Vector2Int> walls = new List<Vector2Int>();
-    //public List<Dictionary<Vector2Int, GameObject>> props = new List<Dictionary<Vector2Int, GameObject>>();
     public List<Vector2Int> propPos = new List<Vector2Int>();
     public List<GameObject> propGO = new List<GameObject>();
 
@@ -72,6 +72,7 @@ public class PrefabRoomSO : ScriptableObject
 
     public List<Vector2Int> GetTilePositions(Tilemap tilemap)
     {
+        //returns list of all tile positions in tilemap
         List<Vector2Int> result = new List<Vector2Int>();
 
         if (tilemap == null)

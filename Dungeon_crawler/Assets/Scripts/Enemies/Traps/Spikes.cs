@@ -17,6 +17,7 @@ public class Spikes : MonoBehaviour
 
     void Start()
     {
+        //gets references
         spikes = transform.Find("Spikes");
         hitbox = spikes.Find("Hitbox").GetComponent<BoxCollider2D>();
 
@@ -29,6 +30,7 @@ public class Spikes : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
+        //only triggers when the player enters, not when they exit, and if the player is already inside, it won't trigger again
         playerInside = true;
 
         if (deactivateRoutine != null)
@@ -48,6 +50,7 @@ public class Spikes : MonoBehaviour
         if (!collision.CompareTag("Player"))
             return;
 
+        //only triggers when the player exits, not when they enter, and if the player is already outside, it won't trigger again
         playerInside = false;
 
         if (isActive && deactivateRoutine == null)
@@ -58,6 +61,7 @@ public class Spikes : MonoBehaviour
 
     private IEnumerator Activate()
     {
+        //waits for the delay before activation, then activates the spikes and hitbox, and if the player is not inside, it starts the deactivate routine
         yield return new WaitForSeconds(delayBeforeActivation);
 
         isActive = true;
@@ -74,6 +78,7 @@ public class Spikes : MonoBehaviour
 
     private IEnumerator Deactivate()
     {
+        //waits for the duration, then deactivates the spikes and hitbox, and if the player is inside, it stops the deactivate routine
         float timer = 0f;
 
         while (timer < duration)

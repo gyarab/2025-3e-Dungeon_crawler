@@ -24,16 +24,17 @@ public class Dagger : Weapon
     public override bool OnAttack()
     {
         if (!base.OnAttack()) return false;
-
+        //face the mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 dir = (mousePos - transform.position).normalized;
+        //flip the sprite if facing left
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (flip == -1) angle += 180f;
         transform.localRotation = Quaternion.Euler(0, 0, angle);
-
+        //spawn hitbox
         GameObject dagger = weaponSprites[weaponIndex];
         weaponIndex = (weaponIndex + 1) % weaponSprites.Length;
-
+        //resets the position and rotation of the dagger in case the attack is used again before the previous one finishes
         GameObject hitbox = new GameObject("weaponHitbox");
         hitbox.transform.parent = dagger.transform;
         hitbox.transform.localPosition = Vector3.zero;
@@ -41,7 +42,7 @@ public class Dagger : Weapon
         BoxCollider2D col = hitbox.AddComponent<BoxCollider2D>();
         col.size = new Vector2(hitboxRange, hitboxWidth);
         col.isTrigger = true;
-
+        //sets up damage
         Damage dmg = hitbox.AddComponent<Damage>();
         dmg.SetDamage(damage);
         dmg.SetKnockbackForce(knockbackForce);
@@ -54,6 +55,7 @@ public class Dagger : Weapon
 
     IEnumerator PikeDagger(GameObject dagger, float duration)
     {
+        //stores the original position for later reset
         originalLocalPos = transform.localPosition;
         originalLocalRot = transform.localRotation;
         originalLocalScale = transform.localScale;
@@ -61,14 +63,14 @@ public class Dagger : Weapon
         Vector3 dPos = dagger.transform.localPosition;
         Quaternion dRot = dagger.transform.localRotation;
         Vector3 dScale = dagger.transform.localScale;
-
+        //face the mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 worldDir = (mousePos - transform.position).normalized;
         Vector3 localDir = transform.InverseTransformDirection(worldDir).normalized * flip;
 
         float elapsed = 0f;
         Vector3 start = dagger.transform.localPosition;
-
+        //moves the dagger forward and back in a sine wave pattern for the duration of the attack
         while (elapsed < duration)
         {
             float t = elapsed / duration;
@@ -77,7 +79,7 @@ public class Dagger : Weapon
             elapsed += Time.deltaTime;
             yield return null;
         }
-
+        //resets the position and rotation of the dagger
         transform.localPosition = originalLocalPos;
         transform.localRotation = Quaternion.identity;
         transform.localScale = originalLocalScale;

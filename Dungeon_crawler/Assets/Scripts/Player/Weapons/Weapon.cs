@@ -25,6 +25,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Transform weaponMesh;
     [SerializeField] protected float attackCooldown = 0.4f;
     [SerializeField] private Renderer handsRenderer;
+
+    // determines whether this weapon flips with mouse / player direction
+    [SerializeField] protected bool allowFlip = true;
+
     private SpriteRenderer[] spriteRenderers = new SpriteRenderer[0];
 
     public bool canAttack = true;
@@ -37,6 +41,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        //gets references and initializes variables
         playerInput = transform.parent.GetComponent<PlayerInput>();
         originalLocalSc = transform.localScale;
         if (weaponMesh == null)
@@ -55,6 +60,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        //subscribes to events and initializes sprite renderers
         transform.parent.GetComponent<PlayerMovement>().flipped.AddListener(Flip);
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
@@ -66,16 +72,17 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (followMouseDuringAttack)
+        //if the player is holding the attack button, the weapon will follow the mouse and rotate towards it
+        if (followMouseDuringAttack && allowFlip)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             int mouseFlip = mousePos.x > transform.parent.position.x ? 1 : -1;
 
             transform.parent.GetComponent<PlayerMovement>().Flip(mouseFlip);
-
             ApplyFlip(mouseFlip);
         }
 
+        //rotates the weapon towards the mouse if rotateMesh is true
         if (rotateMesh && weaponMesh != null)
         {
             weaponMesh.rotation = Quaternion.Euler(0, 0, getMouseAngle());
@@ -102,10 +109,12 @@ public class Weapon : MonoBehaviour
 
     public virtual bool OnAttack()
     {
-        if (!canAttack||WeaponManager.Instance.currentWeapon==null) return false;
+        //if the weapon cant attack or if there is no weapon equipped, return false
+        if (!canAttack || WeaponManager.Instance.currentWeapon == null) return false;
 
         handsRenderer.enabled = false;
-        if(spriteRenderers.Length>0){
+        if (spriteRenderers.Length > 0)
+        {
             foreach (var sr in spriteRenderers)
             {
                 sr.enabled = true;
@@ -114,12 +123,15 @@ public class Weapon : MonoBehaviour
 
         followMouseDuringAttack = true;
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        int mouseFlip = mousePos.x > transform.parent.position.x ? 1 : -1;
+        //flips the weapon based on the mouse position relative to the player
+        if (allowFlip)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            int mouseFlip = mousePos.x > transform.parent.position.x ? 1 : -1;
 
-        transform.parent.GetComponent<PlayerMovement>().Flip(mouseFlip);
-
-        ApplyFlip(mouseFlip);
+            transform.parent.GetComponent<PlayerMovement>().Flip(mouseFlip);
+            ApplyFlip(mouseFlip);
+        }
 
         StartCoroutine(AttackCooldown(attackCooldown));
         return true;
@@ -133,6 +145,7 @@ public class Weapon : MonoBehaviour
 
     public void AttackFinished()
     {
+        //resets variables and invokes the attack end event
         handsRenderer.enabled = true;
 
         foreach (var sr in spriteRenderers)
@@ -155,6 +168,10 @@ public class Weapon : MonoBehaviour
 
     public void Flip(int flip)
     {
+        if (!allowFlip)
+            return;
+
+        //if the weapon is currently attacking, wait until the attack is finished to apply the flip
         if (!canAttack)
         {
             pendingFlip = flip;
@@ -167,12 +184,17 @@ public class Weapon : MonoBehaviour
 
     private void ApplyPendingFlip()
     {
+        //applies the pending flip and removes the listener to prevent it from being called multiple times
         attackEnd.RemoveListener(ApplyPendingFlip);
         ApplyFlip(pendingFlip);
     }
 
     private void ApplyFlip(int flip)
     {
+        //applies the flip to the weapon and weapon mesh
+        if (!allowFlip)
+            return;
+
         this.flip = flip;
 
         transform.localScale = new Vector3(flip, 1, 1);

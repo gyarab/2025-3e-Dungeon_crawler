@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    //information about the room, used for generation and gameplay
     public BoundsInt bounds;
     public HashSet<Vector2Int> floors = new HashSet<Vector2Int>();
     public HashSet<Vector2Int> walls = new HashSet<Vector2Int>(); 
