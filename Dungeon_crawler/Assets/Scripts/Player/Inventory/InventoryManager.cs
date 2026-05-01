@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
 
     public List<InventorySlot> slots = new List<InventorySlot>();
 
-    public Item testItem;
+    //public Item testItem;
 
     public int gold = 100;
 
@@ -34,13 +34,16 @@ public class InventoryManager : MonoBehaviour
     void Awake()
     {
         if (Instance == null)
-    {
-        Instance = this;
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); 
+        }
     }
-    else
-    {
-        Destroy(gameObject); 
-    }
+
+    void Start(){
         Load();
     }
 
@@ -61,7 +64,7 @@ public class InventoryManager : MonoBehaviour
 
         File.WriteAllText(path, text);
 
-        Debug.Log("Saved: " + path);
+        //Debug.Log("Saved: " + path);
     }
 
     public void Load()
@@ -97,6 +100,7 @@ public class InventoryManager : MonoBehaviour
                 if (item != null)
                 {
                     InventoryManager.Instance.slots.Add(new InventorySlot(item, value));
+                    WeaponManager.Instance.weapons.Add(item.prefab);
                 }
                 else
                 {
@@ -125,8 +129,13 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (InventorySlot slot in slots)
         {
-            if (slot.item == item && slot.amount < item.maxStack)
+            if (slot.item == item)
             {
+                if(slot.amount < item.maxStack) 
+                {
+                    return;
+                }
+                    
                 slot.amount++;
                 //Debug.Log("Stacked: " + item.itemName + " (" + slot.amount + ")");
                 
@@ -135,7 +144,36 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
+        for(int i=0;i<slots.Count;i++)
+        {
+            if(slots[i].item.type==item.type)
+            {
+                ChangeWeapon(item, i);
+                Save();
+                return;
+            }
+        }
         slots.Add(new InventorySlot(item, 1));
-        //Debug.Log("Added new: " + item.itemName);
+        WeaponManager.Instance.weapons.Add(item.prefab);
+        Save();
+    }
+
+    public void ChangeWeapon(Item replace, int index)
+    {
+        slots[index]=new InventorySlot(replace, 1);
+        WeaponManager.Instance.weapons[index]= replace.prefab;
+    }
+
+    public bool CanAddItem(Item item) 
+    {
+        foreach (InventorySlot slot in slots)
+        {
+            if (slot.item == item)
+            {
+                return slot.amount < item.maxStack;
+            }
+        }
+
+        return true;
     }
 }

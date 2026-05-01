@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01b26407a5553614b9df3febaa4816fa, type: 3}
-  m_Name: CherryBomb
+  m_Name: OvergrownAxe
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  itemName: CherryBomb
-  icon: {fileID: 1563444754670240353, guid: adb98089e8a14eb41ad8cf23b7b0dc3d, type: 3}
-  maxStack: 99
+  itemName: OvegrownAxe
+  type: 1
+  prefab: {fileID: 267880758066640977, guid: 3eba6b4b2927f86f584b59031d134cd7, type: 3}
+  icon: {fileID: 541513863007982224, guid: 55e028f0730b174a283dd27cf70a8829, type: 3}
+  maxStack: 1
+  price: 20

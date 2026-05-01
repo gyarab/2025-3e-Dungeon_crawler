@@ -43,11 +43,6 @@ public class ShopUI : MonoBehaviour
         upgradesPanel.SetActive(true);
     }
 
-    public void Buy()
-    {
-        shop.BuyItem();
-    }
-
     public void CloseShop()
     {
         shopPanel.SetActive(false);

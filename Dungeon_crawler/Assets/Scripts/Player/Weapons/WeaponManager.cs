@@ -6,8 +6,9 @@ using UnityEngine.InputSystem.Controls;
 
 public class WeaponManager : MonoBehaviour
 {
+    public static WeaponManager Instance;
     public GameObject currentWeapon;
-    public List<GameObject> weapons;
+    public List<GameObject> weapons = new List<GameObject>();
     
     //private int currentWeaponIndex = 0;
     private Weapon weaponScript;
@@ -23,9 +24,11 @@ public class WeaponManager : MonoBehaviour
 
         attackAction.performed += OnAttack;
         attackAction.canceled += OnAttackReleased;
-
+        if (Instance == null)
+        {   
+            Instance = this;
+        }
     }
-
 
     public void OnWeaponKey(InputAction.CallbackContext ctx)
     {

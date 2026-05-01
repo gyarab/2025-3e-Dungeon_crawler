@@ -626,11 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
   currentWeapon: {fileID: 0}
-  weapons:
-  - {fileID: 267880758066640977, guid: e33f7ee9d52010049b4424a361f58bff, type: 3}
-  - {fileID: 3875052342849371294, guid: 997e5250db46bfa45a56d25fb0bacb5e, type: 3}
-  - {fileID: 4661349444541952550, guid: 8b50fefe672e88d40876ee61398465c6, type: 3}
-  - {fileID: 267880758066640977, guid: a1e4dea1da906cc479021bbfedeec71f, type: 3}
+  weapons: []
 --- !u!114 &7148818142055508367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   inventoryPanel: {fileID: 0}
-  slotsTop: {fileID: 0}
   slotsBottom: {fileID: 0}
   playerMovement: {fileID: 0}
   isOpen: 0

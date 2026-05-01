@@ -5,7 +5,7 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryPanel;
-    public Transform slotsTop;
+    //public Transform slotsTop;
     public Transform slotsBottom;
 
     public PlayerMovement playerMovement;
@@ -65,7 +65,7 @@ public class InventoryUI : MonoBehaviour
 
         int itemIndex = 0;
 
-        UpdateSlots(slotsTop, ref itemIndex);
+        //UpdateSlots(slotsTop, ref itemIndex);
         UpdateSlots(slotsBottom, ref itemIndex);
     }
 

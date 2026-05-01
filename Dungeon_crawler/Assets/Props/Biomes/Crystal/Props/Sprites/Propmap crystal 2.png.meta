@@ -1,0 +1,698 @@
+fileFormatVersion: 2
+guid: cf1644edf2d608f4db288e48daec7522
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 487415718649897916
+    second: Propmap crystal 2_0
+  - first:
+      213: 8548588153416730238
+    second: Propmap crystal 2_1
+  - first:
+      213: 8016915457016871493
+    second: Propmap crystal 2_2
+  - first:
+      213: 552284882128899873
+    second: Propmap crystal 2_3
+  - first:
+      213: 1478551090358828024
+    second: Propmap crystal 2_4
+  - first:
+      213: -6360448553861331325
+    second: Propmap crystal 2_5
+  - first:
+      213: -2340198279888671478
+    second: Propmap crystal 2_6
+  - first:
+      213: -7499840726675244863
+    second: Propmap crystal 2_7
+  - first:
+      213: -546064136585623733
+    second: Propmap crystal 2_8
+  - first:
+      213: 4630438818746204747
+    second: Propmap crystal 2_9
+  - first:
+      213: 2601702407981241056
+    second: Propmap crystal 2_10
+  - first:
+      213: -8792372332371287954
+    second: Propmap crystal 2_11
+  - first:
+      213: 7771216237052521298
+    second: Propmap crystal 2_12
+  - first:
+      213: -2780434656403939595
+    second: Propmap crystal 2_13
+  - first:
+      213: 8718060962450321547
+    second: Propmap crystal 2_14
+  - first:
+      213: -4115566383583557101
+    second: Propmap crystal 2_15
+  - first:
+      213: -2739874102348274284
+    second: Propmap crystal 2_16
+  - first:
+      213: -928845020137114519
+    second: Propmap crystal 2_17
+  - first:
+      213: -5192558361630988433
+    second: Propmap crystal 2_18
+  - first:
+      213: 8276191232697805903
+    second: Propmap crystal 2_19
+  - first:
+      213: -317865907746920454
+    second: Propmap crystal 2_20
+  - first:
+      213: -1637084386260162230
+    second: Propmap crystal 2_21
+  - first:
+      213: -4949440425120224078
+    second: Propmap crystal 2_22
+  - first:
+      213: -823353295476013149
+    second: Propmap crystal 2_23
+  - first:
+      213: 1974960082910223461
+    second: Propmap crystal 2_24
+  - first:
+      213: 6418239279516773068
+    second: Propmap crystal 2_25
+  - first:
+      213: -7703638631758611787
+    second: Propmap crystal 2_26
+  - first:
+      213: -4251892682943618038
+    second: Propmap crystal 2_27
+  - first:
+      213: -8397843034894822182
+    second: Propmap crystal 2_28
+  - first:
+      213: -411466259805077630
+    second: Propmap crystal 2_29
+  - first:
+      213: -7080799139215360852
+    second: Propmap crystal 2_30
+  - first:
+      213: -1619267361065081784
+    second: Propmap crystal 2_31
+  - first:
+      213: 4578730508417338097
+    second: Propmap crystal 2_32
+  - first:
+      213: 883850114117371404
+    second: Propmap crystal 2_33
+  - first:
+      213: -8670092956865503058
+    second: Propmap crystal 2_34
+  - first:
+      213: 5139283061797508486
+    second: Propmap crystal 2_35
+  - first:
+      213: 1512676284597825201
+    second: Propmap crystal 2_36
+  - first:
+      213: -6010411582793015448
+    second: Propmap crystal 2_37
+  - first:
+      213: -3915184388803452881
+    second: Propmap crystal 2_38
+  - first:
+      213: -3841152759627798660
+    second: Propmap crystal 2_39
+  - first:
+      213: 6023864493762323121
+    second: Propmap crystal 2_40
+  - first:
+      213: -4106115432177963525
+    second: Propmap crystal 2_41
+  - first:
+      213: 8469296234773006885
+    second: Propmap crystal 2_42
+  - first:
+      213: 8866391860103059063
+    second: Propmap crystal 2_43
+  - first:
+      213: 2504252114874650971
+    second: Propmap crystal 2_44
+  - first:
+      213: -2731459169193759951
+    second: Propmap crystal 2_45
+  - first:
+      213: 6334118765901208437
+    second: Propmap crystal 2_46
+  - first:
+      213: 4113454723637564028
+    second: Propmap crystal 2_47
+  - first:
+      213: 6049208849303131596
+    second: Propmap crystal 2_48
+  - first:
+      213: -8613633628096170299
+    second: Propmap crystal 2_49
+  - first:
+      213: -464482942003464562
+    second: Propmap crystal 2_50
+  - first:
+      213: 3618024111947939986
+    second: Propmap crystal 2_51
+  - first:
+      213: 5230516459517047538
+    second: Propmap crystal 2_52
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: VisionOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Propmap crystal 2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb3a1108306a3c600800000000000000
+      internalID: 487415718649897916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76448712afa2a670800000000000000
+      internalID: 8548588153416730238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54a34d9f12ec14f60800000000000000
+      internalID: 8016915457016871493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f8c169c2c1aa700800000000000000
+      internalID: 552284882128899873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fbba1b026ed48410800000000000000
+      internalID: 1478551090358828024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 386c2f64db52bb7a0800000000000000
+      internalID: -6360448553861331325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d61473012f58fd0800000000000000
+      internalID: -2340198279888671478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c8b38e48963be790800000000000000
+      internalID: -7499840726675244863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b47cb3a9f8dfb68f0800000000000000
+      internalID: -546064136585623733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b420c81929f924040800000000000000
+      internalID: 4630438818746204747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2100f3e8a1b1420800000000000000
+      internalID: 2601702407981241056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60690c92f73bf580800000000000000
+      internalID: -8792372332371287954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b63427ef7e8db60800000000000000
+      internalID: 7771216237052521298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe9bdf4969e969d0800000000000000
+      internalID: -2780434656403939595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b803d0d4146ccf870800000000000000
+      internalID: 8718060962450321547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Propmap crystal 2_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a86f8ed2292e6c0800000000000000
+      internalID: -4115566383583557101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: de78c36bc1c76eda882a62a1c4afe9ce
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Propmap crystal 2_0: 487415718649897916
+      Propmap crystal 2_1: 8548588153416730238
+      Propmap crystal 2_10: 2601702407981241056
+      Propmap crystal 2_11: -8792372332371287954
+      Propmap crystal 2_12: 7771216237052521298
+      Propmap crystal 2_13: -2780434656403939595
+      Propmap crystal 2_14: 8718060962450321547
+      Propmap crystal 2_15: -4115566383583557101
+      Propmap crystal 2_2: 8016915457016871493
+      Propmap crystal 2_3: 552284882128899873
+      Propmap crystal 2_4: 1478551090358828024
+      Propmap crystal 2_5: -6360448553861331325
+      Propmap crystal 2_6: -2340198279888671478
+      Propmap crystal 2_7: -7499840726675244863
+      Propmap crystal 2_8: -546064136585623733
+      Propmap crystal 2_9: 4630438818746204747
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

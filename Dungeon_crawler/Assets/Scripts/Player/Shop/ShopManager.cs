@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public Item itemToSell;
-
     private bool playerInRange = false;
 
     public ShopUI shopUI;
@@ -16,14 +14,15 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void BuyItem()
-    {
-        if (InventoryManager.Instance.gold >= itemToSell.price)
+    public void BuyItem(Item item)
+    {    
+        //does not buy unless there is enough gold and item's stack is not its max
+        if (InventoryManager.Instance.gold >= item.price && InventoryManager.Instance.CanAddItem(item))
         {
-            InventoryManager.Instance.gold -= itemToSell.price;
-            InventoryManager.Instance.AddItem(itemToSell);
+            InventoryManager.Instance.gold -= item.price;
+            InventoryManager.Instance.AddItem(item);
 
-            //Debug.Log("Bought: " + itemToSell.itemName);
+            //Debug.Log("Bought: " + item.itemName);
             //Debug.Log("Gold left: " + InventoryManager.Instance.gold);
         }
         else

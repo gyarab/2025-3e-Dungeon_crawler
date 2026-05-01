@@ -4,7 +4,9 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public string itemName;
+    public WeaponType type;
+    public GameObject prefab;
     public Sprite icon;
-    public int maxStack = 99;
-    public int price = 10;
+    public int maxStack;
+    public int price;
 }

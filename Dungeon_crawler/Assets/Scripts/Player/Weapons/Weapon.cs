@@ -3,11 +3,23 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+public enum WeaponType
+{
+    Sword,
+    Axe,
+    Hammer,
+    Spear,
+    Daggers,
+    Mace,
+    Bomb
+}
+
 public class Weapon : MonoBehaviour
 {
     private PlayerInput playerInput;
 
     [SerializeField] private Sprite icon;
+    public WeaponType type;
     [SerializeField] protected bool rotateMesh = false;
     [SerializeField] protected Transform weaponMesh;
     [SerializeField] protected float attackCooldown = 0.4f;
@@ -89,7 +101,7 @@ public class Weapon : MonoBehaviour
 
     public virtual bool OnAttack()
     {
-        if (!canAttack) return false;
+        if (!canAttack||WeaponManager.Instance.currentWeapon==null) return false;
 
         handsRenderer.enabled = false;
         if(spriteRenderers.Length>0){
