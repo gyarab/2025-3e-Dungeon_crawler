@@ -10,13 +10,7 @@ public class UpgradeRow : MonoBehaviour
 
     public void Refresh()
     {
-        //row is only visible if the item is the current weapon
-        if (item == shop.GetCurrentWeapon(item.type)) {
-            row.SetActive(true);
-        } 
-        else 
-        {
-            row.SetActive(false);
-        }
+        Item current = shop.GetCurrentWeapon(item.type);
+        row.SetActive(current != null && current == item);
     }
 }

@@ -54,10 +54,11 @@ public class ShopUI : MonoBehaviour
     //finds all rows to refresh
     void RefreshAllRows()
     {
-        var rows = FindObjectsOfType<UpgradeRow>();
+        var rows = upgradesPanel.GetComponentsInChildren<UpgradeRow>(true);
 
         foreach (var row in rows)
         {
+            Debug.Log(row.name);
             row.Refresh();
         }
     }

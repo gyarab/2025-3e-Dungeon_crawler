@@ -71,8 +71,8 @@ public class Shop : MonoBehaviour
 
         itemsByType[WeaponType.Sword] = new List<Item>
         {
-            overgrownSword,
             woodenKatana,
+            overgrownSword,
             crystalKatana,
             crystalSword
         };
