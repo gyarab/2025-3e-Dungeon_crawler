@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class ShopItemRow : MonoBehaviour
-{
+{/* TODO later
     public Item item;
     //public Image icon;
     public GameObject soldOutOverlay;
@@ -24,5 +24,5 @@ public class ShopItemRow : MonoBehaviour
     {
         soldOutOverlay.SetActive(true);
         buyButton.interactable = false;
-    }
+    }*/
 }

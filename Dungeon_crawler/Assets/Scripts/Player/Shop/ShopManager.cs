@@ -9,9 +9,9 @@ public class Shop : MonoBehaviour
 
     public ShopUI shopUI;
 
-    //Item[] items = Resources.LoadAll<Item>("Items");
-
     public Dictionary<WeaponType, List<Item>> itemsByType;
+
+    public Dictionary<WeaponType, int> currentIndex;
 
     public Item woodenKatana;
     public Item overgrownSword;
@@ -27,34 +27,35 @@ public class Shop : MonoBehaviour
     public Item overgrownMace;
     public Item crystalMace;
 
-
     void Start()
     {
-        //building dictionary only at the start of the game when slots are empty
+        //building dictionary only at the very start of the game when all slots are empty
         if (InventoryManager.Instance.slots.Count == 0) {
             BuildDictionary();
             Save();
+        }
+        else
+        {
+            //load every time we start the game, so we have all the current info
+            Load();
         }
     }
 
     void Update()
     {
+        //opens only if player is nearby and inventory is not open at the same time
         if (playerInRange && Input.GetKeyDown(KeyCode.E) && !InventoryManager.Instance.inventoryUI.isOpen)
         {
             shopUI.ToggleShop();
         }
     }
 
-    //separating items into lists - manual, because they have specific positions
     void BuildDictionary()
     {
+        //separating items into lists - manual, because they have specific positions in lists
         itemsByType = new Dictionary<WeaponType, List<Item>>();
 
         woodenKatana = InventoryManager.Instance.FindItem("WoodenKatana");
-        if (woodenKatana == null)
-        {
-            Debug.LogError("WoodenKatana is null!");
-        }
         overgrownSword = InventoryManager.Instance.FindItem("OvergrownSword");
         crystalSword = InventoryManager.Instance.FindItem("CrystalSword");
         crystalKatana = InventoryManager.Instance.FindItem("CrystalKatana");
@@ -108,6 +109,14 @@ public class Shop : MonoBehaviour
             overgrownMace,
             crystalMace
         };
+
+        currentIndex = new Dictionary<WeaponType, int>();
+
+        //at start, index of current weapon type is 0
+        foreach (WeaponType type in itemsByType.Keys)
+        {
+            currentIndex[type] = 0;
+        }
     }
 
     void Save()
@@ -117,59 +126,61 @@ public class Shop : MonoBehaviour
         string text = "";
 
         //save dictionary
-        foreach (var pair in itemsByType)
+        foreach (var pair in currentIndex)
         {
-            foreach (var item in pair.Value)
-            {
-                text += pair.Key + ":" + item.itemName + "\n";
-            }
+            text += pair.Key + ":" + pair.Value + "\n";
         }
+
         File.WriteAllText(path, text);
     }
 
+    //moves index to the next item, meaning the given item wont be used again
     public void SaveUpgrade(Item item) 
     {
-        //first we load the dictionary from saveupgrade.txt
-        string path = Application.persistentDataPath + "/saveupgrade.txt";
-        string[] lines = File.ReadAllLines(path);
+        WeaponType type = item.type;
 
-        itemsByType = new Dictionary<WeaponType, List<Item>>();
+        int current = currentIndex[type];
+
+        if (current < itemsByType[type].Count - 1)
+        {
+            currentIndex[type]++;
+        }
+
+        Save();
+    }
+
+    //load file by separating lines, WeaponType:index
+    void Load()
+    {
+        string path = Application.persistentDataPath + "/saveupgrade.txt";
+
+        if (!File.Exists(path)) return;
+
+        currentIndex = new Dictionary<WeaponType, int>();
+
+        string[] lines = File.ReadAllLines(path);
 
         foreach (string line in lines)
         {
             string[] parts = line.Split(':');
+
             WeaponType type = (WeaponType)System.Enum.Parse(typeof(WeaponType), parts[0]);
-            Item currentItem = InventoryManager.Instance.FindItem(parts[1]);
+            int index = int.Parse(parts[1]);
 
-            if (!itemsByType.ContainsKey(type))
-                itemsByType[type] = new List<Item>();
-
-            itemsByType[type].Add(currentItem);
+            currentIndex[type] = index;
         }
-
-        //remove the item and save new dictionary
-        itemsByType[item.type].Remove(item);
-        Save();
-        Item newItem = itemsByType[item.type][0];
     }
 
-    //TODO add items to shop
-    /*public void BuyItem(Item item)
-    {    
-        //does not buy unless there is enough gold and item's stack is not its max
-        if (InventoryManager.Instance.gold >= item.price && InventoryManager.Instance.CanAddItem(item))
-        {
-            InventoryManager.Instance.gold -= item.price;
-            InventoryManager.Instance.AddItem(item);
+    public Item GetCurrentWeapon(WeaponType type) 
+    {
+        int index = currentIndex[type];
 
-            //Debug.Log("Bought: " + item.itemName);
-            //Debug.Log("Gold left: " + InventoryManager.Instance.gold);
-        }
-        else
-        {
-            //Debug.Log("Not enough gold!");
-        }
-    }*/
+        List<Item> list = itemsByType[type];
+
+        if (list == null || list.Count == 0) return null;
+
+        return list[index];
+    }
 
     //TODO after buying a weapon it cannot be baught again
     public void BuyWeapon(Item item)
@@ -196,12 +207,12 @@ public class Shop : MonoBehaviour
         }
     }
 
+    //player is in range - can open shop
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            //Debug.Log("Press E to buy");
         }
     }
 
@@ -212,4 +223,22 @@ public class Shop : MonoBehaviour
             playerInRange = false;
         }
     }
+
+    //TODO add items to shop
+    /*public void BuyItem(Item item)
+    {    
+        //does not buy unless there is enough gold and item's stack is not its max
+        if (InventoryManager.Instance.gold >= item.price && InventoryManager.Instance.CanAddItem(item))
+        {
+            InventoryManager.Instance.gold -= item.price;
+            InventoryManager.Instance.AddItem(item);
+
+            //Debug.Log("Bought: " + item.itemName);
+            //Debug.Log("Gold left: " + InventoryManager.Instance.gold);
+        }
+        else
+        {
+            //Debug.Log("Not enough gold!");
+        }
+    }*/
 }

@@ -33,11 +33,15 @@ public class ShopUI : MonoBehaviour
     public void ToggleShop()
     {
         isOpen = !isOpen;
+        //opens or disables shop
         shopPanel.SetActive(isOpen);
 
+        //blocks player's movement if open
         if (isOpen)
         {
             playerMovement.moveBlockers.Add(gameObject.transform);
+            //all upgrade rows refresh using method Refresh() in UpgradeRow
+            RefreshAllRows();
         }
         else
         {
@@ -47,6 +51,18 @@ public class ShopUI : MonoBehaviour
         }
     }
 
+    //finds all rows to refresh
+    void RefreshAllRows()
+    {
+        var rows = FindObjectsOfType<UpgradeRow>();
+
+        foreach (var row in rows)
+        {
+            row.Refresh();
+        }
+    }
+
+    //only one panel can be active - ONCLICKS on buttons
     public void OpenItems()
     {
         itemsPanel.SetActive(true);
@@ -59,12 +75,13 @@ public class ShopUI : MonoBehaviour
         upgradesPanel.SetActive(true);
     }
 
-    public void CloseShop()
+    //DELETE
+    /*public void CloseShop()
     {
         shopPanel.SetActive(false);
         isOpen = false;
 
         if(playerMovement.moveBlockers.Contains(transform))
             playerMovement.moveBlockers.Remove(transform);
-    }
+    }*/
 }
