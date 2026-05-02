@@ -11,8 +11,7 @@ public enum WeaponType
     Spear,
     Daggers,
     ShortRange,
-    Mace,
-    Bomb
+    Mace
 }
 
 public class Weapon : MonoBehaviour

@@ -9,9 +9,10 @@ public class InventoryManager : MonoBehaviour
 
     public List<InventorySlot> slots = new List<InventorySlot>();
 
-    //public Item testItem;
+    //starting gold and weapon
+    public int gold = 100; 
 
-    public int gold = 100;
+    public Item startingWeapon;
 
     public InventoryUI inventoryUI;
 
@@ -45,9 +46,15 @@ public class InventoryManager : MonoBehaviour
 
     void Start(){
         Load();
+        
+        //add starting weapon at the start of the game, slots are empty
+        if (slots.Count == 0)
+        {
+            AddItem(startingWeapon);
+        }
     }
 
-    public void Save()
+    public void SaveInventory()
     {
         string path = Application.persistentDataPath + "/save.txt";
 
@@ -112,9 +119,9 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Loaded!");
     }
     
-    Item FindItem(string itemName)
+    public Item FindItem(string itemName)
     {
-        Item[] items = Resources.LoadAll<Item>("");
+        Item[] items = Resources.LoadAll<Item>("Items");
 
         foreach (Item item in items)
         {
@@ -139,7 +146,7 @@ public class InventoryManager : MonoBehaviour
                 slot.amount++;
                 //Debug.Log("Stacked: " + item.itemName + " (" + slot.amount + ")");
                 
-                Save();
+                SaveInventory();
                 return;
             }
         }
@@ -149,13 +156,13 @@ public class InventoryManager : MonoBehaviour
             if(slots[i].item.type==item.type)
             {
                 ChangeWeapon(item, i);
-                Save();
+                SaveInventory();
                 return;
             }
         }
         slots.Add(new InventorySlot(item, 1));
         WeaponManager.Instance.weapons.Add(item.prefab);
-        Save();
+        SaveInventory();
     }
 
     public void ChangeWeapon(Item replace, int index)

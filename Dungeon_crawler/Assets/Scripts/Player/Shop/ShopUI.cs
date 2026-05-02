@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ShopUI : MonoBehaviour
 {
@@ -13,6 +14,21 @@ public class ShopUI : MonoBehaviour
     public bool isOpen = false;
 
     public PlayerMovement playerMovement;
+
+    //public List<ShopItemRow> rows = new List<ShopItemRow>();
+
+    //TODO finds correct row by the item
+    /*public void SoldOut(Item item)
+    {
+        foreach (var row in rows)
+        {
+            if (row.item == item)
+            {
+                row.SetSoldOut();
+                return;
+            }
+        }
+    }*/
 
     public void ToggleShop()
     {

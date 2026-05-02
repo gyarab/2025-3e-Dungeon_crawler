@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b26407a5553614b9df3febaa4816fa, type: 3}
+  m_Name: StoneSword
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: StoneSword
+  type: 0
+  prefab: {fileID: 267880758066640977, guid: d12bf62572f8b7221b0d4ec14a5af646, type: 3}
+  icon: {fileID: 230273353509569837, guid: fc965b1ab0660e99098bd890085e4f0a, type: 3}
+  maxStack: 1
+  price: 15
