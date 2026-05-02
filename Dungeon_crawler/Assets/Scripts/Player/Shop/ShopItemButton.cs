@@ -6,7 +6,7 @@ public class ShopItemButton : MonoBehaviour
 
     public Shop shop;
 
-    //TODO ONCLICK for items
+    //TODO - ONCLICK for items
     /*public void BuyThisItem()
     {
         shop.BuyItem(itemToBuy);

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class ShopUI : MonoBehaviour
@@ -11,24 +12,11 @@ public class ShopUI : MonoBehaviour
     
     public Shop shop;
 
+    //public RectTransform content;
+
     public bool isOpen = false;
 
     public PlayerMovement playerMovement;
-
-    //public List<ShopItemRow> rows = new List<ShopItemRow>();
-
-    //TODO finds correct row by the item
-    /*public void SoldOut(Item item)
-    {
-        foreach (var row in rows)
-        {
-            if (row.item == item)
-            {
-                row.SetSoldOut();
-                return;
-            }
-        }
-    }*/
 
     public void ToggleShop()
     {
@@ -40,8 +28,9 @@ public class ShopUI : MonoBehaviour
         if (isOpen)
         {
             playerMovement.moveBlockers.Add(gameObject.transform);
-            //all upgrade rows refresh using method Refresh() in UpgradeRow
-            RefreshAllRows();
+            //all upgrade and item rows refresh using their method Refresh()
+            RefreshUpgradeRows();
+            RefreshItemRows();
         }
         else
         {
@@ -51,14 +40,28 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    //finds all rows to refresh
-    void RefreshAllRows()
+    //finds all rows in ItemsPanel to refresh
+    public void RefreshItemRows()
+    {
+        var rows = itemsPanel.GetComponentsInChildren<ItemRow>(true);
+
+        foreach (var row in rows)
+        {
+            row.Refresh();
+        }
+
+        //for the scrollbar resize - DOES NOT WORK..
+        //Canvas.ForceUpdateCanvases();
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(content);
+    }
+
+    //finds all rows in UpgradePanel to refresh
+    public void RefreshUpgradeRows()
     {
         var rows = upgradesPanel.GetComponentsInChildren<UpgradeRow>(true);
 
         foreach (var row in rows)
         {
-            Debug.Log(row.name);
             row.Refresh();
         }
     }
@@ -72,17 +75,12 @@ public class ShopUI : MonoBehaviour
 
     public void OpenUpgrades()
     {
+        //UpgradesPanel can only be opened if all items in itemsPanel were sold (the amount of them is 6)
+        if (shop.soldItems.Count < 6)
+        {
+            return;
+        }
         itemsPanel.SetActive(false);
         upgradesPanel.SetActive(true);
     }
-
-    //DELETE
-    /*public void CloseShop()
-    {
-        shopPanel.SetActive(false);
-        isOpen = false;
-
-        if(playerMovement.moveBlockers.Contains(transform))
-            playerMovement.moveBlockers.Remove(transform);
-    }*/
 }

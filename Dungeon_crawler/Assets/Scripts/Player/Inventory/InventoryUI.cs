@@ -5,7 +5,7 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryPanel;
-    //public Transform slotsTop;
+    //public Transform slotsTop; TODO - for normal items, no weapons
     public Transform slotsBottom;
 
     public PlayerMovement playerMovement;

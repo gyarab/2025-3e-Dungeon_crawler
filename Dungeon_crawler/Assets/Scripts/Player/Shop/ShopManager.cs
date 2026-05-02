@@ -11,7 +11,9 @@ public class Shop : MonoBehaviour
 
     public Dictionary<WeaponType, List<Item>> itemsByType;
 
-    public Dictionary<WeaponType, int> currentIndex;
+    public Dictionary<WeaponType, int> currentIndex; //int is index of the current weapon that may be bought
+
+    public HashSet<string> soldItems = new HashSet<string>();
 
     public Item woodenKatana;
     public Item overgrownSword;
@@ -27,17 +29,33 @@ public class Shop : MonoBehaviour
     public Item overgrownMace;
     public Item crystalMace;
 
+    //for soldout weapons - lazy solution
+    public Item emptyWeapon1; 
+    public Item emptyWeapon2; 
+    public Item emptyWeapon3; 
+    public Item emptyWeapon4; 
+    public Item emptyWeapon5; 
+    public Item emptyWeapon6; 
+    public Item emptyWeapon7; 
+
     void Start()
     {
-        //building dictionary only at the very start of the game when all slots are empty
-        if (InventoryManager.Instance.slots.Count == 0) {
-            BuildDictionary();
-            Save();
+        string pathItem = Application.persistentDataPath + "/saveitem.txt";
+        string pathUpgrade = Application.persistentDataPath + "/saveupgrade.txt";
+        
+        BuildDictionary();
+
+        if (File.Exists(pathItem) && new FileInfo(pathItem).Length > 0) {
+            LoadSoldItems();
+        }
+
+        if (File.Exists(pathUpgrade) && new FileInfo(pathUpgrade).Length > 0) {
+            LoadUpgrade();
         }
         else
         {
-            //load every time we start the game, so we have all the current info
-            Load();
+            //save initial dictionary if there is no file or it is empty
+            SaveUpgrades();
         }
     }
 
@@ -68,46 +86,62 @@ public class Shop : MonoBehaviour
         overgrownSickle = InventoryManager.Instance.FindItem("OvergrownSickle");
         overgrownMace = InventoryManager.Instance.FindItem("OvergrownMace");
         crystalMace = InventoryManager.Instance.FindItem("CrystalMace");
+        //for soldout weapons
+        emptyWeapon1 = InventoryManager.Instance.FindItem("EmptyWeapon1");
+        emptyWeapon2 = InventoryManager.Instance.FindItem("EmptyWeapon2");
+        emptyWeapon3 = InventoryManager.Instance.FindItem("EmptyWeapon3");
+        emptyWeapon4 = InventoryManager.Instance.FindItem("EmptyWeapon4");
+        emptyWeapon5 = InventoryManager.Instance.FindItem("EmptyWeapon5");
+        emptyWeapon6 = InventoryManager.Instance.FindItem("EmptyWeapon6");
+        emptyWeapon7 = InventoryManager.Instance.FindItem("EmptyWeapon7");
+
 
         itemsByType[WeaponType.Sword] = new List<Item>
         {
             woodenKatana,
             overgrownSword,
             crystalKatana,
-            crystalSword
+            crystalSword,
+            emptyWeapon1
         };
 
         itemsByType[WeaponType.Axe] = new List<Item>
         {
-            overgrownAxe
+            overgrownAxe,
+            emptyWeapon2
         };
 
         itemsByType[WeaponType.Hammer] = new List<Item>
         {
-            woodenBat
+            woodenBat,
+            emptyWeapon3
         };
 
         itemsByType[WeaponType.Spear] = new List<Item>
         {
             overgrownSpear,
-            crystalSpear
+            crystalSpear,
+            emptyWeapon4
         };
 
         itemsByType[WeaponType.Daggers] = new List<Item>
         {
             boneDaggers,
-            crystalDaggers
+            crystalDaggers,
+            emptyWeapon5
         };
 
         itemsByType[WeaponType.ShortRange] = new List<Item>
         {
-            overgrownSickle
+            overgrownSickle,
+            emptyWeapon6
         };
 
         itemsByType[WeaponType.Mace] = new List<Item>
         {
             overgrownMace,
-            crystalMace
+            crystalMace,
+            emptyWeapon7
         };
 
         currentIndex = new Dictionary<WeaponType, int>();
@@ -119,7 +153,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    void Save()
+    void SaveUpgrades()
     {
         string path = Application.persistentDataPath + "/saveupgrade.txt";
 
@@ -135,7 +169,7 @@ public class Shop : MonoBehaviour
     }
 
     //moves index to the next item, meaning the given item wont be used again
-    public void SaveUpgrade(Item item) 
+    public void Upgrade(Item item) 
     {
         WeaponType type = item.type;
 
@@ -146,17 +180,22 @@ public class Shop : MonoBehaviour
             currentIndex[type]++;
         }
 
-        Save();
+        SaveUpgrades();
     }
 
     //load file by separating lines, WeaponType:index
-    void Load()
+    void LoadUpgrade()
     {
         string path = Application.persistentDataPath + "/saveupgrade.txt";
 
         if (!File.Exists(path)) return;
 
-        currentIndex = new Dictionary<WeaponType, int>();
+        foreach (WeaponType type in itemsByType.Keys)
+        {
+            currentIndex[type] = 0;
+        }
+
+        //currentIndex = new Dictionary<WeaponType, int>();
 
         string[] lines = File.ReadAllLines(path);
 
@@ -171,18 +210,45 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public Item GetCurrentWeapon(WeaponType type) 
+    //saving items to file, one item per line
+    public void SaveSoldItems() 
     {
-        int index = currentIndex[type];
+        string path = Application.persistentDataPath + "/saveitem.txt";
 
-        List<Item> list = itemsByType[type];
+        string text = "";
 
-        if (list == null || list.Count == 0) return null;
+        foreach (string name in soldItems)
+        {
+            text += name + "\n";
+        }
 
-        return list[index];
+        File.WriteAllText(path, text);
     }
 
-    //TODO after buying a weapon it cannot be baught again
+    //adding item to hashset of already sold items
+    public void SoldOut(Item item)
+    {
+        soldItems.Add(item.itemName);
+        SaveSoldItems();
+    }
+
+    //loading each sold item's name
+    public void LoadSoldItems()
+    {
+        string path = Application.persistentDataPath + "/saveitem.txt";
+
+        soldItems = new HashSet<string>();
+
+        string[] lines = File.ReadAllLines(path);
+
+        foreach (string line in lines)
+        {
+            if (string.IsNullOrWhiteSpace(line)) continue;
+            soldItems.Add(line);
+        }
+    }
+
+    //after buying a weapon it cannot be baught again
     public void BuyWeapon(Item item)
     {    
         //does not buy unless there is enough gold and item's stack is not its max
@@ -191,7 +257,8 @@ public class Shop : MonoBehaviour
             InventoryManager.Instance.gold -= item.price;
             InventoryManager.Instance.AddItem(item);
 
-            //shopUI.SoldOut(item);
+            SoldOut(item);
+            shopUI.RefreshItemRows();
         }
     }
 
@@ -203,8 +270,20 @@ public class Shop : MonoBehaviour
             InventoryManager.Instance.gold -= item.price;
             InventoryManager.Instance.AddItem(item);
 
-            SaveUpgrade(item);
+            Upgrade(item);
+            shopUI.RefreshUpgradeRows();
         }
+    }
+
+    public Item GetCurrentWeapon(WeaponType type) 
+    {
+        int index = currentIndex[type];
+
+        List<Item> list = itemsByType[type];
+
+        if (list == null || list.Count == 0) return null;
+
+        return list[index];
     }
 
     //player is in range - can open shop

@@ -11,7 +11,6 @@ public class InventoryManager : MonoBehaviour
 
     //starting gold and weapon
     public int gold = 100; 
-
     public Item startingWeapon;
 
     public InventoryUI inventoryUI;
