@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 64a94976715b5294591c2fbaba032880
+guid: f4e5ba934912b66469407e1bb4aefd55
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6393539159571249304
-    second: RoomDoor_StoneClose_0
+      213: 3284211730339950118
+    second: RoomDoor_OvergrownOpen_0
   - first:
-      213: 997730136241755319
-    second: RoomDoor_StoneClose_1
+      213: 2497916717119986176
+    second: RoomDoor_OvergrownOpen_1
   - first:
-      213: 1044728492487110211
-    second: RoomDoor_StoneClose_2
+      213: 7121509025299048288
+    second: RoomDoor_OvergrownOpen_2
   - first:
-      213: -6695980691979367557
-    second: RoomDoor_StoneClose_3
+      213: -630478496153808713
+    second: RoomDoor_OvergrownOpen_3
   - first:
-      213: -5492854196097856769
-    second: RoomDoor_StoneClose_4
+      213: 1423237491565683464
+    second: RoomDoor_OvergrownOpen_4
   - first:
-      213: 3981249410210550698
-    second: RoomDoor_StoneClose_5
+      213: 8019376654507284509
+    second: RoomDoor_OvergrownOpen_5
   - first:
-      213: 2442922957064066012
-    second: RoomDoor_StoneClose_6
+      213: -8526145113710763752
+    second: RoomDoor_OvergrownOpen_6
   - first:
-      213: 6347144108457219157
-    second: RoomDoor_StoneClose_7
+      213: -4990843340648467655
+    second: RoomDoor_OvergrownOpen_7
   - first:
-      213: 6832444314037745002
-    second: RoomDoor_StoneClose_8
+      213: -5020315536051527700
+    second: RoomDoor_OvergrownOpen_8
   - first:
-      213: -4377707283677784660
-    second: RoomDoor_StoneClose_9
+      213: 2795698392708329221
+    second: RoomDoor_OvergrownOpen_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_0
+      name: RoomDoor_OvergrownOpen_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8983bcfbdf96ab850800000000000000
-      internalID: 6393539159571249304
+      spriteID: 62e65121b2dd39d20800000000000000
+      internalID: 3284211730339950118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_1
+      name: RoomDoor_OvergrownOpen_1
       rect:
         serializedVersion: 2
         x: 19
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b45460d546a8dd00800000000000000
-      internalID: 997730136241755319
+      spriteID: 00a527a05026aa220800000000000000
+      internalID: 2497916717119986176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_2
+      name: RoomDoor_OvergrownOpen_2
       rect:
         serializedVersion: 2
         x: 38
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34e6c69570f9f7e00800000000000000
-      internalID: 1044728492487110211
+      spriteID: 06720b52abea4d260800000000000000
+      internalID: 7121509025299048288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_3
+      name: RoomDoor_OvergrownOpen_3
       rect:
         serializedVersion: 2
         x: 57
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7b02b799091313a0800000000000000
-      internalID: -6695980691979367557
+      spriteID: 7b0da3ee5271047f0800000000000000
+      internalID: -630478496153808713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_4
+      name: RoomDoor_OvergrownOpen_4
       rect:
         serializedVersion: 2
         x: 0
@@ -230,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffac296063675c3b0800000000000000
-      internalID: -5492854196097856769
+      spriteID: 8036acb35fa50c310800000000000000
+      internalID: 1423237491565683464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_5
+      name: RoomDoor_OvergrownOpen_5
       rect:
         serializedVersion: 2
         x: 19
@@ -252,14 +252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa355d9be3d304730800000000000000
-      internalID: 3981249410210550698
+      spriteID: d1897fb249c8a4f60800000000000000
+      internalID: 8019376654507284509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_6
+      name: RoomDoor_OvergrownOpen_6
       rect:
         serializedVersion: 2
         x: 38
@@ -274,14 +274,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd3537d7c7107e120800000000000000
-      internalID: 2442922957064066012
+      spriteID: 81166d9413c0da980800000000000000
+      internalID: -8526145113710763752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_7
+      name: RoomDoor_OvergrownOpen_7
       rect:
         serializedVersion: 2
         x: 57
@@ -296,14 +296,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5545ec220f5951850800000000000000
-      internalID: 6347144108457219157
+      spriteID: 933360f9c66fcbab0800000000000000
+      internalID: -4990843340648467655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_8
+      name: RoomDoor_OvergrownOpen_8
       rect:
         serializedVersion: 2
         x: 0
@@ -318,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a657bdd57e7b1de50800000000000000
-      internalID: 6832444314037745002
+      spriteID: cef16456e91445ab0800000000000000
+      internalID: -5020315536051527700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_9
+      name: RoomDoor_OvergrownOpen_9
       rect:
         serializedVersion: 2
         x: 19
@@ -340,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca5deb96b624f33c0800000000000000
-      internalID: -4377707283677784660
+      spriteID: 50fa28c30e05cc620800000000000000
+      internalID: 2795698392708329221
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_10
+      name: RoomDoor_OvergrownOpen_10
       rect:
         serializedVersion: 2
         x: 38
@@ -362,8 +362,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb7621deea660a3408eeb84db3b296f7
-      internalID: -1797949239
+      spriteID: 8bd2a38db0895da43afa2abdd541efb0
+      internalID: -1015463847
       vertices: []
       indices: 
       edges: []
@@ -372,7 +372,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ddfa35545f4abcd448e6989117a5cc5c
+    spriteID: c9f02bab02f5fcc4390da181e37cdc47
     internalID: 0
     vertices: []
     indices: 
@@ -384,17 +384,17 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":3.0,"y":3.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      RoomDoor_StoneClose_0: 6393539159571249304
-      RoomDoor_StoneClose_1: 997730136241755319
-      RoomDoor_StoneClose_10: -1797949239
-      RoomDoor_StoneClose_2: 1044728492487110211
-      RoomDoor_StoneClose_3: -6695980691979367557
-      RoomDoor_StoneClose_4: -5492854196097856769
-      RoomDoor_StoneClose_5: 3981249410210550698
-      RoomDoor_StoneClose_6: 2442922957064066012
-      RoomDoor_StoneClose_7: 6347144108457219157
-      RoomDoor_StoneClose_8: 6832444314037745002
-      RoomDoor_StoneClose_9: -4377707283677784660
+      RoomDoor_OvergrownOpen_0: 3284211730339950118
+      RoomDoor_OvergrownOpen_1: 2497916717119986176
+      RoomDoor_OvergrownOpen_10: -1015463847
+      RoomDoor_OvergrownOpen_2: 7121509025299048288
+      RoomDoor_OvergrownOpen_3: -630478496153808713
+      RoomDoor_OvergrownOpen_4: 1423237491565683464
+      RoomDoor_OvergrownOpen_5: 8019376654507284509
+      RoomDoor_OvergrownOpen_6: -8526145113710763752
+      RoomDoor_OvergrownOpen_7: -4990843340648467655
+      RoomDoor_OvergrownOpen_8: -5020315536051527700
+      RoomDoor_OvergrownOpen_9: 2795698392708329221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

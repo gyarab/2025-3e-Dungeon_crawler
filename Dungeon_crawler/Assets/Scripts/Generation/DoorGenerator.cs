@@ -6,11 +6,14 @@ public class DoorGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject doorPrefab;
     [HideInInspector] public HashSet<GameObject> doors = new HashSet<GameObject>();
+    private Animator animator;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         OpenDoors();
+        
     }
 
     // Update is called once per frame
@@ -43,6 +46,9 @@ public class DoorGenerator : MonoBehaviour
         foreach (GameObject door in doors)
         {
             //play open animation
+            Animator animator = door.GetComponent<Animator>();
+            animator.SetTrigger("Open");
+            animator.ResetTrigger("Close");
             door.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
@@ -51,6 +57,9 @@ public class DoorGenerator : MonoBehaviour
         foreach (GameObject door in doors)
         {
             //play open animation
+            Animator animator = door.GetComponent<Animator>();
+            animator.SetTrigger("Close");
+            animator.ResetTrigger("Open"); 
             door.GetComponent<BoxCollider2D>().enabled = true;
         }
     }

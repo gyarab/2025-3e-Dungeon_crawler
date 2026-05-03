@@ -1,37 +1,40 @@
 fileFormatVersion: 2
-guid: 64a94976715b5294591c2fbaba032880
+guid: 715eb13f5e3a19b4a96b396737951c48
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6393539159571249304
-    second: RoomDoor_StoneClose_0
+      213: -6442071116715030440
+    second: RoomDoor_LavaOpen _0
   - first:
-      213: 997730136241755319
-    second: RoomDoor_StoneClose_1
+      213: -6602730984724315513
+    second: RoomDoor_LavaOpen _1
   - first:
-      213: 1044728492487110211
-    second: RoomDoor_StoneClose_2
+      213: -7803653368382314846
+    second: RoomDoor_LavaOpen _2
   - first:
-      213: -6695980691979367557
-    second: RoomDoor_StoneClose_3
+      213: 7925637128082155987
+    second: RoomDoor_LavaOpen _3
   - first:
-      213: -5492854196097856769
-    second: RoomDoor_StoneClose_4
+      213: -1203672433154216076
+    second: RoomDoor_LavaOpen _4
   - first:
-      213: 3981249410210550698
-    second: RoomDoor_StoneClose_5
+      213: 4073422866916212636
+    second: RoomDoor_LavaOpen _5
   - first:
-      213: 2442922957064066012
-    second: RoomDoor_StoneClose_6
+      213: 8944377965246195620
+    second: RoomDoor_LavaOpen _6
   - first:
-      213: 6347144108457219157
-    second: RoomDoor_StoneClose_7
+      213: -710840819988877546
+    second: RoomDoor_LavaOpen _7
   - first:
-      213: 6832444314037745002
-    second: RoomDoor_StoneClose_8
+      213: -6509536794186596360
+    second: RoomDoor_LavaOpen _8
   - first:
-      213: -4377707283677784660
-    second: RoomDoor_StoneClose_9
+      213: 8632632310170092447
+    second: RoomDoor_LavaOpen _9
+  - first:
+      213: -3956851639134071571
+    second: RoomDoor_LavaOpen _10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -127,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_0
+      name: RoomDoor_LavaOpen _0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8983bcfbdf96ab850800000000000000
-      internalID: 6393539159571249304
+      spriteID: 858856e637a2996a0800000000000000
+      internalID: -6442071116715030440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_1
+      name: RoomDoor_LavaOpen _1
       rect:
         serializedVersion: 2
         x: 19
@@ -164,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b45460d546a8dd00800000000000000
-      internalID: 997730136241755319
+      spriteID: 782ca04f6236e54a0800000000000000
+      internalID: -6602730984724315513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_2
+      name: RoomDoor_LavaOpen _2
       rect:
         serializedVersion: 2
         x: 38
@@ -186,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34e6c69570f9f7e00800000000000000
-      internalID: 1044728492487110211
+      spriteID: 2a6aa436b9ad3b390800000000000000
+      internalID: -7803653368382314846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_3
+      name: RoomDoor_LavaOpen _3
       rect:
         serializedVersion: 2
         x: 57
@@ -208,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7b02b799091313a0800000000000000
-      internalID: -6695980691979367557
+      spriteID: 3d9ebf5e9f48dfd60800000000000000
+      internalID: 7925637128082155987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_4
+      name: RoomDoor_LavaOpen _4
       rect:
         serializedVersion: 2
         x: 0
@@ -230,14 +233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffac296063675c3b0800000000000000
-      internalID: -5492854196097856769
+      spriteID: 47fa9e3ac42bb4fe0800000000000000
+      internalID: -1203672433154216076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_5
+      name: RoomDoor_LavaOpen _5
       rect:
         serializedVersion: 2
         x: 19
@@ -252,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa355d9be3d304730800000000000000
-      internalID: 3981249410210550698
+      spriteID: c9f7e7af384b78830800000000000000
+      internalID: 4073422866916212636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_6
+      name: RoomDoor_LavaOpen _6
       rect:
         serializedVersion: 2
         x: 38
@@ -274,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd3537d7c7107e120800000000000000
-      internalID: 2442922957064066012
+      spriteID: 4a7a45bbe50d02c70800000000000000
+      internalID: 8944377965246195620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_7
+      name: RoomDoor_LavaOpen _7
       rect:
         serializedVersion: 2
         x: 57
@@ -296,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5545ec220f5951850800000000000000
-      internalID: 6347144108457219157
+      spriteID: 61f27b85a069226f0800000000000000
+      internalID: -710840819988877546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_8
+      name: RoomDoor_LavaOpen _8
       rect:
         serializedVersion: 2
         x: 0
@@ -318,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a657bdd57e7b1de50800000000000000
-      internalID: 6832444314037745002
+      spriteID: 8ff3c2256ca79a5a0800000000000000
+      internalID: -6509536794186596360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_9
+      name: RoomDoor_LavaOpen _9
       rect:
         serializedVersion: 2
         x: 19
@@ -340,17 +343,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca5deb96b624f33c0800000000000000
-      internalID: -4377707283677784660
+      spriteID: f938f3439554dc770800000000000000
+      internalID: 8632632310170092447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RoomDoor_StoneClose_10
+      name: RoomDoor_LavaOpen _10
       rect:
         serializedVersion: 2
         x: 38
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4dd7406607619c0800000000000000
+      internalID: -3956851639134071571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoomDoor_LavaOpen _11
+      rect:
+        serializedVersion: 2
+        x: 57
         y: 0
         width: 16
         height: 16
@@ -362,8 +387,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb7621deea660a3408eeb84db3b296f7
-      internalID: -1797949239
+      spriteID: 0a3507f9f4e3b804ba872cab9623ffcb
+      internalID: 1521270145
       vertices: []
       indices: 
       edges: []
@@ -372,7 +397,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ddfa35545f4abcd448e6989117a5cc5c
+    spriteID: 52b8e2984d818bb4ca1fb36a6a5294b6
     internalID: 0
     vertices: []
     indices: 
@@ -384,17 +409,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":3.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":3.0,"y":3.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      RoomDoor_StoneClose_0: 6393539159571249304
-      RoomDoor_StoneClose_1: 997730136241755319
-      RoomDoor_StoneClose_10: -1797949239
-      RoomDoor_StoneClose_2: 1044728492487110211
-      RoomDoor_StoneClose_3: -6695980691979367557
-      RoomDoor_StoneClose_4: -5492854196097856769
-      RoomDoor_StoneClose_5: 3981249410210550698
-      RoomDoor_StoneClose_6: 2442922957064066012
-      RoomDoor_StoneClose_7: 6347144108457219157
-      RoomDoor_StoneClose_8: 6832444314037745002
-      RoomDoor_StoneClose_9: -4377707283677784660
+      RoomDoor_LavaOpen _0: -6442071116715030440
+      RoomDoor_LavaOpen _1: -6602730984724315513
+      RoomDoor_LavaOpen _10: -3956851639134071571
+      RoomDoor_LavaOpen _11: 1521270145
+      RoomDoor_LavaOpen _2: -7803653368382314846
+      RoomDoor_LavaOpen _3: 7925637128082155987
+      RoomDoor_LavaOpen _4: -1203672433154216076
+      RoomDoor_LavaOpen _5: 4073422866916212636
+      RoomDoor_LavaOpen _6: 8944377965246195620
+      RoomDoor_LavaOpen _7: -710840819988877546
+      RoomDoor_LavaOpen _8: -6509536794186596360
+      RoomDoor_LavaOpen _9: 8632632310170092447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

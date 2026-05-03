@@ -12590,7 +12590,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.71875
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14331,6 +14331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorGenerator
   doorPrefab: {fileID: 5203646703417236019, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+  animator: {fileID: 4946209291225659328, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
 --- !u!1 &1905530415
 GameObject:
   m_ObjectHideFlags: 0
