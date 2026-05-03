@@ -57,7 +57,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   cancelCooldownOnReturn: 0
-  damage: 25
+  damage: 20
   knockbackForce: 2
   hitboxRange: 2
   hitboxWidth: 0.5

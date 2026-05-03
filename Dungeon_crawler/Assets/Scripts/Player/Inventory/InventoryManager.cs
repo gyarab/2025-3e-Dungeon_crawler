@@ -33,6 +33,7 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log(Application.persistentDataPath);
         if (Instance == null)
         {
             Instance = this;

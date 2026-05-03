@@ -52,12 +52,13 @@ MonoBehaviour:
   weaponMesh: {fileID: 0}
   attackCooldown: 0.2
   handsRenderer: {fileID: 0}
+  allowFlip: 1
   canAttack: 1
   attackEnd:
     m_PersistentCalls:
       m_Calls: []
   cancelCooldownOnReturn: 0
-  damage: 60
+  damage: 35
   knockbackForce: 3
   hitboxRange: 2
   hitboxWidth: 0.5
