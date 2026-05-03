@@ -5,8 +5,9 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     public GameObject inventoryPanel;
-    //public Transform slotsTop; TODO - for normal items, no weapons
-    public Transform slotsBottom;
+
+    //public Transform slotsTop; TODO - for normal items
+    public Transform slotsBottom; //slots for weapons
 
     public PlayerMovement playerMovement;
 
@@ -17,36 +18,23 @@ public class InventoryUI : MonoBehaviour
         InventoryManager.Instance.inventoryUI = this;
     }
 
-    void Update()
+    public void ToggleInventory()
     {
         if(playerMovement == null && GameManager.Instance != null)
         {
             playerMovement = GameManager.Instance.playerInstance.GetComponent<PlayerMovement>();
         }
-        
-    }
-
-    public void ToggleInventory()
-    {
-        if(playerMovement == null && GameManager.Instance != null)
-        {
-            playerMovement =
-                GameManager.Instance.playerInstance.GetComponent<PlayerMovement>();
-        }
-
-        if(playerMovement == null)
-        {
-            Debug.LogError("PlayerMovement still null");
-            return;
-        }
 
         isOpen = !isOpen;
-        if (inventoryPanel != null)
-            inventoryPanel.SetActive(isOpen);
+        inventoryPanel.SetActive(isOpen);
 
+        //handles player's movement
         if (isOpen)
         {
-            UpdateUI();
+            int itemIndex = 0;
+
+            //UpdateSlots(slotsTop, ref itemIndex);
+            UpdateSlots(slotsBottom, ref itemIndex);
             
             playerMovement.moveBlockers.Add(transform);
         }
@@ -59,10 +47,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+
     void UpdateUI()
     {
-        if (InventoryManager.Instance == null) return;
-
         int itemIndex = 0;
 
         //UpdateSlots(slotsTop, ref itemIndex);
@@ -71,6 +58,7 @@ public class InventoryUI : MonoBehaviour
 
     void UpdateSlots(Transform parent, ref int itemIndex)
     {
+        //go through all slots in slotsBottom
         for (int i = 0; i < parent.childCount; i++)
         {
             Transform slot = parent.GetChild(i);
@@ -78,6 +66,7 @@ public class InventoryUI : MonoBehaviour
             Transform itemImage = slot.Find("ItemImage");
             Transform amountText = slot.Find("AmountText");
 
+            //if the inventory item exists, we get its data from list slots
             if (itemIndex < InventoryManager.Instance.slots.Count)
             {
                 InventorySlot slotData = InventoryManager.Instance.slots[itemIndex];
@@ -86,11 +75,11 @@ public class InventoryUI : MonoBehaviour
                 img.sprite = slotData.item.icon;
                 itemImage.gameObject.SetActive(true);
 
+                //item amount shows a number unless it is 1
                 if (slotData.amount > 1)
                 {
                     amountText.gameObject.SetActive(true);
-                    amountText.GetComponent<TMP_Text>().text =
-                        slotData.amount.ToString();
+                    amountText.GetComponent<TMP_Text>().text = slotData.amount.ToString();
                 }
                 else
                 {
@@ -100,6 +89,7 @@ public class InventoryUI : MonoBehaviour
                 itemIndex++;
             }
             else
+            //if there is not an item to display in the slot, hide the slot's UI
             {
                 itemImage.gameObject.SetActive(false);
                 amountText.gameObject.SetActive(false);

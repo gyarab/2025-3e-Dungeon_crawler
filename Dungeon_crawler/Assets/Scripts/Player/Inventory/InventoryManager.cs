@@ -70,7 +70,7 @@ public class InventoryManager : MonoBehaviour
         File.WriteAllText(path, text);
     }
 
-    //load inventory
+    //load inventory - gold and weapons
     public void Load()
     {
         string path = Application.persistentDataPath + "/save.txt";
@@ -80,7 +80,6 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        //read from file and seperate lines
         string[] lines = File.ReadAllLines(path);
 
         InventoryManager.Instance.slots.Clear();
@@ -94,7 +93,6 @@ public class InventoryManager : MonoBehaviour
             string key = parts[0];
             int value = int.Parse(parts[1]);
 
-            //load gold
             if (key == "gold")
             {
                 InventoryManager.Instance.gold = value;
@@ -103,7 +101,7 @@ public class InventoryManager : MonoBehaviour
             {
                 Item item = FindItem(key);
 
-                //add item to inventory as an inventory slot and item's prefab to weaponmanager - for fighting
+                //add item to inventory as an inventory slot and item's prefab to weapons
                 if (item != null)
                 {
                     InventoryManager.Instance.slots.Add(new InventorySlot(item, value));
@@ -115,7 +113,7 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Loaded!");
     }
     
-    //loads all items, if names correspond, it will return the item
+    //finds all items, if names correspond, it will return the item
     public Item FindItem(string itemName)
     {
         Item[] items = Resources.LoadAll<Item>("Items");
@@ -129,8 +127,10 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
+    //add items to inventory when buying (right now only weapons)
     public void AddItem(Item item)
     {
+        //goes through all slots, only adds +1 amount to the item if it is not at max stack amount
         foreach (InventorySlot slot in slots)
         {
             if (slot.item == item)
@@ -141,15 +141,16 @@ public class InventoryManager : MonoBehaviour
                 }
                     
                 slot.amount++;
-                //Debug.Log("Stacked: " + item.itemName + " (" + slot.amount + ")");
                 
                 SaveInventory();
                 return;
             }
         }
 
+        //continue if item is not in a slot yet
         for(int i=0;i<slots.Count;i++)
         {
+            //goes through all slots, if an item in a slot corresponds to the given item, replace them
             if(slots[i].item.type==item.type)
             {
                 ChangeWeapon(item, i);
@@ -157,6 +158,7 @@ public class InventoryManager : MonoBehaviour
                 return;
             }
         }
+        //continue if item is not in a slot and if it should not replace another item
         slots.Add(new InventorySlot(item, 1));
         WeaponManager.Instance.weapons.Add(item.prefab);
         SaveInventory();

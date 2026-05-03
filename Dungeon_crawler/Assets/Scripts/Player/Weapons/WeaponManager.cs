@@ -75,9 +75,7 @@ public class WeaponManager : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        
         weaponScript?.OnAttack();
-        
     }
 
     private void OnAttackReleased(InputAction.CallbackContext context)
