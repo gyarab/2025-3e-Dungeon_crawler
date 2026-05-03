@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     [HideInInspector] public UnityEvent<int> HealthChanged;
 
     private bool hittable = true;
-    private bool isDead = false;
+    public bool isDead = false;
 
     private void Start()
     {

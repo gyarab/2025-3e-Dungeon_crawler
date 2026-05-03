@@ -29,14 +29,14 @@ public class Sword : Weapon
 
         //creates hitbox as a child of the weapon, with the same position and rotation, and destroys it after the attack duration
         GameObject hitbox = new GameObject("weaponHitbox");
-        hitbox.transform.parent = transform;
+        hitbox.transform.SetParent(transform, false);
+        hitbox.transform.localPosition = new Vector3(hitboxRange * 0.5f, 0f, 0f);
         hitbox.transform.localRotation = Quaternion.identity;
-        hitbox.transform.position = transform.position;
 
         //the hitbox is a box collider with the size of the hitbox range and width, and is a trigger
         BoxCollider2D collider = hitbox.AddComponent<BoxCollider2D>();
         collider.size = new Vector2(hitboxRange, hitboxWidth);
-        collider.offset = new Vector2(attackOffset * 0.5f, 0);
+        collider.offset = Vector2.zero;
         collider.isTrigger = true;
 
         //the hitbox has a damage component with the damage and knockback force of the weapon, and is destroyed after the attack duration

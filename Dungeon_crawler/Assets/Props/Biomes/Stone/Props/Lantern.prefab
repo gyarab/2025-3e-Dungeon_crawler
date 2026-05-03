@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8265300172984697560}
   - component: {fileID: 1252177401307031542}
-  - component: {fileID: 1929845351876683809}
-  - component: {fileID: 977217736997646395}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -85,70 +83,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.29309034, y: 0.3290348}
   m_EdgeRadius: 0
---- !u!114 &1929845351876683809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046331467676250669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d9bd17e25ed21444919106e38089252, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 300
-  currentHealth: 0
-  immunityFrames: 10
-  shakeOnHitIntensity: 0.1
-  shakeDuration: 0.15
-  particleColor: {r: 0.79661125, g: 0, b: 0.92941177, a: 1}
-  hitParticles: {fileID: 1185082728637586266, guid: 69411095674c31247b49c9fb60a58cc7, type: 3}
-  deathParticles: {fileID: 1185082728637586266, guid: 15a492dec786650408bf0b43509a89c5, type: 3}
-  destroyOnDeath: 1
-  transformToOnDeath: 1
-  transformTo: []
-  delayDeath: 0
-  deathTriggerName: Die
-  animator: {fileID: 0}
-  ActionsOnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 977217736997646395}
-        m_TargetAssemblyTypeName: Explosion, Assembly-CSharp
-        m_MethodName: Explode
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  HealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &977217736997646395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046331467676250669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0ec7a97b9458a149a91ba3b86293339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Explosion
-  radius: 1
-  explosionEffect: []
-  cameraShakeIntensity: 0
-  explosionDuration: 1
-  damage: 10
-  knockbackForce: 0
-  unhittableTags: []
-  effectsOnHit: []
 --- !u!1 &2014490343280366273
 GameObject:
   m_ObjectHideFlags: 0

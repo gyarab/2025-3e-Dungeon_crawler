@@ -49747,7 +49747,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.453125
+  orthographic size: 5.390625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -58974,7 +58974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37.899086, y: -31.307907}
+  m_AnchoredPosition: {x: 37.899048, y: -31.307861}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1530392402
@@ -71488,26 +71488,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7033629274935065752, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
-      propertyPath: weapons.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7033629274935065752, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
-      propertyPath: 'weapons.Array.data[0]'
-      value: 
-      objectReference: {fileID: 267880758066640977, guid: e33f7ee9d52010049b4424a361f58bff, type: 3}
-    - target: {fileID: 7033629274935065752, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
-      propertyPath: 'weapons.Array.data[1]'
-      value: 
-      objectReference: {fileID: 3875052342849371294, guid: 997e5250db46bfa45a56d25fb0bacb5e, type: 3}
-    - target: {fileID: 7033629274935065752, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
-      propertyPath: 'weapons.Array.data[2]'
-      value: 
-      objectReference: {fileID: 4661349444541952550, guid: 8b50fefe672e88d40876ee61398465c6, type: 3}
-    - target: {fileID: 7033629274935065752, guid: f71782c0b5720a34296d105667f15ae7, type: 3}
-      propertyPath: 'weapons.Array.data[3]'
-      value: 
-      objectReference: {fileID: 267880758066640977, guid: a1e4dea1da906cc479021bbfedeec71f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

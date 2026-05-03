@@ -69,16 +69,23 @@ public class CameraTint : MonoBehaviour
     public void RemoveTint(string id)
     {
         //fades out the tint and destroys the gameobject, also removes it from the dictionaries
-        if (!activeTints.TryGetValue(id, out GameObject tintGO))
-            return;
+        try
+        {
+            if (!activeTints.TryGetValue(id, out GameObject tintGO))
+                return;
 
-        SpriteRenderer sr = tintRenderers[id];
+            SpriteRenderer sr = tintRenderers[id];
 
-        if (fadeCoroutines.TryGetValue(id, out Coroutine c))
-            StopCoroutine(c);
+            if (fadeCoroutines.TryGetValue(id, out Coroutine c))
+                StopCoroutine(c);
 
-        fadeCoroutines[id] = StartCoroutine(FadeAndDestroy(id, sr, tintGO));
+            fadeCoroutines[id] = StartCoroutine(FadeAndDestroy(id, sr, tintGO));
+        }
+        catch (System.Exception ignored)
+        {
+        }
     }
+
 
     private IEnumerator Fade(SpriteRenderer sr, float from, float to)
     {

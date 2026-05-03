@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Layers/3 Crystal layer.unity
     guid: 21cef67ef3a11976d9ee7f9e41104a0c
   - enabled: 1
+    path: Assets/Scenes/Layers/4 Frozen layer.unity
+    guid: f35cf7f2458b66a42b29ce847f93a4a0
+  - enabled: 1
+    path: Assets/Scenes/Layers/5 Lava layer.unity
+    guid: de95288409b32f04b89b5198aa8fa08a
+  - enabled: 1
     path: Assets/Scenes/Layers/6 Magic layer.unity
     guid: 10c1e6585814d4349a1fc1a82862e1d8
   - enabled: 1

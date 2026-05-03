@@ -186,6 +186,8 @@ public class DungeonManager : MonoBehaviour
 
         // ----------------- SPECIALS ---------------- //
 
-        ff.FindAccessibleTiles(allRooms,allFloorTiles);
+        HashSet<Vector2Int> floorsOnly = new HashSet<Vector2Int>(allFloorTiles);
+        floorsOnly.ExceptWith(allWallTiles);
+        ff.FindAccessibleTiles(allRooms, floorsOnly);
     }
 }
