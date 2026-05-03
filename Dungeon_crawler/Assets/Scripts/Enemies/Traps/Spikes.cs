@@ -5,6 +5,7 @@ public class Spikes : MonoBehaviour
 {
     [SerializeField] private float delayBeforeActivation = 0.5f;
     [SerializeField] private float duration = 1f;
+    [SerializeField] private Animator animator;
 
     private Transform spikes;
     private BoxCollider2D hitbox;
@@ -21,7 +22,7 @@ public class Spikes : MonoBehaviour
         spikes = transform.Find("Spikes");
         hitbox = spikes.Find("Hitbox").GetComponent<BoxCollider2D>();
 
-        spikes.gameObject.SetActive(false);
+      
         hitbox.enabled = false;
     }
 
@@ -65,7 +66,8 @@ public class Spikes : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeActivation);
 
         isActive = true;
-        spikes.gameObject.SetActive(true);
+        animator.SetTrigger("Activate");
+        
         hitbox.enabled = true;
 
         activateRoutine = null;
@@ -94,7 +96,8 @@ public class Spikes : MonoBehaviour
         }
 
         isActive = false;
-        spikes.gameObject.SetActive(false);
+        animator.SetTrigger("Deactivate");
+       
         hitbox.enabled = false;
 
         deactivateRoutine = null;

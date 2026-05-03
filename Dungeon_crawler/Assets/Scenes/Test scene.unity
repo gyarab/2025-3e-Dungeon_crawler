@@ -353,6 +353,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108353692}
   m_CullTransparentMesh: 1
+--- !u!1001 &158727189
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878368262879982419, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203646703417236019, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
 --- !u!1001 &192965910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1051,6 +1108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   slots: []
   gold: 100
+  startingWeapon: {fileID: 0}
   inventoryUI: {fileID: 1848103307}
   shopUI: {fileID: 0}
 --- !u!4 &414051581
@@ -2056,6 +2114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baadb94c5b00f442b67528ba6c9bc12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  shakeEffect: {fileID: 0}
 --- !u!114 &669016417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21378,6 +21437,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
   shopUI: {fileID: 443712144}
+  woodenKatana: {fileID: 0}
+  overgrownSword: {fileID: 0}
+  crystalSword: {fileID: 0}
+  crystalKatana: {fileID: 0}
+  overgrownAxe: {fileID: 0}
+  woodenBat: {fileID: 0}
+  overgrownSpear: {fileID: 0}
+  crystalSpear: {fileID: 0}
+  boneDaggers: {fileID: 0}
+  crystalDaggers: {fileID: 0}
+  overgrownSickle: {fileID: 0}
+  overgrownMace: {fileID: 0}
+  crystalMace: {fileID: 0}
+  emptyWeapon1: {fileID: 0}
+  emptyWeapon2: {fileID: 0}
+  emptyWeapon3: {fileID: 0}
+  emptyWeapon4: {fileID: 0}
+  emptyWeapon5: {fileID: 0}
+  emptyWeapon6: {fileID: 0}
+  emptyWeapon7: {fileID: 0}
 --- !u!61 &1183706180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27458,3 +27537,4 @@ SceneRoots:
   - {fileID: 5623636800028128459}
   - {fileID: 8507793175051664924}
   - {fileID: 2036047710121404433}
+  - {fileID: 158727189}

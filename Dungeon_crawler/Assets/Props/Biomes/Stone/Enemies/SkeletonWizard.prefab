@@ -287,8 +287,8 @@ MonoBehaviour:
   player: {fileID: 0}
   projectilePrefab: {fileID: 0}
   projectileSpawn: {fileID: 0}
-  idleMin: 4
-  idleMax: 6
+  idleMin: 2
+  idleMax: 4
   teleportOutTime: 1
   teleportInTime: 1
   shootTime: 5
@@ -370,6 +370,7 @@ MonoBehaviour:
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  isDead: 0
 --- !u!114 &1183226276218050638
 MonoBehaviour:
   m_ObjectHideFlags: 0
