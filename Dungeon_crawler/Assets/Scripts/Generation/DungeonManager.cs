@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.LightTransport;
+using UnityEngine.SceneManagement;
 
 public class DungeonManager : MonoBehaviour
 {
@@ -189,5 +187,18 @@ public class DungeonManager : MonoBehaviour
         HashSet<Vector2Int> floorsOnly = new HashSet<Vector2Int>(allFloorTiles);
         floorsOnly.ExceptWith(allWallTiles);
         ff.FindAccessibleTiles(allRooms, floorsOnly);
+
+        //final check
+        Room bossRoom = allRooms.FirstOrDefault(r => r.type == RoomType.Boss);
+        if (bossRoom.accessableFloors.Count>0)
+        {
+            Debug.Log("Dungeon ready!");
+        }
+        else
+        {
+            Debug.LogError("Dungeon failed, regenerating...");
+            string currentSceneName = SceneManager.GetActiveScene().name; 
+            SceneManager.LoadScene(currentSceneName);
+        }
     }
 }
