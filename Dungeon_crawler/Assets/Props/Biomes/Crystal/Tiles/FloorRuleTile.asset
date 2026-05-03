@@ -12,22 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: FloorRuleTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 362788276, guid: 098126e3bb5c465498460e908ee584df, type: 3}
+  m_DefaultSprite: {fileID: 2034595074, guid: 88aa82438c957c4d09696cc122c70482, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: -146178325, guid: 098126e3bb5c465498460e908ee584df, type: 3}
-    - {fileID: -1322116964, guid: 098126e3bb5c465498460e908ee584df, type: 3}
-    - {fileID: 362788276, guid: 098126e3bb5c465498460e908ee584df, type: 3}
-    - {fileID: -316008497, guid: 098126e3bb5c465498460e908ee584df, type: 3}
-    - {fileID: 2096407944, guid: 098126e3bb5c465498460e908ee584df, type: 3}
-    - {fileID: -146178325, guid: 2a669b1f9389b084aafcb30210f54c33, type: 3}
-    - {fileID: -1322116964, guid: 2a669b1f9389b084aafcb30210f54c33, type: 3}
-    - {fileID: 362788276, guid: 2a669b1f9389b084aafcb30210f54c33, type: 3}
-    - {fileID: -316008497, guid: 2a669b1f9389b084aafcb30210f54c33, type: 3}
-    - {fileID: 2096407944, guid: 2a669b1f9389b084aafcb30210f54c33, type: 3}
+    - {fileID: 2034595074, guid: 88aa82438c957c4d09696cc122c70482, type: 3}
+    - {fileID: -918778214, guid: 88aa82438c957c4d09696cc122c70482, type: 3}
+    - {fileID: -258677362, guid: 88aa82438c957c4d09696cc122c70482, type: 3}
+    - {fileID: 179793830, guid: 88aa82438c957c4d09696cc122c70482, type: 3}
+    - {fileID: 1653300797, guid: 88aa82438c957c4d09696cc122c70482, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1

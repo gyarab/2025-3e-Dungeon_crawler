@@ -734,8 +734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8246686cafb1b44992b65697aee44a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TorchGenerator
-  torchPrefab: {fileID: 7114872100308232492, guid: f8b8c234ff870854c90c0bf5c601b36a, type: 3}
-  torchChance: 0.1
+  torchPrefab: {fileID: 7114872100308232492, guid: e8052a7905229744fbe0f7d4ad8ce904, type: 3}
+  torchChance: 0.06
 --- !u!4 &44971088
 Transform:
   m_ObjectHideFlags: 0
@@ -1097,6 +1097,75 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &74698415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74698416}
+  - component: {fileID: 74698417}
+  m_Layer: 0
+  m_Name: Stone Gen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &74698416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74698415}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1177034349}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74698417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74698415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561074b51e90021408ba57ca585004bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PropGenerator
+  generatorName: Stone
+  props:
+  - prefab: {fileID: 392962819541906106, guid: 7a945808a0139c34f9c849e02ef059b5, type: 3}
+    probability: 7
+  - prefab: {fileID: 4163743208733492808, guid: 0800fcd4cd7c54449b33ae0cdf6440b9, type: 3}
+    probability: 7
+  - prefab: {fileID: 1821598319992594820, guid: ad0a86dd496b7e44789506fba6b5d2ea, type: 3}
+    probability: 10
+  - prefab: {fileID: 4002921440387766743, guid: a3520d471df28a648bbfd08ecbf13b33, type: 3}
+    probability: 10
+  - prefab: {fileID: 1460216401105756551, guid: 3da3c547db97dcb46b1667ba900738f3, type: 3}
+    probability: 10
+  - prefab: {fileID: 5930221392450638579, guid: c7f31b5754ab4644f9ae3b8230e8adbd, type: 3}
+    probability: 10
+  - prefab: {fileID: 4796570022770050215, guid: a7e4e3a008bc90a43a7a1560228094c5, type: 3}
+    probability: 5
+  - prefab: {fileID: 5308159265028621504, guid: 4a289026ecef539468b83c5772ae90cd, type: 3}
+    probability: 5
+  - prefab: {fileID: 4187475940087697811, guid: ab0decd75b2c0194db67dfa6ba6e99a7, type: 3}
+    probability: 3
+  frequency: 0.1
+  minClusterSize: 1
+  maxClusterSize: 3
+  clusterRadius: 5
+  avoidOverlap: 1
 --- !u!1 &77612831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,6 +5274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   slots: []
   gold: 100
+  startingWeapon: {fileID: 0}
   inventoryUI: {fileID: 1343379677}
   shopUI: {fileID: 0}
 --- !u!4 &749388329
@@ -8943,8 +9013,8 @@ Transform:
   m_Children:
   - {fileID: 44971088}
   - {fileID: 2074061481}
-  - {fileID: 1730645816}
   - {fileID: 455363604}
+  - {fileID: 74698416}
   - {fileID: 1781907191}
   - {fileID: 1179187439}
   m_Father: {fileID: 883389031}
@@ -9565,8 +9635,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorTile: {fileID: 11400000, guid: dbb6ce8f7e99b92e39474cfb54ac98db, type: 2}
-  pathTile: {fileID: 11400000, guid: afb761f20b35eb442a71a311d6bce4de, type: 2}
-  wallTile: {fileID: 11400000, guid: 537167b539d6baf4c8d6d9d02dcb1805, type: 2}
+  pathTile: {fileID: 11400000, guid: dbb6ce8f7e99b92e39474cfb54ac98db, type: 2}
+  wallTile: {fileID: 11400000, guid: 6025b49fa7b57ede2af708043fb4ae23, type: 2}
   backgroundTile: {fileID: 11400000, guid: 54ad79a6ec9c99743bf23d9bed00747e, type: 2}
   grid: {fileID: 1473643966}
   wallTilemap: {fileID: 1618075286}
@@ -13415,65 +13485,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722540357}
   m_CullTransparentMesh: 1
---- !u!1 &1730645815
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1730645816}
-  - component: {fileID: 1730645817}
-  m_Layer: 0
-  m_Name: Stone Gen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1730645816
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730645815}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1177034349}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1730645817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730645815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561074b51e90021408ba57ca585004bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PropGenerator
-  generatorName: Stone
-  props:
-  - prefab: {fileID: 5930221392450638579, guid: a2feb18105913f46d9e9505a999c29a7, type: 3}
-    probability: 7
-  - prefab: {fileID: 5930221392450638579, guid: 40620e43b83c0ee74a5497b4c6bc88d8, type: 3}
-    probability: 7
-  - prefab: {fileID: 5930221392450638579, guid: 16ad1acf80680c463b8435a12fe08e40, type: 3}
-    probability: 8
-  - prefab: {fileID: 5930221392450638579, guid: 500a297262232f72cbeb6be0ead6c936, type: 3}
-    probability: 8
-  frequency: 0.1
-  minClusterSize: 1
-  maxClusterSize: 3
-  clusterRadius: 5
-  avoidOverlap: 1
 --- !u!1 &1743588121
 GameObject:
   m_ObjectHideFlags: 0

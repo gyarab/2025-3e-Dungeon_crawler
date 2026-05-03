@@ -35778,7 +35778,6 @@ MonoBehaviour:
   itemsPanel: {fileID: 1747054690}
   upgradesPanel: {fileID: 2029557526}
   shop: {fileID: 162603889}
-  content: {fileID: 74670177}
   isOpen: 0
   playerMovement: {fileID: 4892368103921301095}
 --- !u!1 &590238265
@@ -63436,7 +63435,6 @@ MonoBehaviour:
   itemsPanel: {fileID: 1747054690}
   upgradesPanel: {fileID: 2029557526}
   shop: {fileID: 162603889}
-  content: {fileID: 74670177}
   isOpen: 0
   playerMovement: {fileID: 0}
 --- !u!1 &1753114093
@@ -69100,7 +69098,6 @@ MonoBehaviour:
   itemsPanel: {fileID: 1747054690}
   upgradesPanel: {fileID: 2029557526}
   shop: {fileID: 162603889}
-  content: {fileID: 0}
   isOpen: 0
   playerMovement: {fileID: 0}
 --- !u!1 &2033899566

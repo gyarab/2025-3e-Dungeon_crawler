@@ -53,26 +53,24 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //save gold amount, items in slots and their amounts
     public void SaveInventory()
     {
         string path = Application.persistentDataPath + "/save.txt";
 
         string text = "";
 
-        // save gold
         text += "gold:" + InventoryManager.Instance.gold + "\n";
 
-        // save items
         foreach (InventorySlot slot in InventoryManager.Instance.slots)
         {
             text += slot.item.itemName + ":" + slot.amount + "\n";
         }
 
         File.WriteAllText(path, text);
-
-        //Debug.Log("Saved: " + path);
     }
 
+    //load inventory
     public void Load()
     {
         string path = Application.persistentDataPath + "/save.txt";
@@ -82,6 +80,7 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
+        //read from file and seperate lines
         string[] lines = File.ReadAllLines(path);
 
         InventoryManager.Instance.slots.Clear();
@@ -95,6 +94,7 @@ public class InventoryManager : MonoBehaviour
             string key = parts[0];
             int value = int.Parse(parts[1]);
 
+            //load gold
             if (key == "gold")
             {
                 InventoryManager.Instance.gold = value;
@@ -103,14 +103,11 @@ public class InventoryManager : MonoBehaviour
             {
                 Item item = FindItem(key);
 
+                //add item to inventory as an inventory slot and item's prefab to weaponmanager - for fighting
                 if (item != null)
                 {
                     InventoryManager.Instance.slots.Add(new InventorySlot(item, value));
                     WeaponManager.Instance.weapons.Add(item.prefab);
-                }
-                else
-                {
-                    Debug.LogWarning("Item not found: " + key);
                 }
             }
         }
@@ -118,6 +115,7 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Loaded!");
     }
     
+    //loads all items, if names correspond, it will return the item
     public Item FindItem(string itemName)
     {
         Item[] items = Resources.LoadAll<Item>("Items");

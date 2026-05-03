@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8246686cafb1b44992b65697aee44a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TorchGenerator
-  torchPrefab: {fileID: 7114872100308232492, guid: f8b8c234ff870854c90c0bf5c601b36a, type: 3}
+  torchPrefab: {fileID: 7114872100308232492, guid: 2e6499bc0c4d8dd12a98ee4c5dc17cc5, type: 3}
   torchChance: 0.1
 --- !u!4 &44971088
 Transform:
@@ -5722,6 +5722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
   slots: []
   gold: 100
+  startingWeapon: {fileID: 0}
   inventoryUI: {fileID: 325107120}
   shopUI: {fileID: 0}
 --- !u!4 &749388329

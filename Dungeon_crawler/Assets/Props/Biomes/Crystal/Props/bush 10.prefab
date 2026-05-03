@@ -125,7 +125,7 @@ MonoBehaviour:
   immunityFrames: 10
   shakeOnHitIntensity: 0.1
   shakeDuration: 0.15
-  particleColor: {r: 0.44419003, g: 0, b: 1, a: 1}
+  particleColor: {r: 0.48426056, g: 0, b: 1, a: 0.9372549}
   hitParticles: {fileID: 1185082728637586266, guid: 69411095674c31247b49c9fb60a58cc7, type: 3}
   deathParticles: {fileID: 1185082728637586266, guid: 15a492dec786650408bf0b43509a89c5, type: 3}
   destroyOnDeath: 1
