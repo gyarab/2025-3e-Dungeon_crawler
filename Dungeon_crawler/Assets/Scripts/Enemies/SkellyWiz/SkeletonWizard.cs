@@ -30,18 +30,25 @@ public class SkeletonWizard : MonoBehaviour
 
     IEnumerator Loop()
     {
+        // Behaviour loop: Idle - Teleport Out - Teleport In - Shoot - Idle
         while (true)
         {
+            //Idle for a random duration
             yield return new WaitForSeconds(Random.Range(idleMin, idleMax));
 
+            // Play teleport out animation and wait for it to finish
             animator.SetTrigger("TeleportOut");
             yield return new WaitForSeconds(teleportOutTime);
-
+            
+            // Teleport method
             TeleportToRandomFloor();
 
+            // Play teleport in animation and wait for it to finish
             animator.SetTrigger("TeleportIn");
             yield return new WaitForSeconds(teleportInTime);
 
+
+            // Projectile attack animation and projectile spawning
             animator.SetTrigger("Shoot");
             yield return new WaitForSeconds(delayBeforeShoot);
             SpawnProjectile();
@@ -54,58 +61,25 @@ public class SkeletonWizard : MonoBehaviour
     {
         var room = transform.parent.GetComponent<Room>();
 
-        if (room == null)
-        {
-            Debug.LogError("Room is NULL");
-            return;
-        }
+    
 
-        if (room.accessableFloors == null)
-        {
-            Debug.LogError("accessableFloors is NULL");
-            return;
-        }
-
-        if (room.accessableFloors.Count == 0)
-        {
-            Debug.LogError("accessableFloors is EMPTY");
-            return;
-        }
-
+        // Gets random floor tile from the room and teleports to that position
         var accessableFloors = room.accessableFloors;
         var floorList = new List<Vector2Int>(accessableFloors);
 
         Vector2Int randomFloor = floorList[Random.Range(0, floorList.Count)];
-
-        Debug.Log("Teleporting to: " + randomFloor);
 
         transform.position = new Vector3(randomFloor.x, randomFloor.y, 0);
     }
 
     void SpawnProjectile()
     {
-        Debug.Log("SpawnProjectile called");
+       
 
-        if (!projectilePrefab)
-        {
-            Debug.LogError("Missing projectilePrefab");
-            return;
-        }
-
-        if (!player)
-        {
-            Debug.LogError("Missing player reference");
-            return;
-        }
-
-        if (!projectileSpawn)
-        {
-            Debug.LogError("Missing projectileSpawn");
-            return;
-        }
-
+        // Instantiate projectile from prefab at projectile spawn game object position
         GameObject proj = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
 
+        // Set direction of projectile towards player
         Vector2 dir = (player.position - projectileSpawn.position).normalized;
 
         proj.transform.up = dir;
@@ -119,8 +93,8 @@ public class SkeletonWizard : MonoBehaviour
 
     void FacePlayer()
     {
-        if (!player) return;
-
+        
+        // Flip sprite based on player position
         Vector2 direction = (player.position - transform.position).normalized;
 
         if (direction.x > 0)

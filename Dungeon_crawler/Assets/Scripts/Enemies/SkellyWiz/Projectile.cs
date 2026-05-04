@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        // Move projectile in set direction
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
     }
 }
