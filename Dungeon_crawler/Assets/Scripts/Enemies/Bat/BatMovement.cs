@@ -23,8 +23,7 @@ public class BatMovement : MonoBehaviour
 
     void Start()
     {
-        if (!player)
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
         StartCoroutine(BehaviorLoop());
     }
