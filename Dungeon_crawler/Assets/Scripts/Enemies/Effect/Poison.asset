@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: poison
   duration: 1500
   healthChangePerTick: -2
-  tickInterval: 1
+  tickInterval: 10
   speedModifier: 0
   attackSpeedModifier: 0
   CameraColorEffect: {r: 0.17935692, g: 0.5169811, b: 0.04974723, a: 0.33333334}

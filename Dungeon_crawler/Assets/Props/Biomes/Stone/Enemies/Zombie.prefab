@@ -273,12 +273,15 @@ MonoBehaviour:
   delayDeath: 1
   deathTriggerName: Die
   animator: {fileID: 8426039853712420773}
+  goldOnDeath: 10
+  goldPrefab: {fileID: 4682288460497762302, guid: 151a7280ddc4b7d47bd12f4d31ae3c78, type: 3}
   ActionsOnDeath:
     m_PersistentCalls:
       m_Calls: []
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  isDead: 0
 --- !u!114 &4873950265500460611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +379,7 @@ MonoBehaviour:
   buryEffect: {fileID: 669537889589105197, guid: c03eeee375a43cc4c978e27be9d466dd, type: 3}
   mask: {fileID: 3989593884801162507}
   burrowParticleYpos: 1.5
+  creatureScript: {fileID: 8108572976369513445}
   isBurried:
     m_PersistentCalls:
       m_Calls: []

@@ -157,6 +157,9 @@ MonoBehaviour:
   - {x: 3, y: 6}
   - {x: 5, y: 5}
   - {x: 7, y: 7}
+  - {x: 7, y: 3}
+  - {x: 5, y: 7}
+  - {x: 3, y: 3}
   propGO:
   - {fileID: 88394826274405123, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
   - {fileID: 2017349803856902079, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
@@ -167,6 +170,9 @@ MonoBehaviour:
   - {fileID: 2145636526865255925, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
   - {fileID: 8559022249715277649, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
   - {fileID: 2606595158445072900, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
+  - {fileID: 535706754319558531, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
+  - {fileID: 5461023808939230808, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
+  - {fileID: 8439299615699175533, guid: 006cc922f455db74bb19fa5edaf4f913, type: 3}
   bounds:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 11, y: 10, z: 1}

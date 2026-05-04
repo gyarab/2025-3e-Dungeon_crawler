@@ -25,6 +25,9 @@ public class Health : MonoBehaviour
     [SerializeField] private Animator animator;
     private Rigidbody2D rb;
 
+    public int goldOnDeath;
+    public GameObject goldPrefab;
+
     public UnityEvent ActionsOnDeath;
 
     [HideInInspector] public UnityEvent<int> HealthChanged;
@@ -60,7 +63,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            TakeDamage(value);
+            TakeDamage(-value);
         }
     }
 
@@ -182,6 +185,13 @@ public class Health : MonoBehaviour
 
             ps.Play();
             Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
+        }
+
+        //drop gold on death
+        for (int i = 0; i < goldOnDeath; i++)
+        {
+            Vector2 offset = Random.insideUnitCircle;
+            Instantiate(goldPrefab, transform.position + new Vector3(offset.x, offset.y, 0f), Quaternion.identity);
         }
 
         if (destroyOnDeath)

@@ -111,7 +111,14 @@ public class Weapon : MonoBehaviour
         //if the weapon cant attack or if there is no weapon equipped, return false
         if (!canAttack || WeaponManager.Instance.currentWeapon == null) return false;
 
-        handsRenderer.enabled = false;
+        try
+        {
+            handsRenderer.enabled = false;
+        }
+        catch
+        {
+            //ignore;
+        }
         if (spriteRenderers.Length > 0)
         {
             foreach (var sr in spriteRenderers)

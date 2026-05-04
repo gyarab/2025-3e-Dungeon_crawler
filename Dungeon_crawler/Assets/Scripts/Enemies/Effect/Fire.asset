@@ -15,7 +15,7 @@ MonoBehaviour:
   effectName: fire
   duration: 1000
   healthChangePerTick: -5
-  tickInterval: 1
+  tickInterval: 5
   speedModifier: 0
   attackSpeedModifier: 0
   CameraColorEffect: {r: 0.7735849, g: 0.5674317, b: 0.056924086, a: 0.33333334}

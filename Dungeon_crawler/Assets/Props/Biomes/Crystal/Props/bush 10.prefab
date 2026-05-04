@@ -135,12 +135,15 @@ MonoBehaviour:
   delayDeath: 0
   deathTriggerName: Die
   animator: {fileID: 0}
+  goldOnDeath: 1
+  goldPrefab: {fileID: 4682288460497762302, guid: 151a7280ddc4b7d47bd12f4d31ae3c78, type: 3}
   ActionsOnDeath:
     m_PersistentCalls:
       m_Calls: []
   HealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  isDead: 0
 --- !u!1 &5085053500850979484
 GameObject:
   m_ObjectHideFlags: 0

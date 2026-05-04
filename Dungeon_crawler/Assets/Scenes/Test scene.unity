@@ -405,6 +405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5203646703417236019, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -608,6 +612,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221405002}
   m_CullTransparentMesh: 1
+--- !u!1001 &239157753
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3728786290445004930, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_Name
+      value: Bat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6610074
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.3485565
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986324343724456054, guid: 53216a390152b214c8c6be907cfde637, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53216a390152b214c8c6be907cfde637, type: 3}
 --- !u!1001 &278434457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1923,7 +1984,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 6.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -24160,6 +24221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 9082229247938196679, guid: 8472d906e4b768246a8e316b6dacfbf9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27045,6 +27110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 5171069610174062806, guid: cefd2b023d0751242bd8aa77a15c2496, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7777933704025984279, guid: cefd2b023d0751242bd8aa77a15c2496, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.46
@@ -27142,6 +27211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stalagtite
       objectReference: {fileID: 0}
+    - target: {fileID: 8794633008212606849, guid: 09d050be226a7fd42b3733778dd800a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27158,6 +27231,10 @@ PrefabInstance:
     - target: {fileID: 1763777521057151050, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
       propertyPath: m_Name
       value: Worm
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763777521057151050, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7659546352948009387, guid: b73e105d71b7d3e41b3fcac2a997c10e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27232,6 +27309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TNT barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 399182035211274353, guid: 190d77c1c9243ff4a944602b459e8711, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4768909447665064377, guid: 190d77c1c9243ff4a944602b459e8711, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.72
@@ -27289,9 +27370,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DumbBat
       objectReference: {fileID: 0}
+    - target: {fileID: 4705337844047294644, guid: 545c6014e7f73d74796ee9e6014d372b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5653131729970125051, guid: 545c6014e7f73d74796ee9e6014d372b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.13
       objectReference: {fileID: 0}
     - target: {fileID: 5653131729970125051, guid: 545c6014e7f73d74796ee9e6014d372b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27349,6 +27434,10 @@ PrefabInstance:
     - target: {fileID: 3009403121372584933, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3009403121372584933, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097809584405805110, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27455,6 +27544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkeletonWizard
       objectReference: {fileID: 0}
+    - target: {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27471,6 +27564,10 @@ PrefabInstance:
     - target: {fileID: 5901412983514429613, guid: 366f7ee1764ca7c49bb022714c40f5a2, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901412983514429613, guid: 366f7ee1764ca7c49bb022714c40f5a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6128005365849354329, guid: 366f7ee1764ca7c49bb022714c40f5a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27546,3 +27643,4 @@ SceneRoots:
   - {fileID: 158727189}
   - {fileID: 9095808982534577319}
   - {fileID: 5623527722340103029}
+  - {fileID: 239157753}

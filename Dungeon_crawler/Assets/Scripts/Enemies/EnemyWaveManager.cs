@@ -65,8 +65,7 @@ public class EnemyWaveManager : MonoBehaviour
                 {
                     Vector2Int randomFloor = floorList[Random.Range(0, floorList.Count)];
                     enemyInstance.transform.position = new Vector3(randomFloor.x, randomFloor.y, 0);
-                    enemyInstance.GetComponent<Burrow>().InstaBurry();
-                    enemyInstance.GetComponent<Burrow>().Unbury();
+                    StartCoroutine(SpawnBurrowEnemy(enemyInstance));
                 }
 
                 //enemies kept in activeEnemies list to check if all enemies are dead
@@ -83,6 +82,11 @@ public class EnemyWaveManager : MonoBehaviour
         doorGen.OpenDoors();
         Destroy(this);
     }
-
-
+    private IEnumerator SpawnBurrowEnemy(GameObject enemy)
+    {
+        var burrow = enemy.GetComponent<Burrow>();
+        burrow.InstaBurry();
+        yield return null;
+        burrow.Unbury();
+    }
 }

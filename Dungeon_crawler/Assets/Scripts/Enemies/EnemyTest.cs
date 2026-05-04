@@ -11,14 +11,17 @@ public class EnemyTest : MonoBehaviour
     private void Start()
     {
         //gets components and sets up listeners
-        transform.GetComponent<Burrow>().isBurried.AddListener((burried) => { isBurried = burried; });
+        if(transform.GetComponent<Burrow>() != null)
+        {
+            transform.GetComponent<Burrow>().isBurried.AddListener((burried) => { isBurried = burried; });
+        }
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
         //move towards target (player)
-        if (target == null||isBurried||gameObject.GetComponent<Health>().GetHealth()<=0||Vector3.Distance(transform.position, target.position)>aggroDistance)
+        if (target == null||isBurried||Vector3.Distance(transform.position, target.position)>aggroDistance)
             return;
         Vector3 direction = (target.position - transform.position).normalized;
         transform.position += direction * speed * Time.deltaTime;

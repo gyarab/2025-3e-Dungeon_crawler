@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,6 +23,8 @@ public class Burrow : MonoBehaviour
     private float enemySizeX;
     private float enemySizeY;
 
+    public MonoBehaviour creatureScript;
+
     public UnityEvent<bool> isBurried;
 
     private void Start()
@@ -39,6 +42,12 @@ public class Burrow : MonoBehaviour
 
     public void InstaBurry()
     {
+        health = GetComponent<Health>();
+        damage = GetComponent<Damage>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        creatureScript.enabled = false;
+        health.enabled = false;
+        damage.enabled = false;
         //for enemies instantiated and needed to be burried immediately
         Start();
 
@@ -46,8 +55,6 @@ public class Burrow : MonoBehaviour
 
         mask.SetActive(true);
 
-        health.enabled = false;
-        damage.enabled = false;
         boxCollider.enabled = false;
 
         isBurried?.Invoke(true);
@@ -115,23 +122,26 @@ public class Burrow : MonoBehaviour
     private IEnumerator UnburrowSequence()
     {
         //same as burrow but in reverse
-        Vector3 maskCenter = mask.transform.position;
-        Vector3 riseTarget = maskCenter + Vector3.up * jumpHeight;
+        Vector3 maskLocalPos = enemy.transform.parent.InverseTransformPoint(mask.transform.position);
+        Vector3 riseTarget = maskLocalPos + Vector3.up * jumpHeight;
 
         if (buryEffect != null)
         {
             //particle effect
-            GameObject buryEffectGO = Instantiate(buryEffect, new Vector3(transform.position.x, transform.position.y - enemySizeY / burrowParticleYpos, transform.position.z - 1f), Quaternion.identity);
-            buryEffectGO.transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y*1.5f, 0);
+            GameObject buryEffectGO = Instantiate(
+                buryEffect,
+                new Vector3(transform.position.x, transform.position.y - enemySizeY / burrowParticleYpos, transform.position.z - 1f), Quaternion.identity);
+            buryEffectGO.transform.localScale = new Vector3(transform.localScale.x * 1.5f, transform.localScale.y * 1.5f, 0);
             buryEffectGO.GetComponent<ParticleSystem>().Play();
             Destroy(buryEffectGO, buryEffectGO.GetComponent<ParticleSystem>().main.duration + buryEffectGO.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
         }
+
         //jump up
         float t = 0f;
         while (t < 1f)
         {
             t += Time.deltaTime * burrowSpeed;
-            enemy.transform.position = Vector3.Lerp(maskCenter, riseTarget, Mathf.SmoothStep(0, 1, t));
+            enemy.transform.localPosition = Vector3.Lerp(maskLocalPos, riseTarget, Mathf.SmoothStep(0, 1, t));
             yield return null;
         }
 
@@ -140,11 +150,12 @@ public class Burrow : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * jumpSpeed;
-            enemy.transform.position = Vector3.Lerp(riseTarget, originalPos, Mathf.SmoothStep(0, 1, t));
+            enemy.transform.localPosition = Vector3.Lerp(riseTarget, Vector3.zero, Mathf.SmoothStep(0, 1, t));
             yield return null;
         }
 
         //enable scripts
+        creatureScript.enabled = true;
         health.enabled = true;
         damage.enabled = true;
         boxCollider.enabled = true;
@@ -154,6 +165,8 @@ public class Burrow : MonoBehaviour
         RefreshSpritesForMasking();
 
         mask.SetActive(false);
+
+        enemy.transform.localPosition = Vector3.zero;
     }
 
     private void RefreshSpritesForMasking()
