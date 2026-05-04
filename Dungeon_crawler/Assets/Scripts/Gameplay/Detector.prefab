@@ -342,6 +342,9 @@ MonoBehaviour:
   playerDetected: 0
   room: {fileID: 8829937191134729684}
   manager: {fileID: 0}
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!156049354 &4599557169711667317
 Grid:
   m_ObjectHideFlags: 0
@@ -367,7 +370,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveManager
   finished: 0
+  activated: 0
+  totalWaves: 3
+  currentWave: 0
   difficulty: 10
+  activeEnemies: []
 --- !u!50 &1497167773361253798
 Rigidbody2D:
   serializedVersion: 5

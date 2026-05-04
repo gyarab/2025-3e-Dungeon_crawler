@@ -4143,7 +4143,6 @@ MonoBehaviour:
   - {fileID: 3009403121372584933, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
   - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
   - {fileID: 3728786290445004930, guid: 53216a390152b214c8c6be907cfde637, type: 3}
-  - {fileID: 4705337844047294644, guid: 545c6014e7f73d74796ee9e6014d372b, type: 3}
   globalDifficulty: 12
 --- !u!1 &546337302
 GameObject:
@@ -12781,7 +12780,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.65625
+  orthographic size: 5.1875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -28,6 +28,12 @@ public class Shop : MonoBehaviour
     public Item overgrownSickle;
     public Item overgrownMace;
     public Item crystalMace;
+    public Item iceDaggers;
+    public Item iceSpear;
+    public Item iceSword;
+    public Item lavaDaggers;
+    public Item lavaSpear;
+    public Item lavaSword;
 
     //for soldout weapons - lazy solution
     public Item emptyWeapon1; 
@@ -86,6 +92,13 @@ public class Shop : MonoBehaviour
         overgrownSickle = InventoryManager.Instance.FindItem("OvergrownSickle");
         overgrownMace = InventoryManager.Instance.FindItem("OvergrownMace");
         crystalMace = InventoryManager.Instance.FindItem("CrystalMace");
+
+        iceDaggers = InventoryManager.Instance.FindItem("IceDaggers");
+        iceSpear = InventoryManager.Instance.FindItem("IceSpear");
+        iceSword = InventoryManager.Instance.FindItem("IceSword");
+        lavaDaggers = InventoryManager.Instance.FindItem("LavaDaggers");
+        lavaSpear = InventoryManager.Instance.FindItem("LavaSpear");
+        lavaSword = InventoryManager.Instance.FindItem("LavaSword");
         //for soldout weapons
         emptyWeapon1 = InventoryManager.Instance.FindItem("EmptyWeapon1");
         emptyWeapon2 = InventoryManager.Instance.FindItem("EmptyWeapon2");
@@ -102,6 +115,8 @@ public class Shop : MonoBehaviour
             overgrownSword,
             crystalKatana,
             crystalSword,
+            iceSword,
+            lavaSword,
             emptyWeapon1
         };
 
@@ -121,6 +136,8 @@ public class Shop : MonoBehaviour
         {
             overgrownSpear,
             crystalSpear,
+            iceSpear,
+            lavaSpear,
             emptyWeapon4
         };
 
@@ -128,6 +145,8 @@ public class Shop : MonoBehaviour
         {
             boneDaggers,
             crystalDaggers,
+            iceDaggers,
+            lavaDaggers,
             emptyWeapon5
         };
 

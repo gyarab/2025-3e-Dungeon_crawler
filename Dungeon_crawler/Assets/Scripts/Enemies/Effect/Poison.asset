@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Poison
   m_EditorClassIdentifier: Assembly-CSharp::EffectSO
   effectName: poison
-  duration: 1500
+  duration: 3500
   healthChangePerTick: -2
   tickInterval: 10
   speedModifier: 0

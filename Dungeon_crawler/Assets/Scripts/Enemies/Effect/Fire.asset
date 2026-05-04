@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: Assembly-CSharp::EffectSO
   effectName: fire
-  duration: 1000
+  duration: 2000
   healthChangePerTick: -5
   tickInterval: 5
   speedModifier: 0
