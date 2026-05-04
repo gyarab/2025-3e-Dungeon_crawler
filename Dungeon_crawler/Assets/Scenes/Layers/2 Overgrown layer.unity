@@ -4605,8 +4605,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 3009403121372584933, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
   - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-  - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-  - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
   globalDifficulty: 3
 --- !u!1 &561061722
 GameObject:

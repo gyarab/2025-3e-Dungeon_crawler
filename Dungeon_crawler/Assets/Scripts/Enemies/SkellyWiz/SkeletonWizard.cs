@@ -15,6 +15,7 @@ public class SkeletonWizard : MonoBehaviour
     [SerializeField] private float teleportOutTime = 0.4f;
     [SerializeField] private float teleportInTime = 0.4f;
     [SerializeField] private float shootTime = 0.6f;
+    [SerializeField] private float delayBeforeShoot = 0.4f;
 
     void Start()
     {
@@ -42,7 +43,9 @@ public class SkeletonWizard : MonoBehaviour
             yield return new WaitForSeconds(teleportInTime);
 
             animator.SetTrigger("Shoot");
+            yield return new WaitForSeconds(delayBeforeShoot);
             SpawnProjectile();
+
             yield return new WaitForSeconds(shootTime);
         }
     }
@@ -81,12 +84,37 @@ public class SkeletonWizard : MonoBehaviour
 
     void SpawnProjectile()
     {
-        if (!projectilePrefab || !player || !projectileSpawn)
+        Debug.Log("SpawnProjectile called");
+
+        if (!projectilePrefab)
+        {
+            Debug.LogError("Missing projectilePrefab");
             return;
+        }
+
+        if (!player)
+        {
+            Debug.LogError("Missing player reference");
+            return;
+        }
+
+        if (!projectileSpawn)
+        {
+            Debug.LogError("Missing projectileSpawn");
+            return;
+        }
 
         GameObject proj = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
+
         Vector2 dir = (player.position - projectileSpawn.position).normalized;
+
         proj.transform.up = dir;
+
+        Projectile projectile = proj.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            projectile.SetDirection(dir);
+        }
     }
 
     void FacePlayer()

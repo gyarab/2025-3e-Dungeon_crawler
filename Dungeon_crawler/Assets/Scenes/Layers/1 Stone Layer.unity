@@ -4760,8 +4760,6 @@ MonoBehaviour:
   enemies:
   - {fileID: 3009403121372584933, guid: 0fc312d35631f5d41aaed998c621a6c7, type: 3}
   - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-  - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
-  - {fileID: 4508948145170407651, guid: 8dcdd220889124a4bbeccc348b9859e1, type: 3}
   globalDifficulty: 1
 --- !u!1 &539668011
 GameObject:
@@ -14331,7 +14329,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorGenerator
   doorPrefab: {fileID: 5203646703417236019, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
-  animator: {fileID: 4946209291225659328, guid: 81a3a3f3b99aa724bb22179d8a4e97a1, type: 3}
 --- !u!1 &1905530415
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1414826766842631622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2916225389011304329}
+  m_Layer: 0
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2916225389011304329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414826766842631622}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.04, y: -0.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3451628181817306357}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3356029079852071430
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +273,7 @@ Transform:
   m_Children:
   - {fileID: 4100531769236411209}
   - {fileID: 4149317381675004162}
+  - {fileID: 2916225389011304329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2289142703324319434
@@ -285,13 +317,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkeletonWizard
   animator: {fileID: 8542122321679550816}
   player: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  projectileSpawn: {fileID: 0}
-  idleMin: 2
-  idleMax: 4
+  projectilePrefab: {fileID: 1737615698455677456, guid: 69f034c997d89c94baea14cf22fb141d, type: 3}
+  projectileSpawn: {fileID: 2916225389011304329}
+  idleMin: 1
+  idleMax: 3
   teleportOutTime: 1
   teleportInTime: 1
-  shootTime: 5
+  shootTime: 3
+  delayBeforeShoot: 1.8
 --- !u!61 &2126536053949692679
 BoxCollider2D:
   m_ObjectHideFlags: 0
