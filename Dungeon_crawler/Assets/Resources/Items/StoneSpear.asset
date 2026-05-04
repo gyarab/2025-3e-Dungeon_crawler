@@ -17,4 +17,4 @@ MonoBehaviour:
   prefab: {fileID: 6831108679806021001, guid: 8d5765a1d0e0cfce58e873bf21eccd8b, type: 3}
   icon: {fileID: -6743479499362679926, guid: 67af010048659d2f7988dbc7d24e1f62, type: 3}
   maxStack: 1
-  price: 150
+  price: 20
